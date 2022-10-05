@@ -14,12 +14,16 @@ const Box = styled.div`
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
-  width: 100%;
+  width: 320px;
 
   ${size.tabletMin} {
-    min-width: 768px;
+    width: 768px;
     padding-left: 50px;
     padding-right: 50px;
+  }
+
+  ${size.min1024} {
+    width: 1024px;
   }
 
   ${size.desktop} {
