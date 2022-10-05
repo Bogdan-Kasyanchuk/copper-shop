@@ -1,7 +1,8 @@
 import { FC } from 'react';
+import Footer from './components/Footer';
 
 const App: FC = () => {
-  return <p>dsd</p>;
+  return <Footer />;
 };
 
 export default App;

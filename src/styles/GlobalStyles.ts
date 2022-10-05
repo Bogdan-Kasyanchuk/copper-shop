@@ -31,9 +31,9 @@ body {
 body {
   font-family: 'Open Sans', sans-serif;
   /* font-size: 16px;
-  color: #fff;
+  color: #fff; */
   line-height: 1;
-  background-color: #fff;
+  /* background-color: #fff;
   background-image: url('https://www.transparenttextures.com/patterns/inspiration-geometry.png'); */
 
 /* font-family: 'Playfair Display', serif; */
@@ -80,6 +80,12 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+svg {
+  display: block;
+}
+
+
 `;
 
 export default GlobalStyles;
