@@ -40,8 +40,12 @@ const BoxFooter = styled.div`
   }
 
   .rights-reserved {
-    max-width: 158px;
+    max-width: 132px;
     text-align: center;
+
+    ${size.tabletMin} {
+      max-width: 158px;
+    }
 
     ${size.min1024} {
       max-width: 162px;

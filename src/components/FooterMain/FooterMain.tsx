@@ -61,9 +61,7 @@ const FooterMain: FC = () => {
                   <a href="tel:+380123456789">+38 (012) 345 67 89</a>
                 </Item>
                 <Item>
-                  <a href="mailto:exa.example@gmail.com">
-                    exa.example@gmail.com
-                  </a>
+                  <a href="mailto:ex.example@gmail.com">ex.example@gmail.com</a>
                 </Item>
               </ListContacts>
               <SocialLinkList />
@@ -79,8 +77,17 @@ const FooterMain: FC = () => {
 export default FooterMain;
 
 const BoxFooter = styled.div`
+  ${size.tabletMin} {
+    padding-right: 100px;
+  }
+
   ${size.min1024} {
     display: flex;
+    justify-content: space-between;
+  }
+
+  ${size.desktop} {
+    padding-right: 120px;
   }
 `;
 
@@ -89,12 +96,8 @@ const BoxLogoPolitics = styled.div`
     margin-bottom: 28px;
   }
 
-  ${size.tabletMin} {
+  ${size.tabletMax} {
     margin-bottom: 48px;
-  }
-
-  ${size.min1024} {
-    margin-right: auto;
   }
 
   img {
@@ -115,7 +118,7 @@ const BoxLogoPolitics = styled.div`
   }
 `;
 
-const TextPolitics = styled.p<{ politics?: boolean }>`
+const TextPolitics = styled.p`
   font-weight: 400;
   font-size: 12px;
   line-height: 1.34;
@@ -130,34 +133,15 @@ const BoxList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
-  @media screen and (min-width: 420px) {
-    padding-right: 15%;
-  }
-
-  ${size.min1024} {
-    padding-right: 10%;
-  }
-
-  @media screen and (min-width: 1920px) {
-    padding-right: 0;
-  }
 `;
 
 const ListNav = styled.ul`
   margin-bottom: 32px;
   order: 0;
 
-  @media screen and (min-width: 420px) {
-    margin-right: 40px;
-  }
-
-  @media screen and (min-width: 592px) {
-    order: 1;
-  }
-
   ${size.tabletMin} {
     margin-right: 70px;
+    order: 1;
   }
 
   ${size.desktop} {
@@ -168,16 +152,9 @@ const ListNav = styled.ul`
 const ListCat = styled.ul`
   order: 2;
 
-  @media screen and (min-width: 420px) {
-    margin-right: 40px;
-  }
-
-  @media screen and (min-width: 592px) {
-    order: 1;
-  }
-
   ${size.tabletMin} {
     margin-right: 70px;
+    order: 1;
   }
 
   ${size.desktop} {
@@ -189,7 +166,7 @@ const BoxListContacts = styled.div`
   max-width: min-content;
   order: 1;
 
-  @media screen and (min-width: 592px) {
+  ${size.tabletMin} {
     order: 2;
   }
 `;
