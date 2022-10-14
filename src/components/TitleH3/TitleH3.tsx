@@ -14,13 +14,14 @@ const Text = styled.h3<{ textAalign: string }>`
   font-family: 'Playfair Display', serif;
   font-weight: 400;
   font-size: 24px;
-  line-height: 0.9;
+  line-height: 1.32;
   text-align: ${({ textAalign }) => textAalign ?? null};
   text-transform: uppercase;
 
   ${size.tabletMin} {
     margin-bottom: 40px;
     font-size: 40px;
+    line-height: 0.9;
   }
 
   ${size.desktop} {
