@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import Header from './components/Header';
+import HeaderMain from './components/HeaderMain';
+// import Header from './components/Header';
 import OurWorth from './components/OurWorth';
 import WhyChooseUs from './components/WhyChooseUs';
 import FooterMain from './components/FooterMain';
@@ -8,7 +9,8 @@ import FooterMain from './components/FooterMain';
 const App: FC = () => {
   return (
     <>
-      <Header />
+      <HeaderMain />
+      {/* <Header /> */}
       <OurWorth />
       <WhyChooseUs />
       <FooterMain />
