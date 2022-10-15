@@ -29,10 +29,10 @@ const Button = styled.button`
 `;
 
 const Text = styled.span`
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-  line-height: 1;
   font-weight: 800;
   font-size: 18px;
+  line-height: 1;
   color: #fff;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
 `;
