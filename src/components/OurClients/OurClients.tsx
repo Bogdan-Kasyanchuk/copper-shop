@@ -4,81 +4,35 @@ import Section from '../Section';
 import Container from '../Container';
 import TitleH3 from '../TitleH3';
 import { size } from '../../styles/variables';
-import ourClientshBackground from '../../assets/our-clients-background.png';
+import ourClientsBackgroundCounter from '../../assets/our-clients-background-counter.png';
 
 const OurClients: FC = () => {
   return (
     <Section
-      color="#fff"
-      background="#000"
-      backgroundImage={ourClientshBackground}
+      color="#031412"
       padding={{
         topMob: '40px',
         bottomMob: '40px',
         topTab: '80px',
         bottomTab: '80px',
+        bottomDesk: '135px',
+        topDesk: '135px',
       }}
     >
-      <TitleImage>Copper Pro</TitleImage>
       <Container>
-        <TitleH3 textAalign="center">Наши клиенты</TitleH3>
-        <BoxList>
-          <List>
-            <Item>
-              <Text>
-                Сумка-мессенджер мужская тесьма, жилет нейтра 8 бит. Chartreuse
-                Disrupt посадил птицу на лебеду jianbing. Хэштег для позднего
-                завтрака с питьевым уксусом, скейтборд с тильдой холодного
-                отжима.
-              </Text>
-            </Item>
-            <Item>
-              <Text>
-                Крафтовый пивной шалфей занимает кардиган из ретро-фарма и стол,
-                а также фланель из кейтара для гастропабов.
-              </Text>
-            </Item>
-            <Item>
-              <Text>
-                Unicorn jean шорты quinoa подлинный cronut tilde twee YOLO,
-                потроха эстетичный yuccie iPhone truffaut seitan.
-              </Text>
-            </Item>
-            <Item>
-              <Text>
-                Создавайте пивные путники, лесорубы, суккуленты своими руками,
-                Helvetica Vexillologist, следующий уровень разбудили толстовку с
-                капюшоном keffiyeh tumblr schlitz chambray пишущую машинку.
-              </Text>
-            </Item>
-            <Item>
-              <Text>Плитка метро шестиугольника keffiyeh.</Text>
-            </Item>
-          </List>
-          <List>
-            <Item>
-              <Text>
-                Синтетический этический биодизельный путин. Горькая борода
-                шалфей лоу-фай. Пало Санто буквально пледы лампочки Эдисона,
-                вилы пить уксус аутентичный пабст уличное искусство метро плитка
-                крафтовое пиво одно происхождение кофе шаман ловец снов.
-              </Text>
-            </Item>
-            <Item>
-              <Text>
-                Williamsburg sriracha portland, ассиметричная свиная грудинка
-                для микродозирования la croix 3 wolf moon umami.
-              </Text>
-            </Item>
-            <Item>
-              <Text>
-                Четырехдолларовые тосты, модный топор трюффо, ломо-клетчатый мех
-                PBR & B Scester Остин Палео Thundercats семейная реликвия
-                Knausgaard от фермы до стола.
-              </Text>
-            </Item>
-          </List>
-        </BoxList>
+        <BoxOurClients>
+          <BoxContent>
+            <TitleH3>Наши клиенты</TitleH3>
+            <Text>
+              Мы требовательны к себе, чтобы каждый день становится лучше для
+              наших клиентов и находить лучшие решения для каждого из них
+            </Text>
+          </BoxContent>
+          <BoxCounter>
+            <TitleCounter>Счетчик клиентов</TitleCounter>
+            <Counter>12346</Counter>
+          </BoxCounter>
+        </BoxOurClients>
       </Container>
     </Section>
   );
@@ -86,57 +40,94 @@ const OurClients: FC = () => {
 
 export default OurClients;
 
-const TitleImage = styled.p`
-  display: none;
+const BoxOurClients = styled.div`
+  text-align: center;
 
-  ${size.desktop} {
-    position: absolute;
-    left: -172px;
-    bottom: 158px;
-    display: block;
-    width: min-content;
-    font-family: 'Playfair Display', serif;
-    font-size: 145px;
-    line-height: 0.8;
-    text-transform: uppercase;
-    transform: rotate(-90deg);
-  }
-`;
-
-const BoxList = styled.div`
-  ${size.tabletMin} {
+  ${size.min1024} {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  ${size.desktop} {
-    max-width: 920px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: left;
   }
 `;
 
-const List = styled.ul`
-  flex-basis: calc((100% - 20px) / 2);
+const BoxContent = styled.div`
+  margin-bottom: 50px;
+
+  ${size.tabletMin} {
+    margin-bottom: 90px;
+  }
+
+  ${size.min1024} {
+    margin-bottom: 0;
+    flex-basis: calc(35% - 40px);
+  }
 
   ${size.desktop} {
-    flex-basis: calc((100% - 30px) / 2);
-  }
-`;
-
-const Item = styled.li`
-  :not(:last-child) {
-    margin-bottom: 20px;
+    flex-basis: calc(42% - 90px);
   }
 `;
 
 const Text = styled.p`
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.32;
+  line-height: 1.24;
+
+  ${size.tabletMin} {
+    font-size: 20px;
+  }
 
   ${size.desktop} {
     font-weight: 400;
+  }
+`;
+
+const BoxCounter = styled.div`
+  ${size.min1024} {
+    flex-basis: calc(65% - 40px);
+  }
+
+  ${size.desktop} {
+    flex-basis: calc(58% - 90px);
+  }
+`;
+
+const TitleCounter = styled.p`
+  margin-bottom: 15px;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 0.97;
+  background: linear-gradient(92.18deg, #5e3928 20.13%, #e4a16f 92.93%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  ${size.tabletMin} {
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+
+  ${size.desktop} {
+    margin-bottom: 25px;
+    font-size: 50px;
+  }
+`;
+
+const Counter = styled.span`
+  display: inline-block;
+  font-weight: 800;
+  font-size: 100px;
+  line-height: 0.97;
+  background: url(${ourClientsBackgroundCounter});
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  ${size.tabletMin} {
+    font-size: 200px;
+  }
+
+  ${size.desktop} {
+    font-size: 250px;
   }
 `;

@@ -23,7 +23,7 @@ const WhyChooseUs: FC = () => {
         <TitleH3 textAalign="center">Почему выбирают нас</TitleH3>
         <List>
           {whyChooseUs.map(el => (
-            <Item>
+            <Item key={el.id}>
               <BoxIcon>
                 <Icon iconName={el.iconName} />
               </BoxIcon>
