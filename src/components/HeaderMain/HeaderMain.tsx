@@ -4,8 +4,9 @@ import styled from 'styled-components';
 import Section from '../Section';
 import Container from '../Container';
 import Logo from '../Logo';
-// import Navigation from '../Navigation';
+import Navigation from '../Navigation';
 import Icon from '../Icon';
+import { size } from '../../styles/variables';
 
 const HeaderMain: FC = () => {
   return (
@@ -16,21 +17,47 @@ const HeaderMain: FC = () => {
         topMob: '25px',
         bottomMob: '25px',
         topTab: '50px',
-        bottomTab: '50px',
+        bottomTab: '80px',
       }}
     >
       <Container>
         <BoxHeaderMain>
           <Logo width="115px" height="auto" />
 
-          <LinkStyled href="/favorite" toTop="0" toRight="150px">
-            <Icon iconName="heart" fill="#000" />
+          <Navigation />
+
+          <LinkStyled
+            href="/favorite"
+            toTopMob="0"
+            toRightMob="150px"
+            toTopTab="0"
+            toRightTab="190px"
+            toTopDesk="0"
+            toRightDesk="190px"
+          >
+            <IconStyled iconName="heart" fill="#0b3f37" />
           </LinkStyled>
-          <LinkStyled href="/user" toTop="0" toRight="110px">
-            <Icon iconName="user" fill="#000" />
+          <LinkStyled
+            href="/user"
+            toTopMob="0"
+            toRightMob="110px"
+            toTopTab="0"
+            toRightTab="120px"
+            toTopDesk="0"
+            toRightDesk="120px"
+          >
+            <IconStyled iconName="user" fill="#0b3f37" />
           </LinkStyled>
-          <LinkStyled href="/basket" toTop="0" toRight="70px">
-            <Icon iconName="basket-order" fill="#000" />
+          <LinkStyled
+            href="/basket-order"
+            toTopMob="0"
+            toRightMob="70px"
+            toTopTab="0"
+            toRightTab="50px"
+            toTopDesk="0"
+            toRightDesk="50px"
+          >
+            <IconStyled iconName="basket-order" fill="#E4A16F" />
           </LinkStyled>
 
           <BurgerMenuButton type="button" toTop="30px" toRight="0">
@@ -45,20 +72,47 @@ const HeaderMain: FC = () => {
 export default HeaderMain;
 
 const BoxHeaderMain = styled.div`
-  display: flex;
-  align-items: end;
-  justify-content: flex-start;
-  align-content: center;
+  img {
+    width: 115px;
+    height: auto;
+    ${size.tabletMin} {
+      width: 160px;
+      margin-bottom: 50px;
+    }
+  }
+  ${size.mobileMax} {
+    nav {
+      display: none;
+    }
+  }
 `;
-const LinkStyled = styled.a<{ toTop: string; toRight: string }>`
+const LinkStyled = styled.a<{
+  toTopMob: string;
+  toRightMob: string;
+  toTopTab: string;
+  toRightTab: string;
+  toTopDesk: string;
+  toRightDesk: string;
+}>`
   position: absolute;
-  top: ${({ toTop }) => toTop};
-  right: ${({ toRight }) => toRight};
+  top: ${({ toTopMob }) => toTopMob ?? null};
+  right: ${({ toRightMob }) => toRightMob ?? null};
   display: flex;
+  align-items: flex-end;
   padding: 32px 5px 5px;
   background: #ffffff;
-  svg:hover {
-    fill: #0b3f37;
+  ${size.tabletMin} {
+    padding: 50px 10px 10px;
+    top: ${({ toTopTab }) => toTopTab ?? null};
+    right: ${({ toRightTab }) => toRightTab ?? null};
+  }
+`;
+const IconStyled = styled(Icon)`
+  width: 20px;
+  height: 20px;
+  ${size.tabletMin} {
+    width: 30px;
+    height: 30px;
   }
 `;
 const BurgerMenuButton = styled.button<{ toTop: string; toRight: string }>`
@@ -67,4 +121,7 @@ const BurgerMenuButton = styled.button<{ toTop: string; toRight: string }>`
   right: ${({ toRight }) => toRight};
   padding: 5px 32px 5px 5px;
   background: linear-gradient(92.18deg, #5e3928 20.13%, #e4a16f 92.93%);
+  ${size.tabletMin} {
+    display: none;
+  }
 `;
