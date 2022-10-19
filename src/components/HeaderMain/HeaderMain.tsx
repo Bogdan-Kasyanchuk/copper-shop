@@ -33,7 +33,7 @@ const HeaderMain: FC = () => {
             toTopTab="0"
             toRightTab="190px"
             toTopDesk="0"
-            toRightDesk="190px"
+            toRightDesk="390px"
           >
             <IconStyled iconName="heart" fill="#0b3f37" />
           </LinkStyled>
@@ -44,7 +44,7 @@ const HeaderMain: FC = () => {
             toTopTab="0"
             toRightTab="120px"
             toTopDesk="0"
-            toRightDesk="120px"
+            toRightDesk="320px"
           >
             <IconStyled iconName="user" fill="#0b3f37" />
           </LinkStyled>
@@ -55,7 +55,7 @@ const HeaderMain: FC = () => {
             toTopTab="0"
             toRightTab="50px"
             toTopDesk="0"
-            toRightDesk="50px"
+            toRightDesk="250px"
           >
             <IconStyled iconName="basket-order" fill="#E4A16F" />
           </LinkStyled>
@@ -72,6 +72,11 @@ const HeaderMain: FC = () => {
 export default HeaderMain;
 
 const BoxHeaderMain = styled.div`
+  ${size.min1024} {
+    display: flex;
+    align-items: flex-end;
+    align-content: center;
+  }
   img {
     width: 115px;
     height: auto;
@@ -79,10 +84,19 @@ const BoxHeaderMain = styled.div`
       width: 160px;
       margin-bottom: 50px;
     }
+    ${size.min1024} {
+      margin-bottom: 0;
+      margin-right: 75px;
+    }
   }
   ${size.mobileMax} {
     nav {
       display: none;
+    }
+  }
+  ${size.min1024} {
+    nav ul li:not(:last-child) {
+      margin-right: 50px;
     }
   }
 `;
@@ -105,6 +119,10 @@ const LinkStyled = styled.a<{
     padding: 50px 10px 10px;
     top: ${({ toTopTab }) => toTopTab ?? null};
     right: ${({ toRightTab }) => toRightTab ?? null};
+  }
+  ${size.desktop} {
+    top: ${({ toTopDesk }) => toTopDesk ?? null};
+    right: ${({ toRightDesk }) => toRightDesk ?? null};
   }
 `;
 const IconStyled = styled(Icon)`
