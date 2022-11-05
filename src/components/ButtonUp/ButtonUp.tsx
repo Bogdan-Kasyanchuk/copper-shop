@@ -4,7 +4,12 @@ import { size } from '../../styles/variables';
 
 const ButtonUp: FC = () => {
   return (
-    <Button type="button" onClick={() => {}}>
+    <Button
+      type="button"
+      onClick={() => {
+        console.log(1);
+      }}
+    >
       <Text> Вверх</Text>
     </Button>
   );

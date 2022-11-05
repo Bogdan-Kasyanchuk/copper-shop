@@ -4,7 +4,7 @@ import { size } from '../../styles/variables';
 import { ITitleH3Props } from '../../interfaces';
 
 const TitleH3: FC<ITitleH3Props> = ({ children, textAalign }) => {
-  return <Text textAalign={textAalign!}>{children}</Text>;
+  return <Text textAalign={textAalign as string}>{children}</Text>;
 };
 
 export default TitleH3;
