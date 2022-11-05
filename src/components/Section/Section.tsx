@@ -12,15 +12,15 @@ const Section: FC<ISectionProps> = ({
 }) => {
   return (
     <SectionTag
-      paddingTopMob={padding?.topMob!}
-      paddingBottomMob={padding?.bottomMob!}
-      paddingTopTab={padding?.topTab!}
-      paddingBottomTab={padding?.bottomTab!}
-      paddingTopDesk={padding?.topDesk!}
-      paddingBottomDesk={padding?.bottomDesk!}
-      color={color!}
-      background={background!}
-      backgroundImage={backgroundImage!}
+      paddingTopMob={padding?.topMob as string}
+      paddingBottomMob={padding?.bottomMob as string}
+      paddingTopTab={padding?.topTab as string}
+      paddingBottomTab={padding?.bottomTab as string}
+      paddingTopDesk={padding?.topDesk as string}
+      paddingBottomDesk={padding?.bottomDesk as string}
+      color={color as string}
+      background={background as string}
+      backgroundImage={backgroundImage as string}
     >
       {children}
     </SectionTag>
