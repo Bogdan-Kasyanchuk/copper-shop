@@ -3,29 +3,29 @@ import styled from 'styled-components';
 import { size } from '../../styles/variables';
 import { ITitleH3Props } from '../../interfaces';
 
-const TitleH3: FC<ITitleH3Props> = ({ children, textAalign }) => {
+const TitleH2: FC<ITitleH3Props> = ({ children, textAalign }) => {
   return <Text textAalign={textAalign as string}>{children}</Text>;
 };
 
-export default TitleH3;
+export default TitleH2;
 
-const Text = styled.h3<{ textAalign: string }>`
-  margin-bottom: 25px;
+const Text = styled.h2<{ textAalign: string }>`
+  margin-bottom: 20px;
   font-family: 'Playfair Display', serif;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 30px;
   line-height: 1.3;
   text-align: ${({ textAalign }) => textAalign ?? null};
   text-transform: uppercase;
 
   ${size.tabletMin} {
-    margin-bottom: 40px;
-    font-size: 40px;
+    margin-bottom: 30px;
+    font-size: 60px;
     line-height: 0.9;
   }
 
   ${size.desktop} {
     margin-bottom: 50px;
-    font-size: 50px;
+    font-size: 100px;
   }
 `;
