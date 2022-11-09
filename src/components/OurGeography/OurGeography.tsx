@@ -19,7 +19,7 @@ const OurGeography: FC = () => {
       }}
     >
       <Container>
-        <BoxOurWorth>
+        <BoxOurGeography>
           <BoxContent>
             <TitleH3>Наша география</TitleH3>
             <Text>
@@ -28,9 +28,9 @@ const OurGeography: FC = () => {
             </Text>
           </BoxContent>
           <div>
-            <img src={ourGeography} alt="Our Geography" />
+            <img src={ourGeography} alt="Our geography" />
           </div>
-        </BoxOurWorth>
+        </BoxOurGeography>
       </Container>
     </Section>
   );
@@ -38,7 +38,7 @@ const OurGeography: FC = () => {
 
 export default OurGeography;
 
-const BoxOurWorth = styled.div`
+const BoxOurGeography = styled.div`
   ${size.min1024} {
     display: flex;
     justify-content: space-between;
