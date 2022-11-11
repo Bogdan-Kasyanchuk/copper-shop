@@ -1,4 +1,6 @@
 import { FC } from 'react';
+import HeaderMain from './components/HeaderMain';
+// import Header from './components/Header';
 import AboutUs from './components/AboutUs';
 import OurWorth from './components/OurWorth';
 import WhyChooseUs from './components/WhyChooseUs';
@@ -10,6 +12,8 @@ import OurClients from './components/OurClients';
 const App: FC = () => {
   return (
     <>
+      <HeaderMain />
+      {/* <Header /> */}
       <AboutUs />
       <OurClients />
       <OurHistory />
