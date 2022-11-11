@@ -4,7 +4,7 @@ import { size } from '../../styles/variables';
 import { ITitleH3Props } from '../../interfaces';
 
 const TitleH3: FC<ITitleH3Props> = ({ children, textAalign }) => {
-  return <Text textAalign={textAalign!}>{children}</Text>;
+  return <Text textAalign={textAalign as string}>{children}</Text>;
 };
 
 export default TitleH3;
@@ -14,7 +14,7 @@ const Text = styled.h3<{ textAalign: string }>`
   font-family: 'Playfair Display', serif;
   font-weight: 400;
   font-size: 24px;
-  line-height: 1.32;
+  line-height: 1.3;
   text-align: ${({ textAalign }) => textAalign ?? null};
   text-transform: uppercase;
 

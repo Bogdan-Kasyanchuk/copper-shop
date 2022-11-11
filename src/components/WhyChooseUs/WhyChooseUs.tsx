@@ -23,7 +23,7 @@ const WhyChooseUs: FC = () => {
         <TitleH3 textAalign="center">Почему выбирают нас</TitleH3>
         <List>
           {whyChooseUs.map(el => (
-            <Item>
+            <Item key={el.id}>
               <BoxIcon>
                 <Icon iconName={el.iconName} />
               </BoxIcon>
@@ -133,7 +133,7 @@ const Desc = styled.dd`
 const BoxReadMore = styled.div`
   display: flex;
   align-items: center;
-  color: #a26e4c;
+  color: #cf9164;
 
   .icon {
     transform: rotate(90deg);
@@ -145,4 +145,8 @@ const TextReadMore = styled.span`
   font-weight: 800;
   font-size: 14px;
   line-height: 1.34;
+  background: linear-gradient(65.81deg, #5e3928 -24.09%, #e4a16f 104.02%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 `;

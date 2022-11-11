@@ -4,7 +4,7 @@ import Section from '../Section';
 import Container from '../Container';
 import TitleH3 from '../TitleH3';
 import { size } from '../../styles/variables';
-import ourWorthBackground from '../../assets/our-worth-background.jpg';
+import ourWorth from '../../assets/our-worth.jpg';
 import efficiency from '../../assets/icon-png/efficiency.png';
 import quality from '../../assets/icon-png/quality.png';
 import flexibility from '../../assets/icon-png/flexibility.png';
@@ -63,7 +63,7 @@ const BoxImage = styled.div`
   align-items: flex-end;
   height: 262px;
   background-color: #031412;
-  background-image: url(${ourWorthBackground});
+  background-image: url(${ourWorth});
   background-size: cover;
 
   ${size.mobileMax} {
