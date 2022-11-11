@@ -1,15 +1,11 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import { size } from '../../styles/variables';
+import { scrollTop } from '../../helpers/scrollTop';
 
 const ButtonUp: FC = () => {
   return (
-    <Button
-      type="button"
-      onClick={() => {
-        console.log(1);
-      }}
-    >
+    <Button type="button" onClick={scrollTop}>
       <Text> Вверх</Text>
     </Button>
   );
