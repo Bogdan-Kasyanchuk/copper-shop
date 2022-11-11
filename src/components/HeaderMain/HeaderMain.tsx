@@ -21,11 +21,9 @@ const HeaderMain: FC = () => {
       }}
     >
       <Container>
-        <BoxHeaderMain>
+        <BoxHeader>
           <Logo width="115px" height="auto" />
-
           <Navigation />
-
           <LinkStyled
             href="/favorite"
             toTopMob="0"
@@ -63,7 +61,7 @@ const HeaderMain: FC = () => {
           <BurgerMenuButton type="button" toTop="30px" toRight="0">
             <Icon iconName="burger" fill="#fff"></Icon>
           </BurgerMenuButton>
-        </BoxHeaderMain>
+        </BoxHeader>
       </Container>
     </Section>
   );
@@ -71,7 +69,7 @@ const HeaderMain: FC = () => {
 
 export default HeaderMain;
 
-const BoxHeaderMain = styled.div`
+const BoxHeader = styled.div`
   ${size.min1024} {
     display: flex;
     align-items: flex-end;
