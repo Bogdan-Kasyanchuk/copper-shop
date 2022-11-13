@@ -13,6 +13,7 @@ const Breadcrumb: FC = () => {
 export default Breadcrumb;
 
 const BreadcrumbTag = styled.div`
+  margin-bottom: 25px;
   font-weight: 300;
   font-size: 16px;
   line-height: 1;

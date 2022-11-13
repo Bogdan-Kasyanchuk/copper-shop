@@ -96,7 +96,7 @@ const Item = styled.li`
 const Text = styled.p`
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.32;
+  line-height: 1.3;
 
   ${size.desktop} {
     font-weight: 400;

@@ -46,7 +46,7 @@ const NavListItemLink = styled.a`
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 0.9375;
+  line-height: 0.9;
   text-align: center;
   color: #ffffff;
   border-bottom: 1px solid transparent;

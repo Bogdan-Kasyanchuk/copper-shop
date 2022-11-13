@@ -13,7 +13,6 @@ const OurWorth: FC = () => {
   return (
     <Section
       color="#031412"
-      background="#fff"
       padding={{
         topMob: '40px',
         bottomMob: '40px',
@@ -115,7 +114,7 @@ const Text = styled.p`
   margin-bottom: 20px;
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.24;
+  line-height: 1.2;
 
   ${size.tabletMin} {
     margin-bottom: 40px;
@@ -139,7 +138,7 @@ const Item = styled.li`
   align-items: center;
   font-weight: 600;
   font-size: 16px;
-  line-height: 0.97;
+  line-height: 1;
   text-align: left;
 
   :not(:last-child) {
