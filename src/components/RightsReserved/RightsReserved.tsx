@@ -15,7 +15,7 @@ export default RightsReserved;
 const Text = styled.p`
   font-weight: 300;
   font-size: 12px;
-  line-height: 1.34;
+  line-height: 1.3;
   color: #adadad;
 
   ${size.tabletMin} {

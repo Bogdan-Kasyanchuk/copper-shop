@@ -22,11 +22,11 @@ const FooterMain: FC = () => {
     >
       <Container>
         <BoxFooter>
-          <BoxLogoPolitics>
+          <BoxLogo>
             <Logo width="175" height="70" />
             <RightsReserved />
             <TextPolitics>Политика конфиденциальности</TextPolitics>
-          </BoxLogoPolitics>
+          </BoxLogo>
           <BoxList>
             <ListNav>
               <Item>Навигация</Item>
@@ -91,15 +91,7 @@ const BoxFooter = styled.div`
   }
 `;
 
-const BoxLogoPolitics = styled.div`
-  ${size.mobileMax} {
-    margin-bottom: 28px;
-  }
-
-  ${size.tabletMax} {
-    margin-bottom: 48px;
-  }
-
+const BoxLogo = styled.div`
   img {
     margin-bottom: 16px;
 
@@ -116,12 +108,20 @@ const BoxLogoPolitics = styled.div`
       max-width: 162px;
     }
   }
+
+  ${size.mobileMax} {
+    margin-bottom: 28px;
+  }
+
+  ${size.tabletMax} {
+    margin-bottom: 48px;
+  }
 `;
 
 const TextPolitics = styled.p`
   font-weight: 400;
   font-size: 12px;
-  line-height: 1.34;
+  line-height: 1.3;
   text-decoration-line: underline;
 
   ${size.tabletMin} {
@@ -178,10 +178,10 @@ const ListContacts = styled.ul`
 const Item = styled.li`
   font-weight: 300;
   font-size: 14px;
-  line-height: 1.34;
+  line-height: 1.3;
 
   :first-child {
-    font-weight: 800;
+    font-weight: 700;
     font-size: 16px;
   }
 

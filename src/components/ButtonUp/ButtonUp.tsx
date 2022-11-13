@@ -30,7 +30,7 @@ const Button = styled.button`
 `;
 
 const Text = styled.span`
-  font-weight: 800;
+  font-weight: 700;
   font-size: 18px;
   line-height: 1;
   color: #fff;

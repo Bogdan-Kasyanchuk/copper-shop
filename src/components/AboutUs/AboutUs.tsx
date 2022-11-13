@@ -50,7 +50,7 @@ const BoxAboutUs = styled.div`
 
 const BoxContent = styled.div`
   margin-bottom: 40px;
-  padding-top: 40px;
+  padding-top: 15px;
 
   h2 {
     position: relative;
@@ -68,7 +68,7 @@ const BoxContent = styled.div`
 
   ${size.tabletMin} {
     margin-bottom: 0;
-    padding-top: 100px;
+    padding-top: 75px;
 
     h2::after {
       bottom: -30px;
