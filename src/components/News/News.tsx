@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Section from '../Section';
 import Container from '../Container';
 import Breadcrumb from '../Breadcrumb';
-import TitleH2 from '../TitleH2';
+import TitleH3 from '../TitleH3';
 import NewsCard from '../NewsCard';
 import { size } from '../../styles/variables';
 import { news } from '../../data/news';
@@ -21,7 +21,7 @@ const News: FC = () => {
     >
       <Container>
         <Breadcrumb />
-        <TitleH2 textAalign="left">Новости</TitleH2>
+        <TitleH3 textAalign="left">Новости</TitleH3>
         <List>
           {news.map(el => (
             <NewsCard key={el.id} el={el} />

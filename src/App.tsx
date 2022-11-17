@@ -11,13 +11,15 @@ import OurGeography from './components/OurGeography';
 import OurClients from './components/OurClients';
 import News from './components/News';
 import NewsDetail from './components/NewsDetail';
+import Catalog from './components/Catalog';
 
 const App: FC = () => {
   return (
     <>
       <HeaderMain />
-      {/* <Header /> */}
+      <Header />
       <AboutUs />
+      <Catalog />
       <News />
       <NewsDetail />
       <OurClients />
@@ -26,7 +28,7 @@ const App: FC = () => {
       <OurWorth />
       <WhyChooseUs />
       <FooterMain />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

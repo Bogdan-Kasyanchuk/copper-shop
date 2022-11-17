@@ -30,6 +30,7 @@ body {
 
 body {
   font-family: 'Open Sans', sans-serif;
+  color: #031412;
   /* font-size: 16px;
   color: #fff; */
   line-height: 1;
@@ -65,7 +66,9 @@ img {
 
 button,
 input,
-textarea {
+textarea,
+select {
+  color: inherit;
   font-family: inherit;
 }
 
