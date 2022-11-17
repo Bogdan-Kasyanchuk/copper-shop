@@ -21,18 +21,6 @@ const Item = styled.li`
   margin-top: 20px;
   margin-left: 20px;
 
-  :first-child {
-    div {
-      ::after {
-        background: linear-gradient(
-          171.3deg,
-          rgba(203, 141, 98, 0) 33.24%,
-          #cb8d62 104.72%
-        );
-      }
-    }
-  }
-
   ${size.tabletMin} {
     flex-basis: calc((100% - 60px) / 2);
     margin-top: 30px;
@@ -48,6 +36,7 @@ const Item = styled.li`
 
 const BoxImage = styled.div`
   position: relative;
+  height: 100%;
 
   ::after {
     position: absolute;
