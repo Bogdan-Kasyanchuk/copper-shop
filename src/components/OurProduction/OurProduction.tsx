@@ -14,7 +14,7 @@ const OurProduction: FC = () => {
       padding={{
         topMob: '20px',
         bottomMob: '40px',
-        topDesk: '40px',
+        topTab: '40px',
         bottomTab: '80px',
       }}
     >
