@@ -13,6 +13,11 @@ import HeaderMain from './components/HeaderMain';
 // import NewsDetail from './components/NewsDetail';
 // import Catalog from './components/Catalog';
 import OurProduction from './components/OurProduction';
+import BestSelling from './components/BestSelling';
+import Novelties from './components/Novelties';
+import WeRecommend from './components/WeRecommend';
+import Discounts from './components/Discounts';
+import YouWillAlsoInterested from './components/YouWillAlsoInterested';
 
 const App: FC = () => {
   return (
@@ -21,6 +26,11 @@ const App: FC = () => {
       {/* <Header />
       <AboutUs /> */}
       <OurProduction />
+      <BestSelling />
+      <Novelties />
+      <WeRecommend />
+      <Discounts />
+      <YouWillAlsoInterested />
       {/* <Catalog /> */}
       {/* <News />
       <NewsDetail />

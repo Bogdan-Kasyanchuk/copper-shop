@@ -6,6 +6,7 @@ import { ITitleProps } from './ITitleProps';
 import { INewsCardProps } from './INewsCardProps';
 import { ICatalogCardProps } from './ICatalogCardProps';
 import { IProductCardProps } from './IProductCardProps';
+import { ISliderProps } from './ISliderProps';
 
 export type {
   ISectionProps,
@@ -16,4 +17,5 @@ export type {
   INewsCardProps,
   ICatalogCardProps,
   IProductCardProps,
+  ISliderProps,
 };
