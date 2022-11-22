@@ -17,7 +17,7 @@ const Slider: FC<ISliderProps> = ({ children }) => {
         slidesPerView={1}
         loop={true}
         autoplay={{
-          delay: 3000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -122,7 +122,10 @@ const Button = styled.button`
 
   &:nth-child(2) {
     left: -50px;
-    transform: rotate(-180deg);
+
+    .icon {
+      transform: rotate(-180deg);
+    }
   }
 
   &:last-child {

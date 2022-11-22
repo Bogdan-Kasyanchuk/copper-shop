@@ -4,11 +4,10 @@ import Section from '../Section';
 import Container from '../Container';
 import TitleH3 from '../TitleH3';
 import Slider from '../Slider';
-import ButtonText from '../ButtonText';
-import ProductCard from '../ProductCard';
-import { products } from '../../data/products';
+import ReviewCard from '../ReviewCard';
+import { whatThinkUs } from '../../data/whatThinkUs';
 
-const WeRecommend: FC = () => {
+const WhatThinkUs: FC = () => {
   return (
     <Section
       color="#031412"
@@ -20,18 +19,17 @@ const WeRecommend: FC = () => {
       }}
     >
       <Container>
-        <TitleH3 textAalign="center">Новинки</TitleH3>
+        <TitleH3 textAalign="center">Что думают о нас</TitleH3>
         <Slider>
-          {products.map(el => (
+          {whatThinkUs.map(el => (
             <SwiperSlide key={el.id}>
-              <ProductCard el={el} />
+              <ReviewCard el={el} />
             </SwiperSlide>
           ))}
         </Slider>
-        <ButtonText />
       </Container>
     </Section>
   );
 };
 
-export default WeRecommend;
+export default WhatThinkUs;

@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import styled from 'styled-components';
+import { FC, useState } from 'react';
+import styled, { css } from 'styled-components';
 import Section from '../Section';
 import Container from '../Container';
 import TitleH3 from '../TitleH3';
@@ -9,6 +9,18 @@ import { size } from '../../styles/variables';
 import { whyChooseUs } from '../../data/whyChooseUs';
 
 const WhyChooseUs: FC = () => {
+  const [isTruncated, setIsTruncated] = useState<boolean>(true);
+  const [index, setIndex] = useState<string>('');
+
+  const toggleReadMore = (id: string): void => {
+    if (index === id) {
+      setIsTruncated(!isTruncated);
+      return;
+    }
+    setIsTruncated(false);
+    setIndex(id);
+  };
+
   return (
     <Section
       color="#031412"
@@ -30,9 +42,14 @@ const WhyChooseUs: FC = () => {
               </BoxIcon>
               <ListDesc>
                 <ItemDesc>{el.title}</ItemDesc>
-                <Desc>{el.desc}</Desc>
+                <Desc isTruncated={isTruncated || el.id !== index}>
+                  {el.desc}
+                </Desc>
               </ListDesc>
-              <ReadMore />
+              <ReadMore
+                handlerButton={() => toggleReadMore(el.id)}
+                iconRotate={isTruncated || el.id !== index}
+              />
             </Item>
           ))}
         </List>
@@ -118,10 +135,21 @@ const ItemDesc = styled.dt`
   }
 `;
 
-const Desc = styled.dd`
+const Desc = styled.dd<{ isTruncated: boolean }>`
   font-weight: 300;
   font-size: 12px;
   line-height: 1.3;
+
+  ${({ isTruncated }) =>
+    isTruncated
+      ? css`
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+        `
+      : null};
 
   ${size.tabletMin} {
     font-size: 14px;
