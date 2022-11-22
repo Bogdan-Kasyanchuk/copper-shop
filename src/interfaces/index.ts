@@ -8,6 +8,7 @@ import { ICatalogCardProps } from './ICatalogCardProps';
 import { IProductCardProps } from './IProductCardProps';
 import { ISliderProps } from './ISliderProps';
 import { IReviewCardProps } from './IReviewCardProps';
+import { IReadMoreProps } from './IReadMoreProps';
 
 export type {
   ISectionProps,
@@ -20,4 +21,5 @@ export type {
   IProductCardProps,
   ISliderProps,
   IReviewCardProps,
+  IReadMoreProps,
 };

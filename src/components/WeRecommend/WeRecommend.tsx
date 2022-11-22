@@ -13,9 +13,9 @@ const WeRecommend: FC = () => {
     <Section
       color="#031412"
       padding={{
-        topMob: '20px',
+        topMob: '40px',
         bottomMob: '40px',
-        topTab: '40px',
+        topTab: '80px',
         bottomTab: '80px',
       }}
     >

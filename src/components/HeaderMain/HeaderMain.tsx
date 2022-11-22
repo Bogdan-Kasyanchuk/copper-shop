@@ -178,7 +178,6 @@ const NavListItem = styled.li`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    /* text-fill-color: transparent; */
     border-bottom: 1px solid #e4a16f;
   }
 `;
@@ -192,6 +191,10 @@ const NavListItemLink = styled.a`
   text-align: center;
   color: #ffffff;
   border-bottom: 1px solid transparent;
+
+  ${size.desktop} {
+    font-size: 20px;
+  }
 `;
 
 const ListButton = styled.ul`

@@ -13,7 +13,11 @@ const NewsCard: FC<INewsCardProps> = ({ el }) => {
         <Title>{el.title}</Title>
       </BoxImage>
       <Desc>{el.desc}</Desc>
-      <ReadMore />
+      <ReadMore
+        handlerButton={() => {
+          console.log(1);
+        }}
+      />
     </Item>
   );
 };

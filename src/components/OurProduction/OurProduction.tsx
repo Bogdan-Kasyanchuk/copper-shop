@@ -13,9 +13,9 @@ const OurProduction: FC = () => {
       color="#031412"
       padding={{
         topMob: '20px',
-        bottomMob: '40px',
+        bottomMob: '80px',
         topTab: '40px',
-        bottomTab: '80px',
+        bottomTab: '160px',
       }}
     >
       <Container>

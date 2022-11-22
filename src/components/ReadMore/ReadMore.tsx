@@ -1,25 +1,32 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import Icon from '../Icon';
+import { IReadMoreProps } from '../../interfaces';
 
-const ReadMore: FC = () => {
+const ReadMore: FC<IReadMoreProps> = ({ handlerButton, iconRotate }) => {
   return (
-    <BoxReadMore>
+    <Button
+      type="button"
+      onClick={handlerButton}
+      iconRotate={iconRotate as boolean}
+    >
       <Text>Читать больше</Text>
-      <Icon iconName="arrow" width="5px" height="8px" />
-    </BoxReadMore>
+      <Icon iconName="arrow" width="6px" height="9px" />
+    </Button>
   );
 };
 
 export default ReadMore;
 
-const BoxReadMore = styled.div`
+const Button = styled.button<{ iconRotate: boolean }>`
   display: flex;
   align-items: center;
   color: #cf9164;
+  background-color: transparent;
 
   .icon {
-    transform: rotate(90deg);
+    transform: ${({ iconRotate }) =>
+      iconRotate ? 'rotate(90deg)' : 'rotate(-90deg)'};
   }
 `;
 
