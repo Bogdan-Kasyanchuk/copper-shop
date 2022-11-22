@@ -7,12 +7,12 @@ import Logo from '../Logo';
 import { size } from '../../styles/variables';
 
 const Header: FC = () => {
-  const [isBurger, setIsBurger] = useState<boolean>(false);
+  const [isBurgerMenuShow, setIsBurgerMenuShow] = useState<boolean>(false);
 
   const toggleBurgerMenu = (): void => {
-    setIsBurger(!isBurger);
+    setIsBurgerMenuShow(!isBurgerMenuShow);
 
-    isBurger
+    isBurgerMenuShow
       ? (document.body.style.overflow = 'auto')
       : (document.body.style.overflow = 'hidden');
   };
@@ -31,51 +31,61 @@ const Header: FC = () => {
           <BoxHeader>
             <Logo width="115" height="31" />
             <Navigation>
-              <ListNav>
-                <ItemNav>Каталог</ItemNav>
-                <ItemNav>Новости</ItemNav>
-                <ItemNav>Доставка</ItemNav>
-                <ItemNav>О нас</ItemNav>
-                <ItemNav>Контакты</ItemNav>
-              </ListNav>
+              <NavList>
+                <NavListItem>
+                  <NavListItemLink href="#Каталог">Каталог</NavListItemLink>
+                </NavListItem>
+                <NavListItem>
+                  <NavListItemLink href="#Новости">Новости</NavListItemLink>
+                </NavListItem>
+                <NavListItem>
+                  <NavListItemLink href="#Доставка">Доставка</NavListItemLink>
+                </NavListItem>
+                <NavListItem>
+                  <NavListItemLink href="#Онас">О нас</NavListItemLink>
+                </NavListItem>
+                <NavListItem>
+                  <NavListItemLink href="#Контакты">Контакты</NavListItemLink>
+                </NavListItem>
+              </NavList>
             </Navigation>
-            <ListBtn>
-              <ItemBtn>
+            <ListButton>
+              <ItemButton>
                 <Count>1</Count>
                 <Icon iconName="heart" width="20px" height="20px" />
-              </ItemBtn>
-              <ItemBtn>
+              </ItemButton>
+              <ItemButton>
                 <Icon iconName="user" width="20px" height="20px" />
-              </ItemBtn>
-              <ItemBtn>
+              </ItemButton>
+              <ItemButton>
                 <Count>1</Count>
                 <Icon iconName="basket-order" width="20px" height="20px" />
-              </ItemBtn>
-            </ListBtn>
+              </ItemButton>
+            </ListButton>
             <Button type="button" onClick={toggleBurgerMenu}>
               <Icon iconName="burger" width="26px" height="20px" />
             </Button>
           </BoxHeader>
         </Container>
       </Section>
-      {isBurger && (
+      {isBurgerMenuShow && (
         <Backdrop>
           <BurgerMenu>
             <Container>
               <BoxButton>
-                <ListBtnBurger>
-                  <ItemBtnBurger>
+                <ListButtonBurger>
+                  <ItemButtonBurger>
                     <CountBurger>1</CountBurger>
                     <Icon iconName="heart" width="20px" height="20px" />
-                  </ItemBtnBurger>
-                  <ItemBtnBurger>
+                  </ItemButtonBurger>
+                  <ItemButtonBurger>
                     <Icon iconName="user" width="20px" height="20px" />
-                  </ItemBtnBurger>
-                  <ItemBtnBurger>
+                  </ItemButtonBurger>
+                  <ItemButtonBurger>
                     <CountBurger>1</CountBurger>
                     <Icon iconName="basket-order" width="20px" height="20px" />
-                  </ItemBtnBurger>
-                </ListBtnBurger>
+                  </ItemButtonBurger>
+                </ListButtonBurger>
                 <ButtonBurger type="button" onClick={toggleBurgerMenu}>
                   <Icon iconName="close" width="20px" height="20px" />
                 </ButtonBurger>
@@ -139,17 +149,13 @@ const Navigation = styled.nav`
   }
 `;
 
-const ListNav = styled.ul`
+const NavList = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const ItemNav = styled.li`
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1;
-
+const NavListItem = styled.li`
   &:not(:last-child) {
     margin-right: 55px;
 
@@ -166,15 +172,35 @@ const ItemNav = styled.li`
     font-weight: 600;
     font-size: 20px;
   }
+
+  a:hover {
+    background: linear-gradient(92.09deg, #5e3928 -79.4%, #e4a16f 84.12%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* text-fill-color: transparent; */
+    border-bottom: 1px solid #e4a16f;
+  }
 `;
 
-const ListBtn = styled.ul`
+const NavListItemLink = styled.a`
+  /* padding: 5px; */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  color: #ffffff;
+  border-bottom: 1px solid transparent;
+`;
+
+const ListButton = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const ItemBtn = styled.li`
+const ItemButton = styled.li`
   position: relative;
   padding: 30px 10px 10px;
   background-color: #fff;
@@ -283,14 +309,14 @@ const BoxButton = styled.div`
   margin-bottom: 125px;
 `;
 
-const ListBtnBurger = styled.ul`
+const ListButtonBurger = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 70px;
 `;
 
-const ItemBtnBurger = styled.li`
+const ItemButtonBurger = styled.li`
   position: relative;
   padding: 50px 10px 10px;
   background-color: #fff;
