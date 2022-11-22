@@ -23,8 +23,8 @@ const App: FC = () => {
   return (
     <>
       <HeaderMain />
-      {/* <Header />
-      <AboutUs /> */}
+      {/* <Header /> */}
+      {/* <AboutUs />  */}
       <OurProduction />
       <BestSelling />
       <Novelties />

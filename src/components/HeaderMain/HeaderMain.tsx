@@ -1,143 +1,354 @@
-import { FC } from 'react';
-// import { Link } from 'react-router-dom';
+import { FC, useState } from 'react';
 import styled from 'styled-components';
 import Section from '../Section';
 import Container from '../Container';
-import Logo from '../Logo';
-import Navigation from '../Navigation';
 import Icon from '../Icon';
+import Logo from '../Logo';
 import { size } from '../../styles/variables';
 
-const HeaderMain: FC = () => {
-  return (
-    <Section
-      color="#fff"
-      background="linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%);"
-      padding={{
-        topMob: '25px',
-        bottomMob: '25px',
-        topTab: '50px',
-        bottomTab: '80px',
-      }}
-    >
-      <Container>
-        <BoxHeader>
-          <Logo width="115px" height="auto" />
-          <Navigation />
-          <LinkStyled
-            href="/favorite"
-            toTopMob="0"
-            toRightMob="150px"
-            toTopTab="0"
-            toRightTab="190px"
-            toTopDesk="0"
-            toRightDesk="390px"
-          >
-            <IconStyled iconName="heart" fill="#0b3f37" />
-          </LinkStyled>
-          <LinkStyled
-            href="/user"
-            toTopMob="0"
-            toRightMob="110px"
-            toTopTab="0"
-            toRightTab="120px"
-            toTopDesk="0"
-            toRightDesk="320px"
-          >
-            <IconStyled iconName="user" fill="#0b3f37" />
-          </LinkStyled>
-          <LinkStyled
-            href="/basket-order"
-            toTopMob="0"
-            toRightMob="70px"
-            toTopTab="0"
-            toRightTab="50px"
-            toTopDesk="0"
-            toRightDesk="250px"
-          >
-            <IconStyled iconName="basket-order" fill="#E4A16F" />
-          </LinkStyled>
+const Header: FC = () => {
+  const [isBurgerMenuShow, setIsBurgerMenuShow] = useState<boolean>(false);
 
-          <BurgerMenuButton type="button" toTop="30px" toRight="0">
-            <Icon iconName="burger" fill="#fff"></Icon>
-          </BurgerMenuButton>
-        </BoxHeader>
-      </Container>
-    </Section>
+  const toggleBurgerMenu = (): void => {
+    setIsBurgerMenuShow(!isBurgerMenuShow);
+
+    isBurgerMenuShow
+      ? (document.body.style.overflow = 'auto')
+      : (document.body.style.overflow = 'hidden');
+  };
+
+  return (
+    <>
+      <Section
+        color="#fff"
+        background="linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)"
+        padding={{
+          bottomMob: '30px',
+          bottomDesk: '45px',
+        }}
+      >
+        <Container>
+          <BoxHeader>
+            <Logo width="115" height="31" />
+            <Navigation>
+              <NavList>
+                <NavListItem>
+                  <NavListItemLink href="#Каталог">Каталог</NavListItemLink>
+                </NavListItem>
+                <NavListItem>
+                  <NavListItemLink href="#Новости">Новости</NavListItemLink>
+                </NavListItem>
+                <NavListItem>
+                  <NavListItemLink href="#Доставка">Доставка</NavListItemLink>
+                </NavListItem>
+                <NavListItem>
+                  <NavListItemLink href="#Онас">О нас</NavListItemLink>
+                </NavListItem>
+                <NavListItem>
+                  <NavListItemLink href="#Контакты">Контакты</NavListItemLink>
+                </NavListItem>
+              </NavList>
+            </Navigation>
+            <ListButton>
+              <ItemButton>
+                <Count>1</Count>
+                <Icon iconName="heart" width="20px" height="20px" />
+              </ItemButton>
+              <ItemButton>
+                <Icon iconName="user" width="20px" height="20px" />
+              </ItemButton>
+              <ItemButton>
+                <Count>1</Count>
+                <Icon iconName="basket-order" width="20px" height="20px" />
+              </ItemButton>
+            </ListButton>
+            <Button type="button" onClick={toggleBurgerMenu}>
+              <Icon iconName="burger" width="26px" height="20px" />
+            </Button>
+          </BoxHeader>
+        </Container>
+      </Section>
+      {isBurgerMenuShow && (
+        <Backdrop>
+          <BurgerMenu>
+            <Container>
+              <BoxButton>
+                <ListButtonBurger>
+                  <ItemButtonBurger>
+                    <CountBurger>1</CountBurger>
+                    <Icon iconName="heart" width="20px" height="20px" />
+                  </ItemButtonBurger>
+                  <ItemButtonBurger>
+                    <Icon iconName="user" width="20px" height="20px" />
+                  </ItemButtonBurger>
+                  <ItemButtonBurger>
+                    <CountBurger>1</CountBurger>
+                    <Icon iconName="basket-order" width="20px" height="20px" />
+                  </ItemButtonBurger>
+                </ListButtonBurger>
+                <ButtonBurger type="button" onClick={toggleBurgerMenu}>
+                  <Icon iconName="close" width="20px" height="20px" />
+                </ButtonBurger>
+              </BoxButton>
+              <nav>
+                <ul>
+                  <ItemNavBurger>Каталог</ItemNavBurger>
+                  <ItemNavBurger>Новости</ItemNavBurger>
+                  <ItemNavBurger>Доставка</ItemNavBurger>
+                  <ItemNavBurger>О нас</ItemNavBurger>
+                  <ItemNavBurger>Контакты</ItemNavBurger>
+                </ul>
+              </nav>
+            </Container>
+          </BurgerMenu>
+        </Backdrop>
+      )}
+    </>
   );
 };
 
-export default HeaderMain;
+export default Header;
 
 const BoxHeader = styled.div`
-  ${size.min1024} {
-    display: flex;
-    align-items: flex-end;
-    align-content: center;
-  }
-  img {
-    width: 115px;
-    height: auto;
-    ${size.tabletMin} {
-      width: 160px;
-      margin-bottom: 50px;
-    }
-    ${size.min1024} {
-      margin-bottom: 0;
-      margin-right: 75px;
-    }
-  }
-  ${size.mobileMax} {
-    nav {
-      display: none;
-    }
-  }
-  ${size.min1024} {
-    nav ul li:not(:last-child) {
-      margin-right: 50px;
-    }
-  }
-`;
-const LinkStyled = styled.a<{
-  toTopMob: string;
-  toRightMob: string;
-  toTopTab: string;
-  toRightTab: string;
-  toTopDesk: string;
-  toRightDesk: string;
-}>`
-  position: absolute;
-  top: ${({ toTopMob }) => toTopMob ?? null};
-  right: ${({ toRightMob }) => toRightMob ?? null};
   display: flex;
+  justify-content: space-between;
   align-items: flex-end;
-  padding: 32px 5px 5px;
-  background: #ffffff;
+
   ${size.tabletMin} {
-    padding: 50px 10px 10px;
-    top: ${({ toTopTab }) => toTopTab ?? null};
-    right: ${({ toRightTab }) => toRightTab ?? null};
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 50px;
+
+    img {
+      width: 160px;
+      height: 43px;
+      margin-right: auto;
+    }
   }
+
+  ${size.min1024} {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+
+    img {
+      margin-right: initial;
+    }
+  }
+`;
+
+const Navigation = styled.nav`
+  display: none;
+
+  ${size.tabletMin} {
+    display: block;
+    order: 3;
+  }
+
+  ${size.min1024} {
+    order: initial;
+  }
+`;
+
+const NavList = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const NavListItem = styled.li`
+  &:not(:last-child) {
+    margin-right: 55px;
+
+    ${size.min1024} {
+      margin-right: 35px;
+    }
+
+    ${size.desktop} {
+      margin-right: 55px;
+    }
+  }
+
   ${size.desktop} {
-    top: ${({ toTopDesk }) => toTopDesk ?? null};
-    right: ${({ toRightDesk }) => toRightDesk ?? null};
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  a:hover {
+    background: linear-gradient(92.09deg, #5e3928 -79.4%, #e4a16f 84.12%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* text-fill-color: transparent; */
+    border-bottom: 1px solid #e4a16f;
   }
 `;
-const IconStyled = styled(Icon)`
-  width: 20px;
-  height: 20px;
+
+const NavListItemLink = styled.a`
+  /* padding: 5px; */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  color: #ffffff;
+  border-bottom: 1px solid transparent;
+`;
+
+const ListButton = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const ItemButton = styled.li`
+  position: relative;
+  padding: 30px 10px 10px;
+  background-color: #fff;
+  color: #0b3f37;
+
+  &:first-child {
+    display: none;
+
+    ${size.tabletMin} {
+      display: block;
+    }
+  }
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+
   ${size.tabletMin} {
-    width: 30px;
-    height: 30px;
+    .icon {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  ${size.desktop} {
+    padding-top: 45px;
   }
 `;
-const BurgerMenuButton = styled.button<{ toTop: string; toRight: string }>`
+
+const Count = styled.span`
   position: absolute;
-  top: ${({ toTop }) => toTop};
-  right: ${({ toRight }) => toRight};
-  padding: 5px 32px 5px 5px;
-  background: linear-gradient(92.18deg, #5e3928 20.13%, #e4a16f 92.93%);
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  color: #e4a16f;
+
+  ${size.tabletMin} {
+    top: 12px;
+    font-size: 20px;
+  }
+
+  ${size.desktop} {
+    top: 20px;
+    font-size: 25px;
+  }
+`;
+
+const Button = styled.button`
+  position: relative;
+  padding: 8px;
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+
+  .icon {
+    position: relative;
+    z-index: 1;
+    stroke-width: 0.1;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: calc(100% + 15px);
+    background: linear-gradient(92.18deg, #5e3928 20.13%, #e4a16f 92.93%);
+    z-index: 0;
+  }
+
   ${size.tabletMin} {
     display: none;
   }
+`;
+
+const Backdrop = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.2);
+  pointer-events: initial;
+
+  ${size.tabletMin} {
+    display: none;
+  }
+`;
+
+const BurgerMenu = styled.div`
+  width: 100%;
+  height: 100%;
+  padding-bottom: 20px;
+  background: linear-gradient(92.18deg, #5e3928 20.13%, #e4a16f 92.93%);
+`;
+
+const BoxButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 125px;
+`;
+
+const ListButtonBurger = styled.ul`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 70px;
+`;
+
+const ItemButtonBurger = styled.li`
+  position: relative;
+  padding: 50px 10px 10px;
+  background-color: #fff;
+  color: #0b3f37;
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+`;
+
+const CountBurger = styled.span`
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  color: #e4a16f;
+`;
+
+const ButtonBurger = styled.button`
+  padding: 8px;
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+`;
+
+const ItemNavBurger = styled.li`
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 2.1;
+  text-align: center;
+  color: #fff;
 `;
