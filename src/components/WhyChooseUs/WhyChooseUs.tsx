@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import Section from '../Section';
 import Container from '../Container';
 import TitleH3 from '../TitleH3';
-import Icon from '../../components/Icon';
+import Icon from '../Icon';
+import ReadMore from '../ReadMore';
 import { size } from '../../styles/variables';
 import { whyChooseUs } from '../../data/whyChooseUs';
 
@@ -31,10 +32,7 @@ const WhyChooseUs: FC = () => {
                 <ItemDesc>{el.title}</ItemDesc>
                 <Desc>{el.desc}</Desc>
               </ListDesc>
-              <BoxReadMore>
-                <TextReadMore>Читать больше</TextReadMore>
-                <Icon iconName="arrow" width="5px" height="8px" />
-              </BoxReadMore>
+              <ReadMore />
             </Item>
           ))}
         </List>
@@ -83,11 +81,6 @@ const BoxIcon = styled.div`
   color: #fff;
   background: linear-gradient(278.32deg, #0b3f37 -7.03%, #cb8d62 136.33%);
 
-  ${size.tabletMin} {
-    width: 75px;
-    height: 75px;
-  }
-
   .icon {
     width: 34px;
     height: 34px;
@@ -97,6 +90,11 @@ const BoxIcon = styled.div`
       width: 54px;
       height: 54px;
     }
+  }
+
+  ${size.tabletMin} {
+    width: 75px;
+    height: 75px;
   }
 `;
 
@@ -110,9 +108,9 @@ const ListDesc = styled.dl`
 
 const ItemDesc = styled.dt`
   margin-bottom: 10px;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 16px;
-  line-height: 0.97;
+  line-height: 1;
 
   ${size.tabletMin} {
     margin-bottom: 15px;
@@ -123,30 +121,9 @@ const ItemDesc = styled.dt`
 const Desc = styled.dd`
   font-weight: 300;
   font-size: 12px;
-  line-height: 1.34;
+  line-height: 1.3;
 
   ${size.tabletMin} {
     font-size: 14px;
   }
-`;
-
-const BoxReadMore = styled.div`
-  display: flex;
-  align-items: center;
-  color: #cf9164;
-
-  .icon {
-    transform: rotate(90deg);
-  }
-`;
-
-const TextReadMore = styled.span`
-  margin-right: 8px;
-  font-weight: 800;
-  font-size: 14px;
-  line-height: 1.34;
-  background: linear-gradient(65.81deg, #5e3928 -24.09%, #e4a16f 104.02%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 `;

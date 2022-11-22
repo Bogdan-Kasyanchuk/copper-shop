@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import Section from '../Section';
 import Container from '../Container';
+import Breadcrumb from '../Breadcrumb';
 import TitleH2 from '../TitleH2';
 import { size } from '../../styles/variables';
 import aboutUs from '../../assets/about-us.png';
@@ -21,7 +22,7 @@ const AboutUs: FC = () => {
       }}
     >
       <Container>
-        <Breadcrumb>Главная / О нас</Breadcrumb>
+        <Breadcrumb />
         <BoxAboutUs>
           <BoxContent>
             <TitleH2 textAalign="left">О нас</TitleH2>
@@ -39,17 +40,6 @@ const AboutUs: FC = () => {
 
 export default AboutUs;
 
-const Breadcrumb = styled.div`
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1;
-
-  ${size.tabletMin} {
-    font-weight: 600;
-    font-size: 18px;
-  }
-`;
-
 const BoxAboutUs = styled.div`
   ${size.min1024} {
     display: flex;
@@ -60,7 +50,7 @@ const BoxAboutUs = styled.div`
 
 const BoxContent = styled.div`
   margin-bottom: 40px;
-  padding-top: 40px;
+  padding-top: 15px;
 
   h2 {
     position: relative;
@@ -78,7 +68,7 @@ const BoxContent = styled.div`
 
   ${size.tabletMin} {
     margin-bottom: 0;
-    padding-top: 100px;
+    padding-top: 75px;
 
     h2::after {
       bottom: -30px;

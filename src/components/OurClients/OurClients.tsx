@@ -70,7 +70,7 @@ const BoxContent = styled.div`
 const Text = styled.p`
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.24;
+  line-height: 1.2;
 
   ${size.tabletMin} {
     font-size: 20px;
@@ -93,9 +93,9 @@ const BoxCounter = styled.div`
 
 const TitleCounter = styled.p`
   margin-bottom: 15px;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 18px;
-  line-height: 0.97;
+  line-height: 1;
   background: linear-gradient(92.18deg, #5e3928 20.13%, #e4a16f 92.93%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -114,9 +114,9 @@ const TitleCounter = styled.p`
 
 const Counter = styled.span`
   display: inline-block;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 100px;
-  line-height: 0.97;
+  line-height: 1;
   background: url(${ourClientsBackgroundCounter});
   background-size: cover;
   -webkit-background-clip: text;

@@ -65,7 +65,7 @@ const BoxContent = styled.div`
 const Text = styled.p`
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.24;
+  line-height: 1.2;
 
   ${size.desktop} {
     font-weight: 400;

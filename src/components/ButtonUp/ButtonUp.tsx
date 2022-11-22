@@ -17,8 +17,8 @@ const Button = styled.button`
   position: absolute;
   right: 15px;
   bottom: 0;
-  background: linear-gradient(92.18deg, #5e3928 20.13%, #e4a16f 92.93%);
   padding: 26px 16px 90px;
+  background: linear-gradient(92.18deg, #5e3928 20.13%, #e4a16f 92.93%);
 
   ${size.tabletMin} {
     right: 50px;
@@ -30,7 +30,7 @@ const Button = styled.button`
 `;
 
 const Text = styled.span`
-  font-weight: 800;
+  font-weight: 700;
   font-size: 18px;
   line-height: 1;
   color: #fff;

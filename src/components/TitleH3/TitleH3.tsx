@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import { size } from '../../styles/variables';
-import { ITitleH3Props } from '../../interfaces';
+import { ITitleProps } from '../../interfaces';
 
-const TitleH3: FC<ITitleH3Props> = ({ children, textAalign }) => {
+const TitleH3: FC<ITitleProps> = ({ children, textAalign }) => {
   return <Text textAalign={textAalign as string}>{children}</Text>;
 };
 
@@ -21,7 +21,7 @@ const Text = styled.h3<{ textAalign: string }>`
   ${size.tabletMin} {
     margin-bottom: 40px;
     font-size: 40px;
-    line-height: 0.9;
+    line-height: 1.1;
   }
 
   ${size.desktop} {
