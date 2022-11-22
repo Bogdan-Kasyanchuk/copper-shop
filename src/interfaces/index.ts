@@ -7,6 +7,7 @@ import { INewsCardProps } from './INewsCardProps';
 import { ICatalogCardProps } from './ICatalogCardProps';
 import { IProductCardProps } from './IProductCardProps';
 import { ISliderProps } from './ISliderProps';
+import { IReviewCardProps } from './IReviewCardProps';
 
 export type {
   ISectionProps,
@@ -18,4 +19,5 @@ export type {
   ICatalogCardProps,
   IProductCardProps,
   ISliderProps,
+  IReviewCardProps,
 };
