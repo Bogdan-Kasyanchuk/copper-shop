@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import { IReviewCardProps } from '../../interfaces';
 import { size } from '../../styles/variables';
+import reviews from '../../assets/icon-png/reviews.png';
 
 const ReviewCard: FC<IReviewCardProps> = ({ el }) => {
   return (
@@ -19,8 +20,19 @@ const ReviewCard: FC<IReviewCardProps> = ({ el }) => {
 export default ReviewCard;
 
 const Item = styled.li`
+  position: relative;
   padding: 25px;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+
+  ::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 110px;
+    height: 90px;
+    background-image: url(${reviews});
+  }
 `;
 
 const BoxImage = styled.div`

@@ -28,7 +28,7 @@ const Novelties: FC = () => {
             </SwiperSlide>
           ))}
         </Slider>
-        <ButtonText />
+        <ButtonText>Перейти в каталог</ButtonText>
       </Container>
     </Section>
   );
