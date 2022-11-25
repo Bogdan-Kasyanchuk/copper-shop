@@ -3,7 +3,6 @@ import sprite from '../../assets/sprite.svg';
 import { IIconProps } from '../../interfaces';
 
 const Icon: FC<IIconProps> = ({
-  className = '',
   iconName = '',
   width = '20px',
   height = '20px',
@@ -12,7 +11,7 @@ const Icon: FC<IIconProps> = ({
 }) => {
   return (
     <svg
-      className={`icon icon-${iconName} ${className}`}
+      className={`icon icon-${iconName}`}
       width={width}
       height={height}
       fill={fill}

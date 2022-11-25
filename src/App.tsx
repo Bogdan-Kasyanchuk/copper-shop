@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import HeaderMain from './components/HeaderMain';
+import WishList from './components/WishList';
 import Header from './components/Header';
 import AboutUs from './components/AboutUs';
 import OurWorth from './components/OurWorth';
@@ -25,6 +26,7 @@ const App: FC = () => {
   return (
     <>
       <HeaderMain />
+      <WishList />
       <Header />
       <AboutUs />
       <OurProduction />
