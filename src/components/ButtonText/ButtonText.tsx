@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import { size } from '../../styles/variables';
+import { TChildren } from '../../types';
 
-const ButtonText: FC = () => {
-  return <Button type="button">Перейти в каталог</Button>;
+const ButtonText: FC<TChildren> = ({ children }) => {
+  return <Button type="button">{children}</Button>;
 };
 
 export default ButtonText;

@@ -19,6 +19,7 @@ import WeRecommend from './components/WeRecommend';
 import Discounts from './components/Discounts';
 import YouWillAlsoInterested from './components/YouWillAlsoInterested';
 import WhatThinkUs from './components/WhatThinkUs';
+import Reviews from './components/Reviews';
 
 const App: FC = () => {
   return (
@@ -33,6 +34,7 @@ const App: FC = () => {
       <Discounts />
       <YouWillAlsoInterested />
       <WhatThinkUs />
+      <Reviews />
       <Catalog />
       <News />
       <NewsDetail />
