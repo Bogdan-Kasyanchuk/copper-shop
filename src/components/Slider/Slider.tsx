@@ -15,6 +15,7 @@ const Slider: FC<ISliderProps> = ({ children }) => {
     <BoxSlider>
       <Swiper
         slidesPerView={1}
+        spaceBetween={20}
         loop={true}
         autoplay={{
           delay: 5000,
@@ -30,7 +31,6 @@ const Slider: FC<ISliderProps> = ({ children }) => {
         breakpoints={{
           768: {
             slidesPerView: 2,
-            spaceBetween: 20,
           },
           1024: {
             slidesPerView: 3,
