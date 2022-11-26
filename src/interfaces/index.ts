@@ -10,6 +10,8 @@ import { ISliderProps } from './ISliderProps';
 import { IReviewCardProps } from './IReviewCardProps';
 import { IReadMoreProps } from './IReadMoreProps';
 import { IButtonIconTextProps } from './IButtonIconTextProps';
+import { IOrderCardProps } from './IOrderCardProps';
+import { IButtonIconProps } from './IButtonIconProps';
 
 export type {
   ISectionProps,
@@ -24,4 +26,6 @@ export type {
   IReviewCardProps,
   IReadMoreProps,
   IButtonIconTextProps,
+  IOrderCardProps,
+  IButtonIconProps,
 };
