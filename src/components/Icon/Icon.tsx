@@ -8,6 +8,7 @@ const Icon: FC<IIconProps> = ({
   height = '20px',
   fill = 'currentColor',
   stroke = 'currentColor',
+  handlerClick,
 }) => {
   return (
     <svg
@@ -16,6 +17,7 @@ const Icon: FC<IIconProps> = ({
       height={height}
       fill={fill}
       stroke={stroke}
+      onClick={handlerClick}
     >
       <use xlinkHref={`${sprite}#${iconName}`}></use>
     </svg>
