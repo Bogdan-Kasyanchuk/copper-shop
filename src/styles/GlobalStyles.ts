@@ -67,20 +67,21 @@ img {
 button,
 input,
 textarea,
-select {
+select,
+a  {
   color: inherit;
   font-family: inherit;
 }
 
 button,
 label,
-input[type="checkbox"] {
+input[type="checkbox"],
+a {
   cursor: pointer;
 }
 
 a {
-  display: inline-block;
-  color: inherit;
+  display: block;
   text-decoration: none;
 }
 

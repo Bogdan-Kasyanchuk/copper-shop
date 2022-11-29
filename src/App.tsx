@@ -1,35 +1,41 @@
 import { FC } from 'react';
 import HeaderMain from './components/HeaderMain';
-import WishList from './components/WishList';
-import Orders from './components/Orders';
-import Header from './components/Header';
-import AboutUs from './components/AboutUs';
-import OurWorth from './components/OurWorth';
-import WhyChooseUs from './components/WhyChooseUs';
-import FooterMain from './components/FooterMain';
-import Footer from './components/Footer';
-import OurHistory from './components/OurHistory';
-import OurGeography from './components/OurGeography';
-import OurClients from './components/OurClients';
-import News from './components/News';
-import NewsDetail from './components/NewsDetail';
-import Catalog from './components/Catalog';
-import OurProduction from './components/OurProduction';
-import BestSelling from './components/BestSelling';
-import Novelties from './components/Novelties';
-import WeRecommend from './components/WeRecommend';
-import Discounts from './components/Discounts';
-import YouWillAlsoInterested from './components/YouWillAlsoInterested';
-import WhatThinkUs from './components/WhatThinkUs';
-import Reviews from './components/Reviews';
-import ProfileDetails from './components/ProfileDetails';
+// import WishList from './components/WishList';
+// import Orders from './components/Orders';
+// import Header from './components/Header';
+// import AboutUs from './components/AboutUs';
+// import OurWorth from './components/OurWorth';
+// import WhyChooseUs from './components/WhyChooseUs';
+// import FooterMain from './components/FooterMain';
+// import Footer from './components/Footer';
+// import OurHistory from './components/OurHistory';
+// import OurGeography from './components/OurGeography';
+// import OurClients from './components/OurClients';
+// import News from './components/News';
+// import NewsDetail from './components/NewsDetail';
+// import Catalog from './components/Catalog';
+// import OurProduction from './components/OurProduction';
+// import BestSelling from './components/BestSelling';
+// import Novelties from './components/Novelties';
+// import WeRecommend from './components/WeRecommend';
+// import Discounts from './components/Discounts';
+// import YouWillAlsoInterested from './components/YouWillAlsoInterested';
+// import WhatThinkUs from './components/WhatThinkUs';
+// import Reviews from './components/Reviews';
+// import ProfileDetails from './components/ProfileDetails';
+import Registration from './components/Registration';
+import LogIn from './components/LogIn';
+import ThanksForOrder from './components/ThanksForOrder';
 
 const App: FC = () => {
   return (
     <>
       <HeaderMain />
       {/* <WishList /> */}
-      <ProfileDetails />
+      {/* <ProfileDetails /> */}
+      <Registration />
+      <LogIn />
+      <ThanksForOrder />
       {/* <Orders />
       <Header />
       <AboutUs />
