@@ -11,10 +11,10 @@ import avatarUser from '../../assets/avatar-user.jpg';
 import upload from '../../assets/icon-png/upload.png';
 
 const ProfileDetails: FC = () => {
-  const [isHidden, setIsHidden] = useState<boolean>(true);
+  const [isHiddenPassword, setIsHiddenPassword] = useState<boolean>(true);
 
-  const toggleHidden = (): void => {
-    setIsHidden(!isHidden);
+  const toggleHiddenPassword = (): void => {
+    setIsHiddenPassword(!isHiddenPassword);
   };
 
   return (
@@ -55,104 +55,104 @@ const ProfileDetails: FC = () => {
           <BoxProfile>
             <BoxAvatarUserName>
               <Avatar src={avatarUser} width="120" height="120"></Avatar>
-              <BoxUserNameButton>
+              <div>
                 <GoodDay>Добрый день</GoodDay>
                 <UserName>Иван Иванов</UserName>
                 <ButtonUpload>Загрузить фото</ButtonUpload>
-              </BoxUserNameButton>
+              </div>
             </BoxAvatarUserName>
             <FormContacts>
-              <Label htmlFor="inputName">Имя</Label>
+              <Label htmlFor="inputNameProfile">Имя</Label>
               <Input
                 type="text"
                 name="name"
                 placeholder="Иван Иванов"
-                id="inputName"
+                id="inputNameProfile"
               />
-              <Label htmlFor="inputPhone">Телефон</Label>
+              <Label htmlFor="inputPhoneProfile">Телефон</Label>
               <Input
                 type="tel"
                 name="phone"
                 placeholder="+38 000 000 00 00"
-                id="inputPhone"
+                id="inputPhoneProfile"
               />
-              <Label htmlFor="inputEmail">Почта</Label>
+              <Label htmlFor="inputEmailProfile">Почта</Label>
               <Input
                 type="email"
                 name="email"
                 placeholder="E-mail"
-                id="inputEmail"
+                id="inputEmailProfile"
               />
-              <Label htmlFor="inputCountry">Страна</Label>
+              <Label htmlFor="inputCountryProfile">Страна</Label>
               <Input
                 type="text"
                 name="country"
                 placeholder="Украина"
-                id="inputCountry"
+                id="inputCountryProfile"
               />
-              <Label htmlFor="inputCity">Город</Label>
+              <Label htmlFor="inputCityProfile">Город</Label>
               <Input
                 type="text"
                 name="city"
                 placeholder="Днепр"
-                id="inputCity"
+                id="inputCityProfile"
               />
-              <Label htmlFor="inputStreet">Улица</Label>
+              <Label htmlFor="inputStreetProfile">Улица</Label>
               <Input
                 type="text"
                 name="street"
                 placeholder="ул. Шевченка"
-                id="inputStreet"
+                id="inputStreetProfile"
               />
               <ButtonText>Сохранить</ButtonText>
             </FormContacts>
             <TitleInput>Пароль</TitleInput>
             <FormPassword>
-              <Label htmlFor="inputPassword">Пароль</Label>
+              <Label htmlFor="inputPasswordProfile">Пароль</Label>
               <BoxInput className="box-input_password">
                 <Input
-                  type={isHidden ? 'password' : 'text'}
+                  type={isHiddenPassword ? 'password' : 'text'}
                   name="password"
-                  placeholder="Password"
-                  id="inputPassword"
+                  placeholder="Пароль"
+                  id="inputPasswordProfile"
                 />
                 <Icon
-                  iconName={isHidden ? 'eye-hidden' : 'eye'}
+                  iconName={isHiddenPassword ? 'eye-hidden' : 'eye'}
                   width="18px"
                   height="18px"
-                  handlerClick={toggleHidden}
+                  handlerClick={toggleHiddenPassword}
                 />
               </BoxInput>
               <ButtonText>Сменить пароль</ButtonText>
             </FormPassword>
             <TitleInput>Платежная система</TitleInput>
             <FormPayment>
-              <Label htmlFor="inputNumberCard">Номер карты</Label>
+              <Label htmlFor="inputNumberCardProfile">Номер карты</Label>
               <BoxInput className="box-input_number-card">
                 <Input
                   type="text"
                   name="numberCard"
                   placeholder="5115 5555 5555 5555"
-                  id="inputNumberCard"
+                  id="inputNumberCardProfile"
                 />
                 <Icon iconName="card" width="18px" height="13px" />
               </BoxInput>
-              <Label htmlFor="inputDateCard">Срок действия карты</Label>
+              <Label htmlFor="inputDateCardProfile">Срок действия карты</Label>
               <BoxInput className="box-input_date-card">
                 <Input
                   type="text"
                   name="dateCard"
                   placeholder="07/24"
-                  id="inputDateCard"
+                  id="inputDateCardProfile"
                 />
               </BoxInput>
-              <Label htmlFor="inputCvvCard">Cvv код</Label>
+              <Label htmlFor="inputCvvCardProfile">Cvv код</Label>
               <BoxInput className="box-input_cvv-card">
                 <Input
                   type="password"
                   name="cvvCard"
                   placeholder="***"
-                  id="inputCvvCard"
+                  id="inputCvvCardProfile"
                 />
               </BoxInput>
               <ButtonText>Сохранить</ButtonText>
@@ -254,8 +254,6 @@ const Avatar = styled.img`
     margin-right: 30px;
   }
 `;
-
-const BoxUserNameButton = styled.div``;
 
 const GoodDay = styled.p`
   margin-bottom: 12px;
