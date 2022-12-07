@@ -26,11 +26,21 @@ const Section: FC<ISectionProps> = ({
       color={color as string}
       backgroundColor={backgroundColor as string}
       background={background as string}
-      backgroundImage={backgroundImage as string}
-      backgroundRepeat={backgroundRepeat as string}
-      backgroundPosition={backgroundPosition as string}
-      backgroundSize={backgroundSize as string}
-      backgroundAttachment={backgroundAttachment as string}
+      backgroundImageMob={backgroundImage?.mob as string}
+      backgroundImageTab={backgroundImage?.tab as string}
+      backgroundImageDesk={backgroundImage?.desk as string}
+      backgroundRepeatMob={backgroundRepeat?.mob as string}
+      backgroundRepeatTab={backgroundRepeat?.tab as string}
+      backgroundRepeatDesk={backgroundRepeat?.desk as string}
+      backgroundPositionMob={backgroundPosition?.mob as string}
+      backgroundPositionTab={backgroundPosition?.tab as string}
+      backgroundPositionDesk={backgroundPosition?.desk as string}
+      backgroundSizeMob={backgroundSize?.mob as string}
+      backgroundSizeTab={backgroundSize?.tab as string}
+      backgroundSizeDesk={backgroundSize?.desk as string}
+      backgroundAttachmentMob={backgroundAttachment?.mob as string}
+      backgroundAttachmentTab={backgroundAttachment?.tab as string}
+      backgroundAttachmentDesk={backgroundAttachment?.desk as string}
     >
       {children}
     </SectionTag>
@@ -49,11 +59,21 @@ const SectionTag = styled.section<{
   color: string;
   backgroundColor: string;
   background: string;
-  backgroundImage: string;
-  backgroundRepeat: string;
-  backgroundPosition: string;
-  backgroundSize: string;
-  backgroundAttachment: string;
+  backgroundImageMob: string;
+  backgroundImageTab: string;
+  backgroundImageDesk: string;
+  backgroundRepeatMob: string;
+  backgroundRepeatTab: string;
+  backgroundRepeatDesk: string;
+  backgroundPositionMob: string;
+  backgroundPositionTab: string;
+  backgroundPositionDesk: string;
+  backgroundSizeMob: string;
+  backgroundSizeTab: string;
+  backgroundSizeDesk: string;
+  backgroundAttachmentMob: string;
+  backgroundAttachmentTab: string;
+  backgroundAttachmentDesk: string;
 }>`
   position: relative;
   padding-top: ${({ paddingTopMob }) => paddingTopMob ?? null};
@@ -61,26 +81,58 @@ const SectionTag = styled.section<{
   color: ${({ color }) => color ?? null};
   background-color: ${({ backgroundColor }) => backgroundColor ?? null};
   background: ${({ background }) => background ?? null};
-  ${({ backgroundImage }) =>
-    backgroundImage
+  ${({ backgroundImageMob }) =>
+    backgroundImageMob
       ? css`
-          background-image: ${backgroundImage};
+          background-image: ${backgroundImageMob};
           background-size: cover;
         `
       : null};
-  background-repeat: ${({ backgroundRepeat }) => backgroundRepeat ?? null};
-  background-position: ${({ backgroundPosition }) =>
-    backgroundPosition ?? null};
-  background-size: ${({ backgroundSize }) => backgroundSize ?? null};
+  background-repeat: ${({ backgroundRepeatMob }) =>
+    backgroundRepeatMob ?? null};
+  background-position: ${({ backgroundPositionMob }) =>
+    backgroundPositionMob ?? null};
+  background-size: ${({ backgroundSizeMob }) => backgroundSizeMob ?? null};
+  background-attachment: ${({ backgroundAttachmentMob }) =>
+    backgroundAttachmentMob ?? null};
+
   ${size.tabletMin} {
-    background-attachment: ${({ backgroundAttachment }) =>
-      backgroundAttachment ?? null};
     padding-top: ${({ paddingTopTab }) => paddingTopTab ?? null};
     padding-bottom: ${({ paddingBottomTab }) => paddingBottomTab ?? null};
+    background: ${({ background }) => background ?? null};
+    ${({ backgroundImageTab }) =>
+      backgroundImageTab
+        ? css`
+            background-image: ${backgroundImageTab};
+            background-size: cover;
+          `
+        : null};
+    background-repeat: ${({ backgroundRepeatTab }) =>
+      backgroundRepeatTab ?? null};
+    background-position: ${({ backgroundPositionTab }) =>
+      backgroundPositionTab ?? null};
+    background-size: ${({ backgroundSizeTab }) => backgroundSizeTab ?? null};
+    background-attachment: ${({ backgroundAttachmentTab }) =>
+      backgroundAttachmentTab ?? null};
   }
 
   ${size.desktop} {
     padding-top: ${({ paddingTopDesk }) => paddingTopDesk ?? null};
     padding-bottom: ${({ paddingBottomDesk }) => paddingBottomDesk ?? null};
+    background: ${({ background }) => background ?? null};
+    ${({ backgroundImageDesk }) =>
+      backgroundImageDesk
+        ? css`
+            background-image: ${backgroundImageDesk};
+            background-size: cover;
+          `
+        : null};
+    background-repeat: ${({ backgroundRepeatDesk }) =>
+      backgroundRepeatDesk ?? null};
+    background-position: ${({ backgroundPositionDesk }) =>
+      backgroundPositionDesk ?? null};
+    background-size: ${({ backgroundSizeDesk }) => backgroundSizeDesk ?? null};
+    background-attachment: ${({ backgroundAttachmentDesk }) =>
+      backgroundAttachmentDesk ?? null};
   }
 `;

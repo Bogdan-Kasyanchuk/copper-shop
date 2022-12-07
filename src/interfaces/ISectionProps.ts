@@ -5,11 +5,31 @@ export interface ISectionProps {
   color?: string;
   backgroundColor?: string;
   background?: string;
-  backgroundImage?: string;
-  backgroundRepeat?: string;
-  backgroundPosition?: string;
-  backgroundAttachment?: string;
-  backgroundSize?: string;
+  backgroundImage?: {
+    mob?: string;
+    tab?: string;
+    desk?: string;
+  };
+  backgroundRepeat?: {
+    mob?: string;
+    tab?: string;
+    desk?: string;
+  };
+  backgroundPosition?: {
+    mob?: string;
+    tab?: string;
+    desk?: string;
+  };
+  backgroundAttachment?: {
+    mob?: string;
+    tab?: string;
+    desk?: string;
+  };
+  backgroundSize?: {
+    mob?: string;
+    tab?: string;
+    desk?: string;
+  };
   padding?: {
     topMob?: string;
     bottomMob?: string;
