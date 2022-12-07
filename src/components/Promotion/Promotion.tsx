@@ -4,10 +4,11 @@ import Section from '../Section';
 import Container from '../Container';
 import ButtonText from '../ButtonText';
 import { size } from '../../styles/variables';
-import promotionImg from '../../assets/Promotion.png';
-import promotionBg from '../../assets/Promotion-background.png';
-/* linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%); */
-// const testing = `url(${promotionBg}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`;
+// import promotionImg from '../../assets/PromotionMob.png';
+import promotionImg from '../../assets/PromotionTab.png';
+import promotionBgMob from '../../assets/Promotion-background-mobile.png';
+import promotionBgTab from '../../assets/Promotion-background-tablet.png';
+
 const Promotion: FC = () => {
   return (
     <Section
@@ -20,28 +21,69 @@ const Promotion: FC = () => {
         bottomDesk: '0',
       }}
       color="#031412"
-      // background="#212121"
-      // backgroundImage={testing}
-      backgroundImage={`url(${promotionBg}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`}
-      backgroundRepeat="no-repeat"
-      backgroundPosition="right bottom, center"
-      backgroundSize="200px, cover"
+      /* backgroundImage={`url(${promotionBg}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`} */
+      backgroundImage={{
+        mob: `url(${promotionBgMob}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`,
+        tab: `url(${promotionBgTab}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`,
+        desk: `url(${promotionBgTab}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`,
+      }}
+      backgroundRepeat={{
+        mob: 'no-repeat',
+        tab: 'no-repeat',
+        desk: 'no-repeat',
+      }}
+      backgroundPosition={{
+        mob: 'right bottom, center',
+        tab: 'right bottom, center',
+        desk: 'right bottom, center',
+      }}
+      backgroundSize={{
+        mob: '200px, cover',
+        tab: '370px, cover',
+        desk: '200px, cover',
+      }}
+      // backgroundImage={`url(${promotionBgTab}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`}
     >
       <Container>
-        <TitleH2Prom>1 + 1 = 3</TitleH2Prom>
-        <Text>Закажите два товара и получите третий бесплатно</Text>
-        <ButtonText>Перейти в каталог</ButtonText>
-        <BoxImage>
-          <ImagePromo src={promotionImg} alt="Promotion image" />
-        </BoxImage>
+        <BoxPromotion>
+          <LeftSide>
+            <TitleH2Prom>1 + 1 = 3</TitleH2Prom>
+            <Text>Закажите два товара и получите третий бесплатно</Text>
+            <ButtonText>Перейти в каталог</ButtonText>
+          </LeftSide>
 
-        <TitleH3Prom>COPPER PRO</TitleH3Prom>
+          <RightSide>
+            <BoxImage>
+              <ImagePromo src={promotionImg} alt="Promotion image" />
+            </BoxImage>
+            <TitleH3Prom>COPPER PRO</TitleH3Prom>
+          </RightSide>
+        </BoxPromotion>
       </Container>
     </Section>
   );
 };
 
 export default Promotion;
+
+const BoxPromotion = styled.div`
+  ${size.tabletMin} {
+    /* background-color: black; */
+    display: flex;
+  }
+`;
+
+const LeftSide = styled.div`
+  ${size.tabletMin} {
+    margin-top: 120px;
+    /* background-color: red; */
+  }
+`;
+const RightSide = styled.div`
+  ${size.tabletMin} {
+    /* background-color: green; */
+  }
+`;
 
 const TitleH2Prom = styled.h2`
   margin-bottom: 20px;
@@ -56,14 +98,14 @@ const TitleH2Prom = styled.h2`
   color: #ffffff;
 
   ${size.tabletMin} {
-    margin-bottom: 30px;
-    font-size: 60px;
-    line-height: 1.1;
+    margin-bottom: 38px;
+    width: 355px;
+    font-size: 100px;
+    line-height: 74.9%;
   }
 
   ${size.desktop} {
-    margin-bottom: 50px;
-    font-size: 100px;
+    font-size: 140px;
   }
 `;
 
@@ -77,20 +119,38 @@ const Text = styled.p`
   font-size: 14px;
   line-height: 0.92;
   color: #ffffff;
+
+  ${size.tabletMin} {
+    margin-bottom: 42px;
+    width: 306px;
+    font-size: 20px;
+  }
+
+  ${size.desktop} {
+    width: 533px;
+    font-size: 35px;
+  }
 `;
 
 const BoxImage = styled.div`
   position: relative;
   margin-top: 34px;
   margin-bottom: 0;
-
-  /* ${size.tabletMin} {
-    margin-bottom: 30px;
-  } */
 `;
 
 const ImagePromo = styled.img`
   margin: 0 auto;
+  width: 123px;
+  height: 223px;
+
+  ${size.tabletMin} {
+    width: 245px;
+    height: 490px;
+  }
+
+  ${size.desktop} {
+    height: 492px;
+  }
 `;
 
 const TitleH3Prom = styled.h2`
@@ -105,4 +165,14 @@ const TitleH3Prom = styled.h2`
   line-height: 0.75;
   text-align: right;
   color: #ffffff;
+
+  ${size.tabletMin} {
+    width: 421px;
+    font-size: 80px;
+  }
+
+  ${size.desktop} {
+    width: 686px;
+    font-size: 160px;
+  }
 `;
