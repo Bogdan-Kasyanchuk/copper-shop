@@ -17,13 +17,13 @@ import HeaderMain from './components/HeaderMain';
 // import OurProduction from './components/OurProduction';
 // import BestSelling from './components/BestSelling';
 // import Novelties from './components/Novelties';
+// import Promotion from './components/Promotion';
 // import WeRecommend from './components/WeRecommend';
 // import Discounts from './components/Discounts';
 // import YouWillAlsoInterested from './components/YouWillAlsoInterested';
 // import WhatThinkUs from './components/WhatThinkUs';
 // import Reviews from './components/Reviews';
 // import ProfileDetails from './components/ProfileDetails';
-import Promotion from './components/Promotion';
 import Registration from './components/Registration';
 import LogIn from './components/LogIn';
 import ThanksForOrder from './components/ThanksForOrder';
@@ -32,7 +32,6 @@ const App: FC = () => {
   return (
     <>
       <HeaderMain />
-      <Promotion />
       {/* <WishList /> */}
       {/* <ProfileDetails /> */}
       <Registration />
@@ -44,6 +43,7 @@ const App: FC = () => {
       <OurProduction />
       <BestSelling />
       <Novelties />
+      <Promotion />
       <WeRecommend />
       <Discounts />
       <YouWillAlsoInterested />

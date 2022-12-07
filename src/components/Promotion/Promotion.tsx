@@ -8,6 +8,7 @@ import { size } from '../../styles/variables';
 import promotionImg from '../../assets/PromotionTab.png';
 import promotionBgMob from '../../assets/Promotion-background-mobile.png';
 import promotionBgTab from '../../assets/Promotion-background-tablet.png';
+import promotionBgDesk from '../../assets/Promotion-background-desktop.png';
 
 const Promotion: FC = () => {
   return (
@@ -25,7 +26,7 @@ const Promotion: FC = () => {
       backgroundImage={{
         mob: `url(${promotionBgMob}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`,
         tab: `url(${promotionBgTab}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`,
-        desk: `url(${promotionBgTab}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`,
+        desk: `url(${promotionBgDesk}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`,
       }}
       backgroundRepeat={{
         mob: 'no-repeat',
@@ -40,7 +41,7 @@ const Promotion: FC = () => {
       backgroundSize={{
         mob: '200px, cover',
         tab: '370px, cover',
-        desk: '200px, cover',
+        desk: '885px, cover',
       }}
       // backgroundImage={`url(${promotionBgTab}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`}
     >
@@ -74,14 +75,22 @@ const BoxPromotion = styled.div`
 `;
 
 const LeftSide = styled.div`
+  margin-bottom: 34px;
+
   ${size.tabletMin} {
     margin-top: 120px;
-    /* background-color: red; */
+    margin-bottom: 0;
+  }
+
+  ${size.desktop} {
+    margin-top: 70px;
+    margin-bottom: 0;
   }
 `;
+
 const RightSide = styled.div`
   ${size.tabletMin} {
-    /* background-color: green; */
+    margin-top: 20px;
   }
 `;
 
@@ -101,10 +110,11 @@ const TitleH2Prom = styled.h2`
     margin-bottom: 38px;
     width: 355px;
     font-size: 100px;
-    line-height: 74.9%;
   }
 
   ${size.desktop} {
+    margin-bottom: 50px;
+    width: 492px;
     font-size: 140px;
   }
 `;
@@ -127,6 +137,7 @@ const Text = styled.p`
   }
 
   ${size.desktop} {
+    margin-bottom: 50px;
     width: 533px;
     font-size: 35px;
   }
@@ -134,7 +145,6 @@ const Text = styled.p`
 
 const BoxImage = styled.div`
   position: relative;
-  margin-top: 34px;
   margin-bottom: 0;
 `;
 
