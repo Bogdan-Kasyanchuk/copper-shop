@@ -12,7 +12,11 @@ const OurHistory: FC = () => {
     <Section
       color="#fff"
       background="#000"
-      backgroundImage={`url(${ourHistoryBackground})`}
+      backgroundImage={{
+        mob: `url(${ourHistoryBackground})`,
+        tab: `url(${ourHistoryBackground})`,
+        desk: `url(${ourHistoryBackground})`,
+      }}
       padding={{
         topMob: '40px',
         bottomMob: '40px',
