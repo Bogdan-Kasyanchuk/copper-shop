@@ -6,8 +6,13 @@ import { ISectionProps } from '../../interfaces';
 const Section: FC<ISectionProps> = ({
   children,
   color,
+  backgroundColor,
   background,
   backgroundImage,
+  backgroundRepeat,
+  backgroundPosition,
+  backgroundSize,
+  backgroundAttachment,
   padding,
 }) => {
   return (
@@ -19,8 +24,13 @@ const Section: FC<ISectionProps> = ({
       paddingTopDesk={padding?.topDesk as string}
       paddingBottomDesk={padding?.bottomDesk as string}
       color={color as string}
+      backgroundColor={backgroundColor as string}
       background={background as string}
       backgroundImage={backgroundImage as string}
+      backgroundRepeat={backgroundRepeat as string}
+      backgroundPosition={backgroundPosition as string}
+      backgroundSize={backgroundSize as string}
+      backgroundAttachment={backgroundAttachment as string}
     >
       {children}
     </SectionTag>
@@ -37,22 +47,34 @@ const SectionTag = styled.section<{
   paddingTopDesk: string;
   paddingBottomDesk: string;
   color: string;
+  backgroundColor: string;
   background: string;
   backgroundImage: string;
+  backgroundRepeat: string;
+  backgroundPosition: string;
+  backgroundSize: string;
+  backgroundAttachment: string;
 }>`
   position: relative;
   padding-top: ${({ paddingTopMob }) => paddingTopMob ?? null};
   padding-bottom: ${({ paddingBottomMob }) => paddingBottomMob ?? null};
   color: ${({ color }) => color ?? null};
+  background-color: ${({ backgroundColor }) => backgroundColor ?? null};
   background: ${({ background }) => background ?? null};
   ${({ backgroundImage }) =>
     backgroundImage
       ? css`
-          background-image: url(${backgroundImage});
+          background-image: ${backgroundImage};
           background-size: cover;
         `
       : null};
+  background-repeat: ${({ backgroundRepeat }) => backgroundRepeat ?? null};
+  background-position: ${({ backgroundPosition }) =>
+    backgroundPosition ?? null};
+  background-size: ${({ backgroundSize }) => backgroundSize ?? null};
   ${size.tabletMin} {
+    background-attachment: ${({ backgroundAttachment }) =>
+      backgroundAttachment ?? null};
     padding-top: ${({ paddingTopTab }) => paddingTopTab ?? null};
     padding-bottom: ${({ paddingBottomTab }) => paddingBottomTab ?? null};
   }
