@@ -23,6 +23,7 @@ import HeaderMain from './components/HeaderMain';
 // import WhatThinkUs from './components/WhatThinkUs';
 // import Reviews from './components/Reviews';
 // import ProfileDetails from './components/ProfileDetails';
+import Promotion from './components/Promotion';
 import Registration from './components/Registration';
 import LogIn from './components/LogIn';
 import ThanksForOrder from './components/ThanksForOrder';
@@ -31,6 +32,7 @@ const App: FC = () => {
   return (
     <>
       <HeaderMain />
+      <Promotion />
       {/* <WishList /> */}
       {/* <ProfileDetails /> */}
       <Registration />
