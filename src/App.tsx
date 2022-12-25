@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import HeaderMain from './components/HeaderMain';
+// import HeaderMain from './components/HeaderMain';
 // import WishList from './components/WishList';
 // import Orders from './components/Orders';
 // import Header from './components/Header';
@@ -24,21 +24,23 @@ import HeaderMain from './components/HeaderMain';
 // import WhatThinkUs from './components/WhatThinkUs';
 // import Reviews from './components/Reviews';
 // import ProfileDetails from './components/ProfileDetails';
-import Registration from './components/Registration';
-import LogIn from './components/LogIn';
-import ThanksForOrder from './components/ThanksForOrder';
+// import Registration from './components/Registration';
+// import LogIn from './components/LogIn';
+// import ThanksForOrder from './components/ThanksForOrder';
+import ProductDetails from './components/ProductDetails';
 
 const App: FC = () => {
   return (
     <>
-      <HeaderMain />
-      {/* <WishList /> */}
-      {/* <ProfileDetails /> */}
+      {/* <HeaderMain />
+      <WishList />
+      <ProfileDetails />
       <Registration />
       <LogIn />
-      <ThanksForOrder />
-      {/* <Orders />
-      <Header />
+      <ThanksForOrder /> */}
+      <ProductDetails />
+      {/* <Orders /> */}
+      {/* <Header />
       <AboutUs />
       <OurProduction />
       <BestSelling />
@@ -47,9 +49,9 @@ const App: FC = () => {
       <WeRecommend />
       <Discounts />
       <YouWillAlsoInterested />
-      <WhatThinkUs />
-      <Reviews />
-      <Catalog />
+      <WhatThinkUs /> */}
+      {/* <Reviews /> */}
+      {/* <Catalog />
       <News />
       <NewsDetail />
       <OurClients />

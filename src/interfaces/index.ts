@@ -12,6 +12,7 @@ import { IReadMoreProps } from './IReadMoreProps';
 import { IButtonIconTextProps } from './IButtonIconTextProps';
 import { IOrderCardProps } from './IOrderCardProps';
 import { IButtonIconProps } from './IButtonIconProps';
+import { ISliderVerticalProps } from './ISliderVerticalProps';
 
 export type {
   ISectionProps,
@@ -28,4 +29,5 @@ export type {
   IButtonIconTextProps,
   IOrderCardProps,
   IButtonIconProps,
+  ISliderVerticalProps,
 };
