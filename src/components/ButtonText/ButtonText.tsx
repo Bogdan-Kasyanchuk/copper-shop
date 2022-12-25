@@ -4,7 +4,11 @@ import { size } from '../../styles/variables';
 import { TChildren } from '../../types';
 
 const ButtonText: FC<TChildren> = ({ children }) => {
-  return <Button type="button">{children}</Button>;
+  return (
+    <Button className="btn-text" type="button">
+      {children}
+    </Button>
+  );
 };
 
 export default ButtonText;
