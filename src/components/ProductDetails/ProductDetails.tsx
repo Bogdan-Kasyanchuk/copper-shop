@@ -10,14 +10,14 @@ import TitleH3 from '../TitleH3';
 import SocialLinkList from '../SocialLinkList';
 import ButtonText from '../ButtonText';
 import Icon from '../Icon';
-import { productDetailsPhoto } from '../../data/productDetailsPhoto';
+import { productDetails } from '../../data/productDetails';
 
 const ProductDetails: FC = () => {
   const [fullImg, setFullImg] = useState<{
     src: string;
     alt: string;
   }>({ src: '', alt: '' });
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useState<number>(1);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSlideChange = (e: any) => {
@@ -40,7 +40,7 @@ const ProductDetails: FC = () => {
         <BoxProductDetails>
           <BoxSlider>
             <SliderVertical onSlideChange={onSlideChange}>
-              {productDetailsPhoto.map(el => (
+              {productDetails.img.map(el => (
                 <SwiperSlide key={el.id}>
                   <PrevImage src={el.imgUrl} alt={el.title} />
                 </SwiperSlide>
@@ -48,45 +48,52 @@ const ProductDetails: FC = () => {
             </SliderVertical>
             <BoxImage>
               <Image src={fullImg.src} alt={fullImg.alt} />
-              {true && <Sale>Sale</Sale>}
+              {productDetails.sale && <Sale>Sale</Sale>}
+              <Favorite favorite={productDetails.favorite}>
+                <Icon
+                  iconName={
+                    productDetails.favorite ? 'heart-favorite' : 'heart'
+                  }
+                  width="22px"
+                  height="19px"
+                />
+              </Favorite>
             </BoxImage>
           </BoxSlider>
           <BoxContent>
             <BoxTitle>
-              <TitleH3 textAalign="left">
-                Дистиллятор для получения гидролата 8л
-              </TitleH3>
+              <TitleH3 textAalign="left">{productDetails.title}</TitleH3>
               <BoxStatusArticle>
                 <BoxStatus>
                   <Icon iconName="check" width="15px" height="11px" />
-                  <Status>В наличии</Status>
+                  <Status> {productDetails.status}</Status>
                 </BoxStatus>
                 <Article>
-                  Артикул: <b>CP-0803</b>
+                  Артикул: <b>{productDetails.article}</b>
                 </Article>
               </BoxStatusArticle>
             </BoxTitle>
             <BoxDescription>
               <DescriptionTitle>Описание</DescriptionTitle>
-              <Description>
-                Медный дистиллятор «Феникс» станет Вашим надёжным помощником и
-                проводником в мир дистилляции и красоты, с которым Вы легко
-                сможете получать свои любимые гидролаты или алкогольные напитки.
-              </Description>
+              <Description>{productDetails.description}</Description>
             </BoxDescription>
             <BoxPurchase>
               <BoxPriceTitle>
                 <PriceTitle>Цена</PriceTitle>
                 <BoxPrice>
-                  <Price oldPrice={'true'}>10590 грн</Price>
-                  {true && <OldPrice>1953 грн</OldPrice>}
+                  <Price oldPrice={productDetails.oldPrice}>
+                    {productDetails.price}
+                  </Price>
+                  {productDetails.oldPrice && (
+                    <OldPrice>{productDetails.oldPrice}</OldPrice>
+                  )}
                 </BoxPrice>
               </BoxPriceTitle>
               <BoxCountButton>
                 <BoxCount>
                   <ButtonCount
                     type="button"
-                    disabled={count < 1}
+                    disabled={count < 2}
                     onClick={() => {
                       setCount(count - 1);
                     }}
@@ -115,32 +122,9 @@ const ProductDetails: FC = () => {
         <BoxDesc>
           <DescrTitle>Описание</DescrTitle>
           <DescText>
-            <p>
-              Для всех, кто хочет самостоятельно получать гидролат или
-              дистиллят, и быть уверенным в его качестве – у нас есть готовое и
-              удобное решение. Современный дистиллятор «Феникс» станет для Вас
-              отличным помощником. Полностью медный аппарат изготовлен на
-              собственном производстве, на основании многолетнего опыта работы с
-              медными дистилляторами.
-            </p>
-            <p>
-              Гораздо практичней, чем алькитара, и ни в чём ей не уступающий.
-              Даже наоборот, имеет ряд преимуществ, таких как толщина металла,
-              надёжные, сварные швы, и деревянные ручки, которые не так
-              нагреваются, как латунные. Соединение ароматизационной колонны с
-              емкостью герметично и долговечно. Радиатор данного аппарата
-              расходует в 3 раза меньше воды для охлаждения, в сравнении с
-              алькитарой такого же объёма.
-            </p>
-            <p>
-              Замечательный аппарат прослужит для Вас долгие годы и будет
-              радовать своего владельца гидролатом высокого качества. Оцените
-              все преимущества паровой дистилляции и получайте гидролаты, в
-              натуральности которых Вы можете быть уверенны. Аппарат полностью
-              укомплектован и готов к работе. Объём перегонного куба – 8 литров.
-              Объём колонны – 0,8 литра. Аппарат полностью укомплектован и готов
-              к эксплуатации.
-            </p>
+            {productDetails.descriptionFull.map((el, idx) => (
+              <p key={idx}>{el}</p>
+            ))}
           </DescText>
         </BoxDesc>
       </Container>
@@ -210,6 +194,24 @@ const BoxImage = styled.div`
 const Image = styled.img`
   height: 100%;
   width: 100%;
+`;
+
+const Favorite = styled.span<{ favorite: boolean }>`
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  padding: 14px 7px;
+  color: ${({ favorite }) => (favorite ? '#A4704D' : '#031412')};
+  background: #fff;
+
+  ${size.desktop} {
+    padding: 20px 10px;
+    .icon {
+      width: 30px;
+      height: 26px;
+    }
+  }
 `;
 
 const Sale = styled.span`

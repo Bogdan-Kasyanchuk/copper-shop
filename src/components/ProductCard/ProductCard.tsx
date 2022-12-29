@@ -12,7 +12,7 @@ const ProductCard: FC<IProductCardProps> = ({ el }) => {
         {el.sale && <Sale>Sale</Sale>}
         <Favorite favorite={el.favorite}>
           <Icon
-            iconName={el.favorite ? 'heart' : 'heart-favorite'}
+            iconName={el.favorite ? 'heart-favorite' : 'heart'}
             width="22px"
             height="19px"
           />
@@ -86,7 +86,7 @@ const Favorite = styled.span<{ favorite: boolean }>`
   top: 0;
   z-index: 1;
   padding: 14px 7px;
-  color: ${({ favorite }) => (favorite ? '#031412' : '#A4704D')};
+  color: ${({ favorite }) => (favorite ? '#A4704D' : '#031412')};
   background: #fff;
 
   ${size.desktop} {
