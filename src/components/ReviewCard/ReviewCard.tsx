@@ -32,6 +32,7 @@ const Item = styled.li`
     width: 110px;
     height: 90px;
     background-image: url(${reviews});
+    background-size: cover;
   }
 `;
 
@@ -55,13 +56,12 @@ const Title = styled.p`
 const Desc = styled.p`
   margin-bottom: 15px;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.3;
 
   ${size.tabletMin} {
     margin-bottom: 20px;
-    font-weight: 400;
   }
 `;
 

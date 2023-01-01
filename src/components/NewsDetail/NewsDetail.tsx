@@ -277,13 +277,9 @@ const BoxText = styled.div`
 `;
 
 const Text = styled.p`
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.3;
-
-  ${size.desktop} {
-    font-weight: 400;
-  }
 `;
 
 const TitleH4 = styled.h4`
@@ -302,7 +298,7 @@ const TitleH4 = styled.h4`
 const List = styled.ul`
   margin-bottom: 10px;
   padding-left: 17px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.8;
   list-style-type: disc;
@@ -396,7 +392,7 @@ const Button = styled.button`
 `;
 
 const ButtonText = styled.span`
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.1;
   color: #031412;
@@ -404,9 +400,5 @@ const ButtonText = styled.span`
   ${size.tabletMin} {
     font-size: 16px;
     line-height: 1.3;
-  }
-
-  ${size.desktop} {
-    font-weight: 400;
   }
 `;

@@ -287,13 +287,9 @@ const DescriptionTitle = styled.p`
 `;
 
 const Description = styled.p`
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.3;
-
-  ${size.desktop} {
-    font-weight: 400;
-  }
 `;
 
 const BoxPurchase = styled.div`
@@ -450,7 +446,7 @@ const DescrTitle = styled.p`
 `;
 
 const DescText = styled.div`
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.3;
 
@@ -458,9 +454,5 @@ const DescText = styled.div`
     &:not(:last-child) {
       margin-bottom: 20px;
     }
-  }
-
-  ${size.desktop} {
-    font-weight: 400;
   }
 `;

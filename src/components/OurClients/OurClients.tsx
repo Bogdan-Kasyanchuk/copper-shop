@@ -68,16 +68,12 @@ const BoxContent = styled.div`
 `;
 
 const Text = styled.p`
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.2;
 
   ${size.tabletMin} {
     font-size: 20px;
-  }
-
-  ${size.desktop} {
-    font-weight: 400;
   }
 `;
 
