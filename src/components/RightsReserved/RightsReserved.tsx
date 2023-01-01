@@ -13,16 +13,12 @@ const RightsReserved: FC = () => {
 export default RightsReserved;
 
 const Text = styled.p`
-  font-weight: 300;
+  font-weight: 400;
   font-size: 12px;
   line-height: 1.3;
   color: #adadad;
 
   ${size.tabletMin} {
     font-size: 14px;
-  }
-
-  ${size.min1024} {
-    font-weight: 400;
   }
 `;

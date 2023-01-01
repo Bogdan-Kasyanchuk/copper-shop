@@ -176,7 +176,7 @@ const ListContacts = styled.ul`
 `;
 
 const Item = styled.li`
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.3;
 

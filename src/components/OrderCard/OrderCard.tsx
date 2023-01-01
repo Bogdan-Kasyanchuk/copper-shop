@@ -98,7 +98,7 @@ const BoxImage = styled.div`
 `;
 
 const Title = styled.p`
-  padding-top: 20px;
+  align-self: center;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.3;
@@ -106,14 +106,11 @@ const Title = styled.p`
 
   ${size.tabletMin} {
     grid-column: 2/4;
-    padding-top: 15px;
     font-size: 18px;
   }
 
   ${size.desktop} {
-    align-self: center;
     grid-column: initial;
-    padding-top: initial;
   }
 `;
 

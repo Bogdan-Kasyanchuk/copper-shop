@@ -112,7 +112,7 @@ const BoxContent = styled.div`
 
 const Text = styled.p`
   margin-bottom: 20px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.2;
 
@@ -121,7 +121,6 @@ const Text = styled.p`
   }
 
   ${size.desktop} {
-    font-weight: 400;
     font-size: 20px;
   }
 `;

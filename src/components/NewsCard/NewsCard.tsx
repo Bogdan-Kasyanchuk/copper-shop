@@ -96,12 +96,11 @@ const Title = styled.p`
 
 const Desc = styled.p`
   margin-bottom: 15px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
   line-height: 1.3;
 
   ${size.tabletMin} {
     margin-bottom: 25px;
-    font-weight: 400;
   }
 `;

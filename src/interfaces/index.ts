@@ -13,6 +13,7 @@ import { IButtonIconTextProps } from './IButtonIconTextProps';
 import { IOrderCardProps } from './IOrderCardProps';
 import { IButtonIconProps } from './IButtonIconProps';
 import { ISliderVerticalProps } from './ISliderVerticalProps';
+import { IOrderCardBasketProps } from './IOrderCardBasketProps';
 
 export type {
   ISectionProps,
@@ -30,4 +31,5 @@ export type {
   IOrderCardProps,
   IButtonIconProps,
   ISliderVerticalProps,
+  IOrderCardBasketProps,
 };
