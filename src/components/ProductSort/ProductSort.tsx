@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { size } from '../../styles/variables';
 
 const ProductSort: FC = () => {
-  const [selected, setSelected] = useState('По цене');
+  const [selected, setSelected] = useState<string>('По цене');
 
   return (
     <BoxSelect>

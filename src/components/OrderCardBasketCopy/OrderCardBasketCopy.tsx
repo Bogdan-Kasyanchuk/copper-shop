@@ -4,7 +4,7 @@ import ButtonIcon from '../ButtonIcon';
 import { IOrderCardBasketProps } from '../../interfaces';
 import { size } from '../../styles/variables';
 
-const OrderCardBasket: FC<IOrderCardBasketProps> = ({ el }) => {
+const OrderCardBasketCopy: FC<IOrderCardBasketProps> = ({ el }) => {
   return (
     <Item key={el.id}>
       <BoxImage>
@@ -25,7 +25,7 @@ const OrderCardBasket: FC<IOrderCardBasketProps> = ({ el }) => {
   );
 };
 
-export default OrderCardBasket;
+export default OrderCardBasketCopy;
 
 const Item = styled.li`
   position: relative;
@@ -47,7 +47,7 @@ const Item = styled.li`
 
   ${size.tabletMin} {
     position: initial;
-    grid-template-columns: 1fr 2.2fr 1fr 1.4fr 0.4fr;
+    grid-template-columns: 1fr 1.3fr 2fr 0.5fr;
     grid-column-gap: 25px;
     padding-top: 0;
   }
@@ -60,12 +60,18 @@ const Item = styled.li`
     ${size.tabletMin} {
       position: initial;
       justify-self: flex-end;
+      grid-row: 1 / 3;
+      grid-column: 4 / 5;
     }
   }
 `;
 
 const BoxImage = styled.div`
   width: 90px;
+
+  ${size.tabletMin} {
+    grid-row: 1 / 3;
+  }
 `;
 
 const Title = styled.p`
@@ -75,7 +81,7 @@ const Title = styled.p`
   text-transform: uppercase;
 
   ${size.tabletMin} {
-    font-size: 18px;
+    grid-column: 2 / 4;
   }
 `;
 
@@ -83,10 +89,6 @@ const Count = styled.span`
   font-weight: 600;
   font-size: 20px;
   line-height: 1.3;
-
-  ${size.tabletMin} {
-    justify-self: center;
-  }
 `;
 
 const BoxPrice = styled.div`

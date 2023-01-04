@@ -86,7 +86,7 @@ const Item = styled.li`
 `;
 
 const BoxImage = styled.div`
-  width: 92px;
+  width: 90px;
 
   ${size.tabletMin} {
     grid-row: 1/3;
