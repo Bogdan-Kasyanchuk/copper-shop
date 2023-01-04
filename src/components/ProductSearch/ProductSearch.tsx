@@ -4,7 +4,7 @@ import Icon from '../Icon';
 import { size } from '../../styles/variables';
 
 const ProductSearch: FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   return (
     <Form onSubmit={() => console.log(1)}>

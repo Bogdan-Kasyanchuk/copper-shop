@@ -59,7 +59,7 @@ const BoxBasket = styled.div`
 `;
 
 const BoxListBasket = styled.div`
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 
   ${size.desktop} {
     margin-bottom: initial;
