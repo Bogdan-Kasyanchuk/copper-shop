@@ -1,4 +1,4 @@
-import { TChildren } from '../types/TChildren';
+import { TChildren } from 'types';
 
 export interface IButtonIconTextProps {
   children: TChildren['children'];

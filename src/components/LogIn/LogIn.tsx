@@ -1,70 +1,13 @@
 import { FC, useState } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import ButtonText from '../ButtonText';
-import Icon from '../Icon';
-import { size } from '../../styles/variables';
 
-const LogIn: FC = () => {
-  const [isHiddenPassword, setIsHiddenPassword] = useState<boolean>(true);
+import ButtonText from 'components/ButtonText';
+import Container from 'components/Container';
+import Icon from 'components/Icon';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-  const toggleHiddenPassword = (): void => {
-    setIsHiddenPassword(!isHiddenPassword);
-  };
-
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topDesk: '100px',
-        bottomDesk: '100px',
-      }}
-    >
-      <Container>
-        <BoxLogIn>
-          <ButtonText>Назад на главную</ButtonText>
-          <TitleH3 textAalign="center">Авторизация</TitleH3>
-          <FormLogIn>
-            <Label htmlFor="inputEmailRegistration">Почта</Label>
-            <Input
-              type="email"
-              name="email"
-              placeholder="E-mail"
-              id="inputEmailRegistration"
-            />
-            <Label htmlFor="inputPasswordRegistration">Пароль</Label>
-            <BoxInput>
-              <Input
-                type={isHiddenPassword ? 'password' : 'text'}
-                name="password"
-                placeholder="Пароль"
-                id="inputPasswordRegistration"
-              />
-              <Icon
-                iconName={isHiddenPassword ? 'eye-hidden' : 'eye'}
-                width="18px"
-                height="18px"
-                handlerClick={toggleHiddenPassword}
-              />
-            </BoxInput>
-            <ForgotPassword>Забыли пароль?</ForgotPassword>
-            <ButtonText>Войти</ButtonText>
-          </FormLogIn>
-          <ButtonLink>
-            <Text>Нету аккаунта?</Text>
-            <Text>Регистрация</Text>
-          </ButtonLink>
-        </BoxLogIn>
-      </Container>
-    </Section>
-  );
-};
-
-export default LogIn;
+import { size } from 'styles/variables';
 
 const BoxLogIn = styled.div`
   & > button {
@@ -198,3 +141,57 @@ const Text = styled.span`
   font-size: 16px;
   line-height: 1;
 `;
+
+const LogIn: FC = () => {
+  const [isHiddenPassword, setIsHiddenPassword] = useState<boolean>(true);
+
+  const toggleHiddenPassword = (): void => {
+    setIsHiddenPassword(!isHiddenPassword);
+  };
+
+  return (
+    <Section
+      color='#031412'
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topDesk: '100px',
+        bottomDesk: '100px',
+      }}
+    >
+      <Container>
+        <BoxLogIn>
+          <ButtonText>Назад на главную</ButtonText>
+          <TitleH3 textAalign='center'>Авторизация</TitleH3>
+          <FormLogIn>
+            <Label htmlFor='inputEmailRegistration'>Почта</Label>
+            <Input type='email' name='email' placeholder='E-mail' id='inputEmailRegistration' />
+            <Label htmlFor='inputPasswordRegistration'>Пароль</Label>
+            <BoxInput>
+              <Input
+                type={isHiddenPassword ? 'password' : 'text'}
+                name='password'
+                placeholder='Пароль'
+                id='inputPasswordRegistration'
+              />
+              <Icon
+                iconName={isHiddenPassword ? 'eye-hidden' : 'eye'}
+                width='18px'
+                height='18px'
+                handlerClick={toggleHiddenPassword}
+              />
+            </BoxInput>
+            <ForgotPassword>Забыли пароль?</ForgotPassword>
+            <ButtonText>Войти</ButtonText>
+          </FormLogIn>
+          <ButtonLink>
+            <Text>Нету аккаунта?</Text>
+            <Text>Регистрация</Text>
+          </ButtonLink>
+        </BoxLogIn>
+      </Container>
+    </Section>
+  );
+};
+
+export default LogIn;

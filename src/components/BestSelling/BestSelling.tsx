@@ -1,18 +1,20 @@
 import { FC } from 'react';
 import { SwiperSlide } from 'swiper/react';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import Slider from '../Slider';
-import ButtonText from '../ButtonText';
-import ProductCard from '../ProductCard';
-import { products } from '../../data/products';
+
+import ButtonText from 'components/ButtonText';
+import Container from 'components/Container';
+import ProductCard from 'components/ProductCard';
+import Section from 'components/Section';
+import Slider from 'components/Slider';
+import TitleH3 from 'components/TitleH3';
+
+import { products } from 'data/products';
 
 const BestSelling: FC = () => {
   return (
     <Section
-      color="#031412"
-      background="#f7f7f7"
+      color='#031412'
+      background='#f7f7f7'
       padding={{
         topMob: '40px',
         bottomMob: '40px',
@@ -21,9 +23,9 @@ const BestSelling: FC = () => {
       }}
     >
       <Container>
-        <TitleH3 textAalign="center">Лучшие продажи</TitleH3>
+        <TitleH3 textAalign='center'>Лучшие продажи</TitleH3>
         <Slider>
-          {products.map(el => (
+          {products.map((el) => (
             <SwiperSlide key={el.id}>
               <ProductCard el={el} />
             </SwiperSlide>

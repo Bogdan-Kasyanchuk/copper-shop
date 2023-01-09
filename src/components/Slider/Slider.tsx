@@ -1,64 +1,15 @@
 import { FC, useRef } from 'react';
 import styled from 'styled-components';
-import { Swiper } from 'swiper/react';
-import SwiperCore, { Autoplay, Pagination, Keyboard } from 'swiper';
-import Icon from '../Icon';
+import SwiperCore, { Autoplay, Keyboard, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { size } from '../../styles/variables';
-import { ISliderProps } from '../../interfaces';
+import { Swiper } from 'swiper/react';
 
-const Slider: FC<ISliderProps> = ({ children }) => {
-  const swiperRef = useRef<SwiperCore>();
+import Icon from 'components/Icon';
 
-  return (
-    <BoxSlider>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={20}
-        loop={true}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-          renderBullet: function (_, className: string): string {
-            return '<span class="' + className + '">' + '</span>';
-          },
-        }}
-        keyboard={true}
-        breakpoints={{
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          },
-        }}
-        modules={[Autoplay, Pagination, Keyboard]}
-        onBeforeInit={swiper => {
-          swiperRef.current = swiper;
-        }}
-        className="mySwiper"
-      >
-        {children}
-      </Swiper>
-      <Button
-        aria-label="Previous"
-        onClick={() => swiperRef.current?.slidePrev()}
-      >
-        <Icon iconName="arrow" width="18px" height="28px" />
-      </Button>
-      <Button aria-label="Next" onClick={() => swiperRef.current?.slideNext()}>
-        <Icon iconName="arrow" width="18px" height="28px" />
-      </Button>
-    </BoxSlider>
-  );
-};
+import { size } from 'styles/variables';
 
-export default Slider;
+import { ISliderProps } from 'interfaces';
 
 const BoxSlider = styled.div`
   position: relative;
@@ -140,3 +91,52 @@ const Button = styled.button`
     top: calc(50% - 30px);
   }
 `;
+
+const Slider: FC<ISliderProps> = ({ children }) => {
+  const swiperRef = useRef<SwiperCore>();
+
+  return (
+    <BoxSlider>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={20}
+        loop
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+          renderBullet(_, className: string): string {
+            return `<span class="${className}"></span>`;
+          },
+        }}
+        keyboard
+        breakpoints={{
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        }}
+        modules={[Autoplay, Pagination, Keyboard]}
+        onBeforeInit={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        className='mySwiper'
+      >
+        {children}
+      </Swiper>
+      <Button aria-label='Previous' onClick={() => swiperRef.current?.slidePrev()}>
+        <Icon iconName='arrow' width='18px' height='28px' />
+      </Button>
+      <Button aria-label='Next' onClick={() => swiperRef.current?.slideNext()}>
+        <Icon iconName='arrow' width='18px' height='28px' />
+      </Button>
+    </BoxSlider>
+  );
+};
+
+export default Slider;

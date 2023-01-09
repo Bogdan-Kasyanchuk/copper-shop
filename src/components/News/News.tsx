@@ -1,39 +1,15 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import Breadcrumb from '../Breadcrumb';
-import TitleH3 from '../TitleH3';
-import NewsCard from '../NewsCard';
-import { size } from '../../styles/variables';
-import { news } from '../../data/news';
 
-const News: FC = () => {
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '30px',
-        bottomMob: '40px',
-        topDesk: '40px',
-        bottomTab: '80px',
-      }}
-    >
-      <Container>
-        <Breadcrumb />
-        <TitleH3 textAalign="left">Новости</TitleH3>
-        <List>
-          {news.map(el => (
-            <NewsCard key={el.id} el={el} />
-          ))}
-        </List>
-        <Pagination>Пагинация</Pagination>
-      </Container>
-    </Section>
-  );
-};
+import Breadcrumb from 'components/Breadcrumb';
+import Container from 'components/Container';
+import NewsCard from 'components/NewsCard';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-export default News;
+import { size } from 'styles/variables';
+
+import { news } from 'data/news';
 
 const List = styled.ul`
   margin-bottom: 25px;
@@ -69,3 +45,30 @@ const Pagination = styled.div`
   height: 50px;
   background-color: #f3d0d0;
 `;
+
+const News: FC = () => {
+  return (
+    <Section
+      color='#031412'
+      padding={{
+        topMob: '30px',
+        bottomMob: '40px',
+        topDesk: '40px',
+        bottomTab: '80px',
+      }}
+    >
+      <Container>
+        <Breadcrumb />
+        <TitleH3 textAalign='left'>Новости</TitleH3>
+        <List>
+          {news.map((el) => (
+            <NewsCard key={el.id} el={el} />
+          ))}
+        </List>
+        <Pagination>Пагинация</Pagination>
+      </Container>
+    </Section>
+  );
+};
+
+export default News;

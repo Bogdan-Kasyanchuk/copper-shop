@@ -1,1 +1,1 @@
-export { default } from './OrderThanks';
+export { default } from './Register';

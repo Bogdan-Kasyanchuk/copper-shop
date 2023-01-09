@@ -1,13 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { size } from '../../styles/variables';
-import { ITitleProps } from '../../interfaces';
 
-const TitleH2: FC<ITitleProps> = ({ children, textAalign }) => {
-  return <Text textAalign={textAalign as string}>{children}</Text>;
-};
+import { size } from 'styles/variables';
 
-export default TitleH2;
+import { ITitleProps } from 'interfaces';
 
 const Text = styled.h2<{ textAalign: string }>`
   margin-bottom: 20px;
@@ -29,3 +25,9 @@ const Text = styled.h2<{ textAalign: string }>`
     font-size: 100px;
   }
 `;
+
+const TitleH2: FC<ITitleProps> = ({ children, textAalign }) => {
+  return <Text textAalign={textAalign as string}>{children}</Text>;
+};
+
+export default TitleH2;

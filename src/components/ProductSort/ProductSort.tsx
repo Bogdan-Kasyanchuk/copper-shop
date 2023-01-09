@@ -1,29 +1,7 @@
 import { FC, useState } from 'react';
 import styled from 'styled-components';
-import { size } from '../../styles/variables';
 
-const ProductSort: FC = () => {
-  const [selected, setSelected] = useState<string>('По цене');
-
-  return (
-    <BoxSelect>
-      <Label htmlFor="select_catalog">Сортировка: </Label>
-      <Select
-        id="select_catalog"
-        value={selected}
-        onChange={e => {
-          setSelected(e.target.value);
-        }}
-      >
-        <option value="По цене">По цене</option>
-        <option value="По рейтингу">По рейтингу</option>
-        <option value="Новинки">Новинки</option>
-      </Select>
-    </BoxSelect>
-  );
-};
-
-export default ProductSort;
+import { size } from 'styles/variables';
 
 const BoxSelect = styled.div`
   display: flex;
@@ -54,3 +32,26 @@ const Select = styled.select`
     font-size: 20px;
   }
 `;
+
+const ProductSort: FC = () => {
+  const [selected, setSelected] = useState<string>('По цене');
+
+  return (
+    <BoxSelect>
+      <Label htmlFor='select_catalog'>Сортировка: </Label>
+      <Select
+        id='select_catalog'
+        value={selected}
+        onChange={(e) => {
+          setSelected(e.target.value);
+        }}
+      >
+        <option value='По цене'>По цене</option>
+        <option value='По рейтингу'>По рейтингу</option>
+        <option value='Новинки'>Новинки</option>
+      </Select>
+    </BoxSelect>
+  );
+};
+
+export default ProductSort;

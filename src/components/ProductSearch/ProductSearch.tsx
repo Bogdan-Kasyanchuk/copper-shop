@@ -1,30 +1,9 @@
 import { FC, useState } from 'react';
 import styled from 'styled-components';
-import Icon from '../Icon';
-import { size } from '../../styles/variables';
 
-const ProductSearch: FC = () => {
-  const [searchQuery, setSearchQuery] = useState<string>('');
+import Icon from 'components/Icon';
 
-  return (
-    <Form onSubmit={() => console.log(1)}>
-      <Label htmlFor="input_catalog">Поиск: </Label>
-      <Input
-        id="input_catalog"
-        type="text"
-        autoComplete="off"
-        placeholder="Поиск"
-        value={searchQuery}
-        onChange={e => setSearchQuery(e.target.value)}
-      />
-      <Button type="submit">
-        <Icon iconName="search" width="15px" height="15px" />
-      </Button>
-    </Form>
-  );
-};
-
-export default ProductSearch;
+import { size } from 'styles/variables';
 
 const Form = styled.form`
   display: flex;
@@ -64,3 +43,26 @@ const Button = styled.button`
     opacity: 1;
   }
 `;
+
+const ProductSearch: FC = () => {
+  const [searchQuery, setSearchQuery] = useState<string>('');
+
+  return (
+    <Form onSubmit={() => console.log(1)}>
+      <Label htmlFor='input_catalog'>Поиск: </Label>
+      <Input
+        id='input_catalog'
+        type='text'
+        autoComplete='off'
+        placeholder='Поиск'
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+      <Button type='submit'>
+        <Icon iconName='search' width='15px' height='15px' />
+      </Button>
+    </Form>
+  );
+};
+
+export default ProductSearch;

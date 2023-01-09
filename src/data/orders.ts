@@ -1,6 +1,6 @@
-import productCard_01 from '../assets/product-card-1.jpg';
-import productCard_02 from '../assets/product-card-2.jpg';
-import productCard_03 from '../assets/product-card-3.jpg';
+import productCard_01 from 'assets/product-card-1.jpg';
+import productCard_02 from 'assets/product-card-2.jpg';
+import productCard_03 from 'assets/product-card-3.jpg';
 
 type TOrders = {
   id: string;

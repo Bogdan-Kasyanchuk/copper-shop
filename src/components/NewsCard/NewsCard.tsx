@@ -1,28 +1,11 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import ReadMore from '../ReadMore';
-import { INewsCardProps } from '../../interfaces';
-import { size } from '../../styles/variables';
 
-const NewsCard: FC<INewsCardProps> = ({ el }) => {
-  return (
-    <Item key={el.id}>
-      <BoxImage>
-        <Image src={el.imgUrl} alt="News" />
-        <Badge>{el.date}</Badge>
-        <Title>{el.title}</Title>
-      </BoxImage>
-      <Desc>{el.desc}</Desc>
-      <ReadMore
-        handlerButton={() => {
-          console.log(1);
-        }}
-      />
-    </Item>
-  );
-};
+import ReadMore from 'components/ReadMore';
 
-export default NewsCard;
+import { size } from 'styles/variables';
+
+import { INewsCardProps } from 'interfaces';
 
 const Item = styled.li`
   ${size.min1024} {
@@ -43,11 +26,7 @@ const BoxImage = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      0deg,
-      rgba(7, 44, 38, 0.7) 0%,
-      rgba(7, 44, 38, 0) 100%
-    );
+    background: linear-gradient(0deg, rgba(7, 44, 38, 0.7) 0%, rgba(7, 44, 38, 0) 100%);
   }
 
   ${size.tabletMin} {
@@ -104,3 +83,23 @@ const Desc = styled.p`
     margin-bottom: 25px;
   }
 `;
+
+const NewsCard: FC<INewsCardProps> = ({ el }) => {
+  return (
+    <Item key={el.id}>
+      <BoxImage>
+        <Image src={el.imgUrl} alt='News' />
+        <Badge>{el.date}</Badge>
+        <Title>{el.title}</Title>
+      </BoxImage>
+      <Desc>{el.desc}</Desc>
+      <ReadMore
+        handlerButton={() => {
+          console.log(1);
+        }}
+      />
+    </Item>
+  );
+};
+
+export default NewsCard;

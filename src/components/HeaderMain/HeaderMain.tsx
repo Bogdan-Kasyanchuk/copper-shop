@@ -1,113 +1,14 @@
 import { FC, useState } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import Icon from '../Icon';
-import Logo from '../Logo';
-import { size } from '../../styles/variables';
 
-const Header: FC = () => {
-  const [isBurgerMenuShow, setIsBurgerMenuShow] = useState<boolean>(false);
+import Container from 'components/Container';
+import Icon from 'components/Icon';
+import Logo from 'components/Logo';
+import Section from 'components/Section';
 
-  const toggleBurgerMenu = (): void => {
-    setIsBurgerMenuShow(!isBurgerMenuShow);
+import { size } from 'styles/variables';
 
-    isBurgerMenuShow
-      ? (document.body.style.overflow = 'auto')
-      : (document.body.style.overflow = 'hidden');
-  };
-
-  return (
-    <>
-      <Section
-        color="#fff"
-        background="linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)"
-        padding={{
-          bottomMob: '30px',
-          bottomDesk: '45px',
-        }}
-      >
-        <Container>
-          <BoxHeader>
-            <Logo width="115" height="31" />
-            <Navigation>
-              <NavList>
-                <NavListItem>
-                  <NavListItemLink href="#Каталог">Каталог</NavListItemLink>
-                </NavListItem>
-                <NavListItem>
-                  <NavListItemLink href="#Новости">Новости</NavListItemLink>
-                </NavListItem>
-                <NavListItem>
-                  <NavListItemLink href="#Доставка">Доставка</NavListItemLink>
-                </NavListItem>
-                <NavListItem>
-                  <NavListItemLink href="#Онас">О нас</NavListItemLink>
-                </NavListItem>
-                <NavListItem>
-                  <NavListItemLink href="#Контакты">Контакты</NavListItemLink>
-                </NavListItem>
-              </NavList>
-            </Navigation>
-            <ListButton>
-              <ItemButton>
-                <Count>1</Count>
-                <Icon iconName="heart" width="20px" height="20px" />
-              </ItemButton>
-              <ItemButton>
-                <Icon iconName="user" width="20px" height="20px" />
-              </ItemButton>
-              <ItemButton>
-                <Count>1</Count>
-                <Icon iconName="basket-order" width="20px" height="20px" />
-              </ItemButton>
-            </ListButton>
-            <Button type="button" onClick={toggleBurgerMenu}>
-              <Icon iconName="burger" width="26px" height="20px" />
-            </Button>
-          </BoxHeader>
-        </Container>
-      </Section>
-      {isBurgerMenuShow && (
-        <Backdrop>
-          <BurgerMenu>
-            <Container>
-              <BoxButton>
-                <ListButtonBurger>
-                  <ItemButtonBurger>
-                    <CountBurger>1</CountBurger>
-                    <Icon iconName="heart" width="20px" height="20px" />
-                  </ItemButtonBurger>
-                  <ItemButtonBurger>
-                    <Icon iconName="user" width="20px" height="20px" />
-                  </ItemButtonBurger>
-                  <ItemButtonBurger>
-                    <CountBurger>1</CountBurger>
-                    <Icon iconName="basket-order" width="20px" height="20px" />
-                  </ItemButtonBurger>
-                </ListButtonBurger>
-                <ButtonBurger type="button" onClick={toggleBurgerMenu}>
-                  <Icon iconName="close" width="20px" height="20px" />
-                </ButtonBurger>
-              </BoxButton>
-              <nav>
-                <ul>
-                  <ItemNavBurger>Каталог</ItemNavBurger>
-                  <ItemNavBurger>Новости</ItemNavBurger>
-                  <ItemNavBurger>Доставка</ItemNavBurger>
-                  <ItemNavBurger>О нас</ItemNavBurger>
-                  <ItemNavBurger>Контакты</ItemNavBurger>
-                </ul>
-              </nav>
-            </Container>
-          </BurgerMenu>
-        </Backdrop>
-      )}
-    </>
-  );
-};
-
-export default Header;
+import setBodyOverflow from 'helpers/setBodyOverflow';
 
 const BoxHeader = styled.div`
   display: flex;
@@ -355,3 +256,103 @@ const ItemNavBurger = styled.li`
   text-align: center;
   color: #fff;
 `;
+
+const Header: FC = () => {
+  const [isBurgerMenuShow, setIsBurgerMenuShow] = useState<boolean>(false);
+
+  const toggleBurgerMenu = (): void => {
+    setIsBurgerMenuShow(!isBurgerMenuShow);
+    setBodyOverflow(isBurgerMenuShow);
+  };
+
+  return (
+    <>
+      <Section
+        color='#fff'
+        background='linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)'
+        padding={{
+          bottomMob: '30px',
+          bottomDesk: '45px',
+        }}
+      >
+        <Container>
+          <BoxHeader>
+            <Logo width='115' height='31' />
+            <Navigation>
+              <NavList>
+                <NavListItem>
+                  <NavListItemLink href='#Каталог'>Каталог</NavListItemLink>
+                </NavListItem>
+                <NavListItem>
+                  <NavListItemLink href='#Новости'>Новости</NavListItemLink>
+                </NavListItem>
+                <NavListItem>
+                  <NavListItemLink href='#Доставка'>Доставка</NavListItemLink>
+                </NavListItem>
+                <NavListItem>
+                  <NavListItemLink href='#Онас'>О нас</NavListItemLink>
+                </NavListItem>
+                <NavListItem>
+                  <NavListItemLink href='#Контакты'>Контакты</NavListItemLink>
+                </NavListItem>
+              </NavList>
+            </Navigation>
+            <ListButton>
+              <ItemButton>
+                <Count>1</Count>
+                <Icon iconName='heart' width='20px' height='20px' />
+              </ItemButton>
+              <ItemButton>
+                <Icon iconName='user' width='20px' height='20px' />
+              </ItemButton>
+              <ItemButton>
+                <Count>1</Count>
+                <Icon iconName='basket-order' width='20px' height='20px' />
+              </ItemButton>
+            </ListButton>
+            <Button type='button' onClick={toggleBurgerMenu}>
+              <Icon iconName='burger' width='26px' height='20px' />
+            </Button>
+          </BoxHeader>
+        </Container>
+      </Section>
+      {isBurgerMenuShow && (
+        <Backdrop>
+          <BurgerMenu>
+            <Container>
+              <BoxButton>
+                <ListButtonBurger>
+                  <ItemButtonBurger>
+                    <CountBurger>1</CountBurger>
+                    <Icon iconName='heart' width='20px' height='20px' />
+                  </ItemButtonBurger>
+                  <ItemButtonBurger>
+                    <Icon iconName='user' width='20px' height='20px' />
+                  </ItemButtonBurger>
+                  <ItemButtonBurger>
+                    <CountBurger>1</CountBurger>
+                    <Icon iconName='basket-order' width='20px' height='20px' />
+                  </ItemButtonBurger>
+                </ListButtonBurger>
+                <ButtonBurger type='button' onClick={toggleBurgerMenu}>
+                  <Icon iconName='close' width='20px' height='20px' />
+                </ButtonBurger>
+              </BoxButton>
+              <nav>
+                <ul>
+                  <ItemNavBurger>Каталог</ItemNavBurger>
+                  <ItemNavBurger>Новости</ItemNavBurger>
+                  <ItemNavBurger>Доставка</ItemNavBurger>
+                  <ItemNavBurger>О нас</ItemNavBurger>
+                  <ItemNavBurger>Контакты</ItemNavBurger>
+                </ul>
+              </nav>
+            </Container>
+          </BurgerMenu>
+        </Backdrop>
+      )}
+    </>
+  );
+};
+
+export default Header;

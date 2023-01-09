@@ -1,7 +1,7 @@
-import catalogCard_01 from '../assets/catalog-card-1.jpg';
-import catalogCard_02 from '../assets/catalog-card-2.jpg';
-import catalogCard_03 from '../assets/catalog-card-3.jpg';
-import catalogCard_04 from '../assets/catalog-card-4.jpg';
+import catalogCard_01 from 'assets/catalog-card-1.jpg';
+import catalogCard_02 from 'assets/catalog-card-2.jpg';
+import catalogCard_03 from 'assets/catalog-card-3.jpg';
+import catalogCard_04 from 'assets/catalog-card-4.jpg';
 
 type TCatalog = {
   id: string;

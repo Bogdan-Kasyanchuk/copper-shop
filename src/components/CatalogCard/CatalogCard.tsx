@@ -1,20 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { ICatalogCardProps } from '../../interfaces';
-import { size } from '../../styles/variables';
 
-const CatalogCard: FC<ICatalogCardProps> = ({ el }) => {
-  return (
-    <Item key={el.id}>
-      <BoxImage>
-        <Image src={el.imgUrl} alt="Catalog" />
-        <Title>{el.title}</Title>
-      </BoxImage>
-    </Item>
-  );
-};
+import { size } from 'styles/variables';
 
-export default CatalogCard;
+import { ICatalogCardProps } from 'interfaces';
 
 const Item = styled.li`
   flex-basis: calc((100% - 40px) / 2);
@@ -45,11 +34,7 @@ const BoxImage = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      0deg,
-      rgba(7, 44, 38, 0.5) 0%,
-      rgba(7, 44, 38, 0) 100%
-    );
+    background: linear-gradient(0deg, rgba(7, 44, 38, 0.5) 0%, rgba(7, 44, 38, 0) 100%);
   }
 `;
 
@@ -80,3 +65,16 @@ const Title = styled.p`
     font-size: 20px;
   }
 `;
+
+const CatalogCard: FC<ICatalogCardProps> = ({ el }) => {
+  return (
+    <Item key={el.id}>
+      <BoxImage>
+        <Image src={el.imgUrl} alt='Catalog' />
+        <Title>{el.title}</Title>
+      </BoxImage>
+    </Item>
+  );
+};
+
+export default CatalogCard;

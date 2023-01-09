@@ -1,44 +1,16 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import Breadcrumb from '../Breadcrumb';
-import TitleH2 from '../TitleH2';
-import { size } from '../../styles/variables';
-import aboutUs from '../../assets/about-us.png';
-import commaGroup from '../../assets/icon-png/comma-group.png';
-import signature from '../../assets/icon-png/signature.png';
 
-const AboutUs: FC = () => {
-  return (
-    <Section
-      color="#031412"
-      background="#f7f7f7"
-      padding={{
-        topMob: '30px',
-        bottomMob: '30px',
-        topDesk: '40px',
-        bottomDesk: '40px',
-      }}
-    >
-      <Container>
-        <Breadcrumb />
-        <BoxAboutUs>
-          <BoxContent>
-            <TitleH2 textAalign="left">О нас</TitleH2>
-            <Text>Мы любим все, что сделано из меди</Text>
-            <Signature>Иван Иванов</Signature>
-          </BoxContent>
-          <BoxImage>
-            <Image src={aboutUs} alt="About us" />
-          </BoxImage>
-        </BoxAboutUs>
-      </Container>
-    </Section>
-  );
-};
+import Breadcrumb from 'components/Breadcrumb';
+import Container from 'components/Container';
+import Section from 'components/Section';
+import TitleH2 from 'components/TitleH2';
 
-export default AboutUs;
+import { size } from 'styles/variables';
+
+import aboutUs from 'assets/about-us.png';
+import commaGroup from 'assets/icon-png/comma-group.png';
+import signature from 'assets/icon-png/signature.png';
 
 const BoxAboutUs = styled.div`
   ${size.min1024} {
@@ -235,3 +207,32 @@ const Image = styled.img`
     height: 650px;
   }
 `;
+
+const AboutUs: FC = () => (
+  <Section
+    color='#031412'
+    background='#f7f7f7'
+    padding={{
+      topMob: '30px',
+      bottomMob: '30px',
+      topDesk: '40px',
+      bottomDesk: '40px',
+    }}
+  >
+    <Container>
+      <Breadcrumb />
+      <BoxAboutUs>
+        <BoxContent>
+          <TitleH2 textAalign='left'>О нас</TitleH2>
+          <Text>Мы любим все, что сделано из меди</Text>
+          <Signature>Иван Иванов</Signature>
+        </BoxContent>
+        <BoxImage>
+          <Image src={aboutUs} alt='About us' />
+        </BoxImage>
+      </BoxAboutUs>
+    </Container>
+  </Section>
+);
+
+export default AboutUs;

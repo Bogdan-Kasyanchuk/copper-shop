@@ -1,35 +1,11 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Icon from '../Icon';
-import { IProductCardProps } from '../../interfaces';
-import { size } from '../../styles/variables';
 
-const ProductCard: FC<IProductCardProps> = ({ el }) => {
-  return (
-    <Item key={el.id}>
-      <BoxImage>
-        <img src={el.imgUrl} alt="News" />
-        {el.sale && <Sale>Sale</Sale>}
-        <Favorite favorite={el.favorite}>
-          <Icon
-            iconName={el.favorite ? 'heart-favorite' : 'heart'}
-            width="22px"
-            height="19px"
-          />
-        </Favorite>
-      </BoxImage>
-      <BoxContent>
-        <Title>{el.title}</Title>
-        <BoxPrice>
-          {el.oldPrice && <OldPrice>{el.oldPrice}</OldPrice>}
-          <Price oldPrice={el.oldPrice}>{el.price}</Price>
-        </BoxPrice>
-      </BoxContent>
-    </Item>
-  );
-};
+import Icon from 'components/Icon';
 
-export default ProductCard;
+import { size } from 'styles/variables';
+
+import { IProductCardProps } from 'interfaces';
 
 const Item = styled.li`
   &:not(:last-child) {
@@ -146,3 +122,26 @@ const OldPrice = styled.span`
     font-size: 20px;
   }
 `;
+
+const ProductCard: FC<IProductCardProps> = ({ el }) => {
+  return (
+    <Item key={el.id}>
+      <BoxImage>
+        <img src={el.imgUrl} alt='News' />
+        {el.sale && <Sale>Sale</Sale>}
+        <Favorite favorite={el.favorite}>
+          <Icon iconName={el.favorite ? 'heart-favorite' : 'heart'} width='22px' height='19px' />
+        </Favorite>
+      </BoxImage>
+      <BoxContent>
+        <Title>{el.title}</Title>
+        <BoxPrice>
+          {el.oldPrice && <OldPrice>{el.oldPrice}</OldPrice>}
+          <Price oldPrice={el.oldPrice}>{el.price}</Price>
+        </BoxPrice>
+      </BoxContent>
+    </Item>
+  );
+};
+
+export default ProductCard;

@@ -1,16 +1,18 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { ISocialLinkItemProps } from '../../interfaces';
+
+import { ISocialLinkItemProps } from 'interfaces';
+
+const Item = styled.li`
+  :not(:last-child) {
+    margin-right: 18px;
+  }
+`;
 
 const SocialLinkItem: FC<ISocialLinkItemProps> = ({ href, children }) => {
   return (
     <Item>
-      <a
-        className="social-link"
-        href={href}
-        target="_blank"
-        rel="noreferrer noopener"
-      >
+      <a className='social-link' href={href} target='_blank' rel='noreferrer noopener'>
         {children}
       </a>
     </Item>
@@ -18,9 +20,3 @@ const SocialLinkItem: FC<ISocialLinkItemProps> = ({ href, children }) => {
 };
 
 export default SocialLinkItem;
-
-const Item = styled.li`
-  :not(:last-child) {
-    margin-right: 18px;
-  }
-`;

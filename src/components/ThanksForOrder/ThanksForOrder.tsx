@@ -1,42 +1,13 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import ButtonText from '../ButtonText';
-import { size } from '../../styles/variables';
-import thanksForOrder from '../../assets/thanks-for-order.jpg';
 
-const ThanksForOrder: FC = () => {
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topDesk: '100px',
-        bottomDesk: '100px',
-      }}
-    >
-      <Container>
-        <BoxThanksForOrder>
-          <BoxImage>
-            <Image
-              src={thanksForOrder}
-              width="360px"
-              height="316px"
-              alt="Thanks for order"
-            />
-          </BoxImage>
-          <Title>Спасибо за заказ</Title>
-          <Text>Мы свяжемся с вами в ближайшее время</Text>
-          <ButtonText>Главная</ButtonText>
-        </BoxThanksForOrder>
-      </Container>
-    </Section>
-  );
-};
+import ButtonText from 'components/ButtonText';
+import Container from 'components/Container';
+import Section from 'components/Section';
 
-export default ThanksForOrder;
+import { size } from 'styles/variables';
+
+import thanksForOrder from 'assets/thanks-for-order.jpg';
 
 const BoxThanksForOrder = styled.div`
   ${size.tabletMin} {
@@ -96,3 +67,30 @@ const Text = styled.p`
     font-size: 27px;
   }
 `;
+
+const ThanksForOrder: FC = () => {
+  return (
+    <Section
+      color='#031412'
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topDesk: '100px',
+        bottomDesk: '100px',
+      }}
+    >
+      <Container>
+        <BoxThanksForOrder>
+          <BoxImage>
+            <Image src={thanksForOrder} width='360px' height='316px' alt='Thanks for order' />
+          </BoxImage>
+          <Title>Спасибо за заказ</Title>
+          <Text>Мы свяжемся с вами в ближайшее время</Text>
+          <ButtonText>Главная</ButtonText>
+        </BoxThanksForOrder>
+      </Container>
+    </Section>
+  );
+};
+
+export default ThanksForOrder;

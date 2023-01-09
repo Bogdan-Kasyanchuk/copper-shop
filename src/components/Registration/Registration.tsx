@@ -1,90 +1,13 @@
 import { FC, useState } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import ButtonText from '../ButtonText';
-import Icon from '../Icon';
-import { size } from '../../styles/variables';
 
-const Registration: FC = () => {
-  const [isHiddenPassword, setIsHiddenPassword] = useState<boolean>(true);
-  const [isHiddenConfirmPassword, setIsHiddenConfirmPassword] =
-    useState<boolean>(true);
+import ButtonText from 'components/ButtonText';
+import Container from 'components/Container';
+import Icon from 'components/Icon';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-  const toggleHiddenPassword = (): void => {
-    setIsHiddenPassword(!isHiddenPassword);
-  };
-
-  const toggleHiddenConfirmPassword = (): void => {
-    setIsHiddenConfirmPassword(!isHiddenConfirmPassword);
-  };
-
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topDesk: '100px',
-        bottomDesk: '100px',
-      }}
-    >
-      <Container>
-        <BoxRegistration>
-          <ButtonText>Назад на главную</ButtonText>
-          <TitleH3 textAalign="center">Регистрация</TitleH3>
-          <FormRegistration>
-            <Label htmlFor="inputEmailRegistration">Почта</Label>
-            <Input
-              type="email"
-              name="email"
-              placeholder="E-mail"
-              id="inputEmailRegistration"
-            />
-            <Label htmlFor="inputPasswordRegistration">Пароль</Label>
-            <BoxInput>
-              <Input
-                type={isHiddenPassword ? 'password' : 'text'}
-                name="password"
-                placeholder="Пароль"
-                id="inputPasswordRegistration"
-              />
-              <Icon
-                iconName={isHiddenPassword ? 'eye-hidden' : 'eye'}
-                width="18px"
-                height="18px"
-                handlerClick={toggleHiddenPassword}
-              />
-            </BoxInput>
-            <Label htmlFor="inputConfirmPasswordRegistration">Пароль</Label>
-            <BoxInput>
-              <Input
-                type={isHiddenConfirmPassword ? 'password' : 'text'}
-                name="confirmPassword"
-                placeholder="Повторите пароль"
-                id="inputConfirmPasswordRegistration"
-              />
-              <Icon
-                iconName={isHiddenConfirmPassword ? 'eye-hidden' : 'eye'}
-                width="18px"
-                height="18px"
-                handlerClick={toggleHiddenConfirmPassword}
-              />
-            </BoxInput>
-            <ButtonText>Регистрация</ButtonText>
-          </FormRegistration>
-          <ButtonLink>
-            <Text>Есть аккаунт?</Text>
-            <Text>Войти</Text>
-          </ButtonLink>
-        </BoxRegistration>
-      </Container>
-    </Section>
-  );
-};
-
-export default Registration;
+import { size } from 'styles/variables';
 
 const BoxRegistration = styled.div`
   & > button {
@@ -202,3 +125,76 @@ const Text = styled.span`
   font-size: 16px;
   line-height: 1;
 `;
+
+const Registration: FC = () => {
+  const [isHiddenPassword, setIsHiddenPassword] = useState<boolean>(true);
+  const [isHiddenConfirmPassword, setIsHiddenConfirmPassword] = useState<boolean>(true);
+
+  const toggleHiddenPassword = (): void => {
+    setIsHiddenPassword(!isHiddenPassword);
+  };
+
+  const toggleHiddenConfirmPassword = (): void => {
+    setIsHiddenConfirmPassword(!isHiddenConfirmPassword);
+  };
+
+  return (
+    <Section
+      color='#031412'
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topDesk: '100px',
+        bottomDesk: '100px',
+      }}
+    >
+      <Container>
+        <BoxRegistration>
+          <ButtonText>Назад на главную</ButtonText>
+          <TitleH3 textAalign='center'>Регистрация</TitleH3>
+          <FormRegistration>
+            <Label htmlFor='inputEmailRegistration'>Почта</Label>
+            <Input type='email' name='email' placeholder='E-mail' id='inputEmailRegistration' />
+            <Label htmlFor='inputPasswordRegistration'>Пароль</Label>
+            <BoxInput>
+              <Input
+                type={isHiddenPassword ? 'password' : 'text'}
+                name='password'
+                placeholder='Пароль'
+                id='inputPasswordRegistration'
+              />
+              <Icon
+                iconName={isHiddenPassword ? 'eye-hidden' : 'eye'}
+                width='18px'
+                height='18px'
+                handlerClick={toggleHiddenPassword}
+              />
+            </BoxInput>
+            <Label htmlFor='inputConfirmPasswordRegistration'>Пароль</Label>
+            <BoxInput>
+              <Input
+                type={isHiddenConfirmPassword ? 'password' : 'text'}
+                name='confirmPassword'
+                placeholder='Повторите пароль'
+                id='inputConfirmPasswordRegistration'
+              />
+              <Icon
+                iconName={isHiddenConfirmPassword ? 'eye-hidden' : 'eye'}
+                width='18px'
+                height='18px'
+                handlerClick={toggleHiddenConfirmPassword}
+              />
+            </BoxInput>
+            <ButtonText>Регистрация</ButtonText>
+          </FormRegistration>
+          <ButtonLink>
+            <Text>Есть аккаунт?</Text>
+            <Text>Войти</Text>
+          </ButtonLink>
+        </BoxRegistration>
+      </Container>
+    </Section>
+  );
+};
+
+export default Registration;

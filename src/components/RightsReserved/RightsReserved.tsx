@@ -1,16 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { size } from '../../styles/variables';
 
-const RightsReserved: FC = () => {
-  return (
-    <Text className="rights-reserved">
-      © 2022 “Copper Pro” Все права защищенны
-    </Text>
-  );
-};
-
-export default RightsReserved;
+import { size } from 'styles/variables';
 
 const Text = styled.p`
   font-weight: 400;
@@ -22,3 +13,9 @@ const Text = styled.p`
     font-size: 14px;
   }
 `;
+
+const RightsReserved: FC = () => {
+  return <Text className='rights-reserved'>© 2022 “Copper Pro” Все права защищенны</Text>;
+};
+
+export default RightsReserved;

@@ -1,4 +1,4 @@
-import { TChildren } from '../types';
+import { TChildren } from 'types';
 
 export interface ISliderProps {
   children: TChildren['children'];
