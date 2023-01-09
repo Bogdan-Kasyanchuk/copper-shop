@@ -1,80 +1,14 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import Logo from '../Logo';
-import RightsReserved from '../RightsReserved';
-import SocialLinkList from '../SocialLinkList';
-import ButtonUp from '../ButtonUp';
-import { size } from '../../styles/variables';
 
-const FooterMain: FC = () => {
-  return (
-    <Section
-      color="#fff"
-      background="linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topTab: '80px',
-        bottomTab: '80px',
-      }}
-    >
-      <Container>
-        <BoxFooter>
-          <BoxLogo>
-            <Logo width="175" height="70" />
-            <RightsReserved />
-            <TextPolitics>Политика конфиденциальности</TextPolitics>
-          </BoxLogo>
-          <BoxList>
-            <ListNav>
-              <Item>Навигация</Item>
-              <Item>Каталог</Item>
-              <Item>Новости</Item>
-              <Item>Доставка</Item>
-              <Item>О нас</Item>
-              <Item>Контакты</Item>
-            </ListNav>
-            <ListCat>
-              <Item>Каталог</Item>
-              <Item>Для эфирных масел</Item>
-              <Item>Для гидролатов</Item>
-              <Item>Медная посуда</Item>
-              <Item>Аксессуары из меди</Item>
-              <Item>Индивидуальный заказ</Item>
-              <Item>Скидки и предложения</Item>
-            </ListCat>
-            <BoxListContacts>
-              <ListContacts>
-                <Item>Контакты</Item>
-                <Item>
-                  <a
-                    href="https://goo.gl/maps/iQ1fi4EBQ65hfGRz9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Бажана 8-Б, Киев, 02132 Украина
-                  </a>
-                </Item>
-                <Item>
-                  <a href="tel:+380123456789">+38 (012) 345 67 89</a>
-                </Item>
-                <Item>
-                  <a href="mailto:ex.example@gmail.com">ex.example@gmail.com</a>
-                </Item>
-              </ListContacts>
-              <SocialLinkList />
-            </BoxListContacts>
-          </BoxList>
-        </BoxFooter>
-      </Container>
-      <ButtonUp />
-    </Section>
-  );
-};
+import ButtonUp from 'components/ButtonUp';
+import Container from 'components/Container';
+import Logo from 'components/Logo';
+import RightsReserved from 'components/RightsReserved';
+import Section from 'components/Section';
+import SocialLinkList from 'components/SocialLinkList';
 
-export default FooterMain;
+import { size } from 'styles/variables';
 
 const BoxFooter = styled.div`
   ${size.tabletMin} {
@@ -195,3 +129,71 @@ const Item = styled.li`
     }
   }
 `;
+
+const FooterMain: FC = () => {
+  return (
+    <Section
+      color='#fff'
+      background='linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)'
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topTab: '80px',
+        bottomTab: '80px',
+      }}
+    >
+      <Container>
+        <BoxFooter>
+          <BoxLogo>
+            <Logo width='175' height='70' />
+            <RightsReserved />
+            <TextPolitics>Политика конфиденциальности</TextPolitics>
+          </BoxLogo>
+          <BoxList>
+            <ListNav>
+              <Item>Навигация</Item>
+              <Item>Каталог</Item>
+              <Item>Новости</Item>
+              <Item>Доставка</Item>
+              <Item>О нас</Item>
+              <Item>Контакты</Item>
+            </ListNav>
+            <ListCat>
+              <Item>Каталог</Item>
+              <Item>Для эфирных масел</Item>
+              <Item>Для гидролатов</Item>
+              <Item>Медная посуда</Item>
+              <Item>Аксессуары из меди</Item>
+              <Item>Индивидуальный заказ</Item>
+              <Item>Скидки и предложения</Item>
+            </ListCat>
+            <BoxListContacts>
+              <ListContacts>
+                <Item>Контакты</Item>
+                <Item>
+                  <a
+                    href='https://goo.gl/maps/iQ1fi4EBQ65hfGRz9'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    Бажана 8-Б, Киев, 02132 Украина
+                  </a>
+                </Item>
+                <Item>
+                  <a href='tel:+380123456789'>+38 (012) 345 67 89</a>
+                </Item>
+                <Item>
+                  <a href='mailto:ex.example@gmail.com'>ex.example@gmail.com</a>
+                </Item>
+              </ListContacts>
+              <SocialLinkList />
+            </BoxListContacts>
+          </BoxList>
+        </BoxFooter>
+      </Container>
+      <ButtonUp />
+    </Section>
+  );
+};
+
+export default FooterMain;

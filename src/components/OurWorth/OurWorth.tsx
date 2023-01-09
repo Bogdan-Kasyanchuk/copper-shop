@@ -1,49 +1,16 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import { size } from '../../styles/variables';
-import ourWorth from '../../assets/our-worth.jpg';
-import efficiency from '../../assets/icon-png/efficiency.png';
-import quality from '../../assets/icon-png/quality.png';
-import flexibility from '../../assets/icon-png/flexibility.png';
 
-const OurWorth: FC = () => {
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topTab: '80px',
-        bottomTab: '80px',
-      }}
-    >
-      <Container>
-        <BoxOurWorth>
-          <BoxImage>
-            <TitleImage>Copper Pro</TitleImage>
-          </BoxImage>
-          <BoxContent>
-            <TitleH3>Наши ценности</TitleH3>
-            <Text>
-              Наше производство находится в Украине, но клиенты из более чем 50
-              стран радуются товарам, приобретенным в нашем магазине.
-            </Text>
-            <List>
-              <Item>Оперативность</Item>
-              <Item>Качественный товар и сервис</Item>
-              <Item>Гибкость</Item>
-            </List>
-          </BoxContent>
-        </BoxOurWorth>
-      </Container>
-    </Section>
-  );
-};
+import Container from 'components/Container';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-export default OurWorth;
+import { size } from 'styles/variables';
+
+import efficiency from 'assets/icon-png/efficiency.png';
+import flexibility from 'assets/icon-png/flexibility.png';
+import quality from 'assets/icon-png/quality.png';
+import ourWorth from 'assets/our-worth.jpg';
 
 const BoxOurWorth = styled.div`
   ${size.tabletMin} {
@@ -186,3 +153,39 @@ const Item = styled.li`
     font-size: 25px;
   }
 `;
+
+const OurWorth: FC = () => {
+  return (
+    <Section
+      color='#031412'
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topTab: '80px',
+        bottomTab: '80px',
+      }}
+    >
+      <Container>
+        <BoxOurWorth>
+          <BoxImage>
+            <TitleImage>Copper Pro</TitleImage>
+          </BoxImage>
+          <BoxContent>
+            <TitleH3>Наши ценности</TitleH3>
+            <Text>
+              Наше производство находится в Украине, но клиенты из более чем 50 стран радуются
+              товарам, приобретенным в нашем магазине.
+            </Text>
+            <List>
+              <Item>Оперативность</Item>
+              <Item>Качественный товар и сервис</Item>
+              <Item>Гибкость</Item>
+            </List>
+          </BoxContent>
+        </BoxOurWorth>
+      </Container>
+    </Section>
+  );
+};
+
+export default OurWorth;

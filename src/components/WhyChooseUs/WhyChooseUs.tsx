@@ -1,64 +1,15 @@
 import { FC, useState } from 'react';
 import styled, { css } from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import Icon from '../Icon';
-import ReadMore from '../ReadMore';
-import { size } from '../../styles/variables';
-import { whyChooseUs } from '../../data/whyChooseUs';
 
-const WhyChooseUs: FC = () => {
-  const [isTruncated, setIsTruncated] = useState<boolean>(true);
-  const [index, setIndex] = useState<string>('');
+import Container from 'components/Container';
+import Icon from 'components/Icon';
+import ReadMore from 'components/ReadMore';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-  const toggleReadMore = (id: string): void => {
-    if (index === id) {
-      setIsTruncated(!isTruncated);
-      return;
-    }
-    setIsTruncated(false);
-    setIndex(id);
-  };
+import { size } from 'styles/variables';
 
-  return (
-    <Section
-      color="#031412"
-      background="#f7f7f7"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topTab: '80px',
-        bottomTab: '80px',
-      }}
-    >
-      <Container>
-        <TitleH3 textAalign="center">Почему выбирают нас</TitleH3>
-        <List>
-          {whyChooseUs.map(el => (
-            <Item key={el.id}>
-              <BoxIcon>
-                <Icon iconName={el.iconName} />
-              </BoxIcon>
-              <ListDesc>
-                <ItemDesc>{el.title}</ItemDesc>
-                <Desc isTruncated={isTruncated || el.id !== index}>
-                  {el.desc}
-                </Desc>
-              </ListDesc>
-              <ReadMore
-                handlerButton={() => toggleReadMore(el.id)}
-                iconRotate={isTruncated || el.id !== index}
-              />
-            </Item>
-          ))}
-        </List>
-      </Container>
-    </Section>
-  );
-};
-
-export default WhyChooseUs;
+import { whyChooseUs } from 'data/whyChooseUs';
 
 const List = styled.ul`
   display: flex;
@@ -155,3 +106,53 @@ const Desc = styled.dd<{ isTruncated: boolean }>`
     font-size: 14px;
   }
 `;
+
+const WhyChooseUs: FC = () => {
+  const [isTruncated, setIsTruncated] = useState<boolean>(true);
+  const [index, setIndex] = useState<string>('');
+
+  const toggleReadMore = (id: string): void => {
+    if (index === id) {
+      setIsTruncated(!isTruncated);
+      return;
+    }
+    setIsTruncated(false);
+    setIndex(id);
+  };
+
+  return (
+    <Section
+      color='#031412'
+      background='#f7f7f7'
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topTab: '80px',
+        bottomTab: '80px',
+      }}
+    >
+      <Container>
+        <TitleH3 textAalign='center'>Почему выбирают нас</TitleH3>
+        <List>
+          {whyChooseUs.map((el) => (
+            <Item key={el.id}>
+              <BoxIcon>
+                <Icon iconName={el.iconName} />
+              </BoxIcon>
+              <ListDesc>
+                <ItemDesc>{el.title}</ItemDesc>
+                <Desc isTruncated={isTruncated || el.id !== index}>{el.desc}</Desc>
+              </ListDesc>
+              <ReadMore
+                handlerButton={() => toggleReadMore(el.id)}
+                iconRotate={isTruncated || el.id !== index}
+              />
+            </Item>
+          ))}
+        </List>
+      </Container>
+    </Section>
+  );
+};
+
+export default WhyChooseUs;

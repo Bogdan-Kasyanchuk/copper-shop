@@ -1,256 +1,17 @@
 import { FC, useState } from 'react';
 import styled, { css } from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import ButtonText from '../ButtonText';
-import TitleH3 from '../TitleH3';
-import OrderBasket from '../OrderBasket';
-import { size } from '../../styles/variables';
-import avatarUser from '../../assets/avatar-user.jpg';
-import avatarNotUser from '../../assets/avatar-not-user.jpg';
-import basket from '../../assets/icon-png/user.png';
 
-const Order: FC = () => {
-  const [checkDelivery, setCheckDelivery] = useState<string>('pickupDelivery');
-  const [checkPayment, setCheckPayment] =
-    useState<string>('uponReceiptPayment');
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topDesk: '80px',
-        bottomDesk: '80px',
-      }}
-    >
-      <Container>
-        <Header>
-          <ButtonText>Назад к покупкам</ButtonText>
-          <TitleH3 textAalign="center">Оформить заказ</TitleH3>
-        </Header>
-        <BoxOrder>
-          <Main>
-            <BoxUser>
-              <Avatar src={avatarUser} width="60" height="60"></Avatar>
-              <BoxText>
-                <UserTitle>Добрый день, Иван Иванов</UserTitle>
-                <UserSubtitle>Приятных вам покупок!</UserSubtitle>
-              </BoxText>
-            </BoxUser>
-            <BoxNotUser>
-              <Avatar src={avatarNotUser} width="60" height="60"></Avatar>
-              <BoxText>
-                <UserTitle>
-                  Уже есть аккаунт или хотите зарегистрироваться?
-                </UserTitle>
-                <UserSubtitle>
-                  Войдите в кабинет и получите скидку!
-                </UserSubtitle>
-              </BoxText>
-              <BoxButton>
-                <ButtonText>Войти</ButtonText>
-                <ButtonText>Регистрация</ButtonText>
-              </BoxButton>
-            </BoxNotUser>
-            <List>
-              <Item>
-                <ItemTitle> Личные данные</ItemTitle>
-                <FormPersonalData>
-                  <Label htmlFor="inputNamePersonalData">Имя</Label>
-                  <Input
-                    type="text"
-                    name="name"
-                    placeholder="Имя"
-                    id="inputNamePersonalData"
-                  />
-                  <Label htmlFor="inputSurNamePersonalData">Фамилия</Label>
-                  <Input
-                    type="text"
-                    name="surname"
-                    placeholder="Фамилия"
-                    id="inputSurNamePersonalData"
-                  />
-                  <Label htmlFor="inputPhonePersonalData">Телефон</Label>
-                  <Input
-                    type="tel"
-                    name="phone"
-                    placeholder="Телефон"
-                    id="inputPhonePersonalData"
-                  />
-                  <Label htmlFor="inputCountryPersonalData">Страна</Label>
-                  <Input
-                    type="text"
-                    name="country"
-                    placeholder="Страна"
-                    id="inputCountryPersonalData"
-                  />
+import ButtonText from 'components/ButtonText';
+import Container from 'components/Container';
+import OrderBasket from 'components/OrderBasket';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-                  <Label htmlFor="inputEmailPersonalData">Почта</Label>
-                  <Input
-                    type="email"
-                    name="email"
-                    placeholder="E-mail"
-                    id="inputEmailPersonalData"
-                  />
-                  <Label htmlFor="inputCityPersonalData">Город</Label>
-                  <Input
-                    type="text"
-                    name="city"
-                    placeholder="Город"
-                    id="inputCityPersonalData"
-                  />
-                </FormPersonalData>
-              </Item>
-              <Item>
-                <ItemTitle>Доставка</ItemTitle>
-                <form>
-                  <BoxInputCheckbox>
-                    <SpanInput checkedType={checkDelivery === 'pickupDelivery'}>
-                      <InputCheckbox
-                        type="radio"
-                        name="delivery"
-                        checked={checkDelivery === 'pickupDelivery'}
-                        value="pickupDelivery"
-                        id="inputPickupDelivery"
-                        onChange={e => setCheckDelivery(e.target.value)}
-                      />
-                      <SpanCheckbox
-                        checkedType={checkDelivery === 'pickupDelivery'}
-                      ></SpanCheckbox>
-                    </SpanInput>
-                    <LabelCheckbox
-                      checkedType={checkDelivery === 'pickupDelivery'}
-                      htmlFor="inputPickupDelivery"
-                    >
-                      Самовывоз
-                    </LabelCheckbox>
-                    <InputCheckboxText>
-                      Вы можете забрать из нашего официального магазина по
-                      адресу Бажана 8-Б, Киев, 02132 Украина
-                    </InputCheckboxText>
-                  </BoxInputCheckbox>
-                  <BoxInputCheckbox>
-                    <SpanInput
-                      checkedType={checkDelivery === 'newPoshtaDelivery'}
-                    >
-                      <InputCheckbox
-                        type="radio"
-                        name="delivery"
-                        checked={checkDelivery === 'newPoshtaDelivery'}
-                        value="newPoshtaDelivery"
-                        id="inputNewPoshtaDelivery"
-                        onChange={e => setCheckDelivery(e.target.value)}
-                      />
-                      <SpanCheckbox
-                        checkedType={checkDelivery === 'newPoshtaDelivery'}
-                      ></SpanCheckbox>
-                    </SpanInput>
-                    <LabelCheckbox
-                      checkedType={checkDelivery === 'newPoshtaDelivery'}
-                      htmlFor="inputNewPoshtaDelivery"
-                    >
-                      Новая почта
-                    </LabelCheckbox>
-                    <InputCheckboxText>
-                      Вы можете забрать из нашего официального магазина по
-                      адресу Бажана 8-Б, Киев, 02132 Украина
-                    </InputCheckboxText>
-                  </BoxInputCheckbox>
-                  <BoxInputCheckbox>
-                    <SpanInput
-                      checkedType={checkDelivery === 'courierNewPoshtaDelivery'}
-                    >
-                      <InputCheckbox
-                        type="radio"
-                        name="delivery"
-                        checked={checkDelivery === 'courierNewPoshtaDelivery'}
-                        value="courierNewPoshtaDelivery"
-                        id="inputCourierNewPoshtaDelivery"
-                        onChange={e => setCheckDelivery(e.target.value)}
-                      />
-                      <SpanCheckbox
-                        checkedType={
-                          checkDelivery === 'courierNewPoshtaDelivery'
-                        }
-                      ></SpanCheckbox>
-                    </SpanInput>
-                    <LabelCheckbox
-                      checkedType={checkDelivery === 'courierNewPoshtaDelivery'}
-                      htmlFor="inputCourierNewPoshtaDelivery"
-                    >
-                      Курьер “Новая почта”
-                    </LabelCheckbox>
-                    <InputCheckboxText>
-                      Вы можете забрать из нашего официального магазина по
-                      адресу Бажана 8-Б, Киев, 02132 Украина
-                    </InputCheckboxText>
-                  </BoxInputCheckbox>
-                </form>
-              </Item>
-              <Item>
-                <ItemTitle>Оплата</ItemTitle>
-                <form>
-                  <BoxInputCheckbox>
-                    <SpanInput
-                      checkedType={checkPayment === 'uponReceiptPayment'}
-                    >
-                      <InputCheckbox
-                        type="radio"
-                        name="payment"
-                        checked={checkPayment === 'uponReceiptPayment'}
-                        value="uponReceiptPayment"
-                        id="inputUponReceiptPayment"
-                        onChange={e => setCheckPayment(e.target.value)}
-                      />
-                      <SpanCheckbox
-                        checkedType={checkPayment === 'uponReceiptPayment'}
-                      ></SpanCheckbox>
-                    </SpanInput>
-                    <LabelCheckbox
-                      checkedType={checkPayment === 'uponReceiptPayment'}
-                      htmlFor="inputUponReceiptPayment"
-                    >
-                      При получении
-                    </LabelCheckbox>
-                  </BoxInputCheckbox>
-                  <BoxInputCheckbox>
-                    <SpanInput
-                      checkedType={checkPayment === 'onlineCardPayment'}
-                    >
-                      <InputCheckbox
-                        type="radio"
-                        name="payment"
-                        checked={checkPayment === 'onlineCardPayment'}
-                        value="onlineCardPayment"
-                        id="inputOnlineCardPayment"
-                        onChange={e => setCheckPayment(e.target.value)}
-                      />
-                      <SpanCheckbox
-                        checkedType={checkPayment === 'onlineCardPayment'}
-                      ></SpanCheckbox>
-                    </SpanInput>
-                    <LabelCheckbox
-                      checkedType={checkPayment === 'onlineCardPayment'}
-                      htmlFor="inputOnlineCardPayment"
-                    >
-                      Онлайн-оплата картой
-                    </LabelCheckbox>
-                  </BoxInputCheckbox>
-                </form>
-              </Item>
-            </List>
-          </Main>
-          <Footer>
-            <OrderBasket />
-          </Footer>
-        </BoxOrder>
-      </Container>
-    </Section>
-  );
-};
+import { size } from 'styles/variables';
 
-export default Order;
+import avatarNotUser from 'assets/avatar-not-user.jpg';
+import avatarUser from 'assets/avatar-user.jpg';
+import basket from 'assets/icon-png/user.png';
 
 const Header = styled.div`
   ${size.min1024} {
@@ -638,3 +399,210 @@ const Footer = styled.div`
     flex-basis: calc(100% - 30px - 924px);
   }
 `;
+
+const Order: FC = () => {
+  const [checkDelivery, setCheckDelivery] = useState<string>('pickupDelivery');
+  const [checkPayment, setCheckPayment] = useState<string>('uponReceiptPayment');
+  return (
+    <Section
+      color='#031412'
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topDesk: '80px',
+        bottomDesk: '80px',
+      }}
+    >
+      <Container>
+        <Header>
+          <ButtonText>Назад к покупкам</ButtonText>
+          <TitleH3 textAalign='center'>Оформить заказ</TitleH3>
+        </Header>
+        <BoxOrder>
+          <Main>
+            <BoxUser>
+              <Avatar src={avatarUser} width='60' height='60' />
+              <BoxText>
+                <UserTitle>Добрый день, Иван Иванов</UserTitle>
+                <UserSubtitle>Приятных вам покупок!</UserSubtitle>
+              </BoxText>
+            </BoxUser>
+            <BoxNotUser>
+              <Avatar src={avatarNotUser} width='60' height='60' />
+              <BoxText>
+                <UserTitle>Уже есть аккаунт или хотите зарегистрироваться?</UserTitle>
+                <UserSubtitle>Войдите в кабинет и получите скидку!</UserSubtitle>
+              </BoxText>
+              <BoxButton>
+                <ButtonText>Войти</ButtonText>
+                <ButtonText>Регистрация</ButtonText>
+              </BoxButton>
+            </BoxNotUser>
+            <List>
+              <Item>
+                <ItemTitle> Личные данные</ItemTitle>
+                <FormPersonalData>
+                  <Label htmlFor='inputNamePersonalData'>Имя</Label>
+                  <Input type='text' name='name' placeholder='Имя' id='inputNamePersonalData' />
+                  <Label htmlFor='inputSurNamePersonalData'>Фамилия</Label>
+                  <Input
+                    type='text'
+                    name='surname'
+                    placeholder='Фамилия'
+                    id='inputSurNamePersonalData'
+                  />
+                  <Label htmlFor='inputPhonePersonalData'>Телефон</Label>
+                  <Input
+                    type='tel'
+                    name='phone'
+                    placeholder='Телефон'
+                    id='inputPhonePersonalData'
+                  />
+                  <Label htmlFor='inputCountryPersonalData'>Страна</Label>
+                  <Input
+                    type='text'
+                    name='country'
+                    placeholder='Страна'
+                    id='inputCountryPersonalData'
+                  />
+
+                  <Label htmlFor='inputEmailPersonalData'>Почта</Label>
+                  <Input
+                    type='email'
+                    name='email'
+                    placeholder='E-mail'
+                    id='inputEmailPersonalData'
+                  />
+                  <Label htmlFor='inputCityPersonalData'>Город</Label>
+                  <Input type='text' name='city' placeholder='Город' id='inputCityPersonalData' />
+                </FormPersonalData>
+              </Item>
+              <Item>
+                <ItemTitle>Доставка</ItemTitle>
+                <form>
+                  <BoxInputCheckbox>
+                    <SpanInput checkedType={checkDelivery === 'pickupDelivery'}>
+                      <InputCheckbox
+                        type='radio'
+                        name='delivery'
+                        checked={checkDelivery === 'pickupDelivery'}
+                        value='pickupDelivery'
+                        id='inputPickupDelivery'
+                        onChange={(e) => setCheckDelivery(e.target.value)}
+                      />
+                      <SpanCheckbox checkedType={checkDelivery === 'pickupDelivery'} />
+                    </SpanInput>
+                    <LabelCheckbox
+                      checkedType={checkDelivery === 'pickupDelivery'}
+                      htmlFor='inputPickupDelivery'
+                    >
+                      Самовывоз
+                    </LabelCheckbox>
+                    <InputCheckboxText>
+                      Вы можете забрать из нашего официального магазина по адресу Бажана 8-Б, Киев,
+                      02132 Украина
+                    </InputCheckboxText>
+                  </BoxInputCheckbox>
+                  <BoxInputCheckbox>
+                    <SpanInput checkedType={checkDelivery === 'newPoshtaDelivery'}>
+                      <InputCheckbox
+                        type='radio'
+                        name='delivery'
+                        checked={checkDelivery === 'newPoshtaDelivery'}
+                        value='newPoshtaDelivery'
+                        id='inputNewPoshtaDelivery'
+                        onChange={(e) => setCheckDelivery(e.target.value)}
+                      />
+                      <SpanCheckbox checkedType={checkDelivery === 'newPoshtaDelivery'} />
+                    </SpanInput>
+                    <LabelCheckbox
+                      checkedType={checkDelivery === 'newPoshtaDelivery'}
+                      htmlFor='inputNewPoshtaDelivery'
+                    >
+                      Новая почта
+                    </LabelCheckbox>
+                    <InputCheckboxText>
+                      Вы можете забрать из нашего официального магазина по адресу Бажана 8-Б, Киев,
+                      02132 Украина
+                    </InputCheckboxText>
+                  </BoxInputCheckbox>
+                  <BoxInputCheckbox>
+                    <SpanInput checkedType={checkDelivery === 'courierNewPoshtaDelivery'}>
+                      <InputCheckbox
+                        type='radio'
+                        name='delivery'
+                        checked={checkDelivery === 'courierNewPoshtaDelivery'}
+                        value='courierNewPoshtaDelivery'
+                        id='inputCourierNewPoshtaDelivery'
+                        onChange={(e) => setCheckDelivery(e.target.value)}
+                      />
+                      <SpanCheckbox checkedType={checkDelivery === 'courierNewPoshtaDelivery'} />
+                    </SpanInput>
+                    <LabelCheckbox
+                      checkedType={checkDelivery === 'courierNewPoshtaDelivery'}
+                      htmlFor='inputCourierNewPoshtaDelivery'
+                    >
+                      Курьер “Новая почта”
+                    </LabelCheckbox>
+                    <InputCheckboxText>
+                      Вы можете забрать из нашего официального магазина по адресу Бажана 8-Б, Киев,
+                      02132 Украина
+                    </InputCheckboxText>
+                  </BoxInputCheckbox>
+                </form>
+              </Item>
+              <Item>
+                <ItemTitle>Оплата</ItemTitle>
+                <form>
+                  <BoxInputCheckbox>
+                    <SpanInput checkedType={checkPayment === 'uponReceiptPayment'}>
+                      <InputCheckbox
+                        type='radio'
+                        name='payment'
+                        checked={checkPayment === 'uponReceiptPayment'}
+                        value='uponReceiptPayment'
+                        id='inputUponReceiptPayment'
+                        onChange={(e) => setCheckPayment(e.target.value)}
+                      />
+                      <SpanCheckbox checkedType={checkPayment === 'uponReceiptPayment'} />
+                    </SpanInput>
+                    <LabelCheckbox
+                      checkedType={checkPayment === 'uponReceiptPayment'}
+                      htmlFor='inputUponReceiptPayment'
+                    >
+                      При получении
+                    </LabelCheckbox>
+                  </BoxInputCheckbox>
+                  <BoxInputCheckbox>
+                    <SpanInput checkedType={checkPayment === 'onlineCardPayment'}>
+                      <InputCheckbox
+                        type='radio'
+                        name='payment'
+                        checked={checkPayment === 'onlineCardPayment'}
+                        value='onlineCardPayment'
+                        id='inputOnlineCardPayment'
+                        onChange={(e) => setCheckPayment(e.target.value)}
+                      />
+                      <SpanCheckbox checkedType={checkPayment === 'onlineCardPayment'} />
+                    </SpanInput>
+                    <LabelCheckbox
+                      checkedType={checkPayment === 'onlineCardPayment'}
+                      htmlFor='inputOnlineCardPayment'
+                    >
+                      Онлайн-оплата картой
+                    </LabelCheckbox>
+                  </BoxInputCheckbox>
+                </form>
+              </Item>
+            </List>
+          </Main>
+          <Footer>
+            <OrderBasket />
+          </Footer>
+        </BoxOrder>
+      </Container>
+    </Section>
+  );
+};
+
+export default Order;

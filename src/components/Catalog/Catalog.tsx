@@ -1,54 +1,19 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import Breadcrumb from '../Breadcrumb';
-import TitleH3 from '../TitleH3';
-import CatalogCard from '../CatalogCard';
-import ProductSearch from '../ProductSearch';
-import ProductSort from '../ProductSort';
-import ProductCard from '../ProductCard';
-import { size } from '../../styles/variables';
-import { catalog } from '../../data/catalog';
-import { products } from '../../data/products';
 
-const Catalog: FC = () => {
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '30px',
-        bottomMob: '40px',
-        topDesk: '40px',
-        bottomTab: '80px',
-      }}
-    >
-      <Container>
-        <Breadcrumb />
-        <TitleH3 textAalign="left">Каталог</TitleH3>
-        <BoxListCatalog>
-          <ListCatalog>
-            {catalog.map(el => (
-              <CatalogCard key={el.id} el={el} />
-            ))}
-          </ListCatalog>
-        </BoxListCatalog>
-        <BoxProductSearch>
-          <ProductSearch />
-          <ProductSort />
-        </BoxProductSearch>
-        <ListProducts>
-          {products.map(el => (
-            <ProductCard key={el.id} el={el} />
-          ))}
-        </ListProducts>
-        <Pagination>Пагинация</Pagination>
-      </Container>
-    </Section>
-  );
-};
+import Breadcrumb from 'components/Breadcrumb';
+import CatalogCard from 'components/CatalogCard';
+import Container from 'components/Container';
+import ProductCard from 'components/ProductCard';
+import ProductSearch from 'components/ProductSearch';
+import ProductSort from 'components/ProductSort';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-export default Catalog;
+import { size } from 'styles/variables';
+
+import { catalog } from 'data/catalog';
+import { products } from 'data/products';
 
 const BoxListCatalog = styled.div`
   margin-bottom: 15px;
@@ -119,3 +84,41 @@ const Pagination = styled.div`
   height: 50px;
   background-color: #f3d0d0;
 `;
+
+const Catalog: FC = () => {
+  return (
+    <Section
+      color='#031412'
+      padding={{
+        topMob: '30px',
+        bottomMob: '40px',
+        topDesk: '40px',
+        bottomTab: '80px',
+      }}
+    >
+      <Container>
+        <Breadcrumb />
+        <TitleH3 textAalign='left'>Каталог</TitleH3>
+        <BoxListCatalog>
+          <ListCatalog>
+            {catalog.map((el) => (
+              <CatalogCard key={el.id} el={el} />
+            ))}
+          </ListCatalog>
+        </BoxListCatalog>
+        <BoxProductSearch>
+          <ProductSearch />
+          <ProductSort />
+        </BoxProductSearch>
+        <ListProducts>
+          {products.map((el) => (
+            <ProductCard key={el.id} el={el} />
+          ))}
+        </ListProducts>
+        <Pagination>Пагинация</Pagination>
+      </Container>
+    </Section>
+  );
+};
+
+export default Catalog;

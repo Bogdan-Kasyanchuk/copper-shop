@@ -1,23 +1,11 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { IReviewCardProps } from '../../interfaces';
-import { size } from '../../styles/variables';
-import reviews from '../../assets/icon-png/reviews.png';
 
-const ReviewCard: FC<IReviewCardProps> = ({ el }) => {
-  return (
-    <Item key={el.id}>
-      <BoxImage>
-        <img src={el.imgUrl} alt="Reviev" />
-      </BoxImage>
-      <Title>{el.title}</Title>
-      <Desc>{el.desc}</Desc>
-      <Date>{el.date}</Date>
-    </Item>
-  );
-};
+import { size } from 'styles/variables';
 
-export default ReviewCard;
+import reviews from 'assets/icon-png/reviews.png';
+
+import { IReviewCardProps } from 'interfaces';
 
 const Item = styled.li`
   position: relative;
@@ -70,3 +58,18 @@ const Date = styled.time`
   font-size: 14px;
   line-height: 1.3;
 `;
+
+const ReviewCard: FC<IReviewCardProps> = ({ el }) => {
+  return (
+    <Item key={el.id}>
+      <BoxImage>
+        <img src={el.imgUrl} alt='Reviev' />
+      </BoxImage>
+      <Title>{el.title}</Title>
+      <Desc>{el.desc}</Desc>
+      <Date>{el.date}</Date>
+    </Item>
+  );
+};
+
+export default ReviewCard;

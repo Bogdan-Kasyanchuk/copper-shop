@@ -1,22 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Icon from '../Icon';
-import { IReadMoreProps } from '../../interfaces';
 
-const ReadMore: FC<IReadMoreProps> = ({ handlerButton, iconRotate }) => {
-  return (
-    <Button
-      type="button"
-      onClick={handlerButton}
-      iconRotate={iconRotate as boolean}
-    >
-      <Text>Читать больше</Text>
-      <Icon iconName="arrow" width="6px" height="9px" />
-    </Button>
-  );
-};
+import Icon from 'components/Icon';
 
-export default ReadMore;
+import { IReadMoreProps } from 'interfaces';
 
 const Button = styled.button<{ iconRotate: boolean }>`
   display: flex;
@@ -25,8 +12,7 @@ const Button = styled.button<{ iconRotate: boolean }>`
   background-color: transparent;
 
   .icon {
-    transform: ${({ iconRotate }) =>
-      iconRotate ? 'rotate(90deg)' : 'rotate(-90deg)'};
+    transform: ${({ iconRotate }) => (iconRotate ? 'rotate(90deg)' : 'rotate(-90deg)')};
   }
 `;
 
@@ -40,3 +26,14 @@ const Text = styled.span`
   -webkit-text-fill-color: transparent;
   background-clip: text;
 `;
+
+const ReadMore: FC<IReadMoreProps> = ({ handlerButton, iconRotate }) => {
+  return (
+    <Button type='button' onClick={handlerButton} iconRotate={iconRotate as boolean}>
+      <Text>Читать больше</Text>
+      <Icon iconName='arrow' width='6px' height='9px' />
+    </Button>
+  );
+};
+
+export default ReadMore;

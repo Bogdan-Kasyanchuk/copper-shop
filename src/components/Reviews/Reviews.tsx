@@ -1,44 +1,17 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import { SwiperSlide } from 'swiper/react';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import ButtonText from '../ButtonText';
-import Slider from '../Slider';
-import ReviewCard from '../ReviewCard';
-import { size } from '../../styles/variables';
-import { whatThinkUs } from '../../data/whatThinkUs';
 
-const Reviews: FC = () => {
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topTab: '80px',
-        bottomTab: '80px',
-      }}
-    >
-      <Container>
-        <BoxTitle>
-          <TitleH3 textAalign="left">Отзывы</TitleH3>
-          <ButtonText>Перейти в каталог</ButtonText>
-        </BoxTitle>
-        <Slider>
-          {whatThinkUs.map(el => (
-            <SwiperSlide key={el.id}>
-              <ReviewCard el={el} />
-            </SwiperSlide>
-          ))}
-        </Slider>
-      </Container>
-    </Section>
-  );
-};
+import ButtonText from 'components/ButtonText';
+import Container from 'components/Container';
+import ReviewCard from 'components/ReviewCard';
+import Section from 'components/Section';
+import Slider from 'components/Slider';
+import TitleH3 from 'components/TitleH3';
 
-export default Reviews;
+import { size } from 'styles/variables';
+
+import { whatThinkUs } from 'data/whatThinkUs';
 
 const BoxTitle = styled.div`
   ${size.mobileMax} {
@@ -72,3 +45,33 @@ const BoxTitle = styled.div`
     margin-bottom: 24px;
   }
 `;
+
+const Reviews: FC = () => {
+  return (
+    <Section
+      color='#031412'
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topTab: '80px',
+        bottomTab: '80px',
+      }}
+    >
+      <Container>
+        <BoxTitle>
+          <TitleH3 textAalign='left'>Отзывы</TitleH3>
+          <ButtonText>Перейти в каталог</ButtonText>
+        </BoxTitle>
+        <Slider>
+          {whatThinkUs.map((el) => (
+            <SwiperSlide key={el.id}>
+              <ReviewCard el={el} />
+            </SwiperSlide>
+          ))}
+        </Slider>
+      </Container>
+    </Section>
+  );
+};
+
+export default Reviews;

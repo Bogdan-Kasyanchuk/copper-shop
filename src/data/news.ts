@@ -1,6 +1,6 @@
-import news_01 from '../assets/news-1.jpg';
-import news_02 from '../assets/news-2.jpg';
-import news_03 from '../assets/news-2.jpg';
+import news_01 from 'assets/news-1.jpg';
+import news_02 from 'assets/news-2.jpg';
+import news_03 from 'assets/news-3.jpg';
 
 type TNews = {
   id: string;

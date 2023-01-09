@@ -1,54 +1,19 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import Breadcrumb from '../Breadcrumb';
-import OrderCardBasket from '../OrderCardBasket';
-import ButtonText from '../ButtonText';
-import { size } from '../../styles/variables';
-import { ordersBasket } from '../../data/ordersBasket';
-import car from '../../assets/icon-png/car.png';
-import basket from '../../assets/icon-png/basket.png';
 
-const Basket: FC = () => {
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topDesk: '80px',
-        bottomDesk: '80px',
-      }}
-    >
-      <Container>
-        <Breadcrumb />
-        <TitleH3 textAalign="left">Корзина</TitleH3>
-        <BoxBasket>
-          <BoxListBasket>
-            <ListBasket>
-              {ordersBasket.map(el => (
-                <OrderCardBasket key={el.id} el={el} />
-              ))}
-            </ListBasket>
-          </BoxListBasket>
-          <BoxPlaceOrder>
-            <BoxTotal>
-              <TotalTitle>Итого</TotalTitle>
-              <TotalPrice>10930 грн</TotalPrice>
-            </BoxTotal>
-            {true && <FreeShipping>У вас бесплатная доставка!</FreeShipping>}
-            <ButtonText>Оформить заказ</ButtonText>
-          </BoxPlaceOrder>
-          <ButtonText>Назад к покупкам</ButtonText>
-        </BoxBasket>
-      </Container>
-    </Section>
-  );
-};
+import Breadcrumb from 'components/Breadcrumb';
+import ButtonText from 'components/ButtonText';
+import Container from 'components/Container';
+import OrderCardBasket from 'components/OrderCardBasket';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-export default Basket;
+import { size } from 'styles/variables';
+
+import basket from 'assets/icon-png/basket.png';
+import car from 'assets/icon-png/car.png';
+
+import { ordersBasket } from 'data/ordersBasket';
 
 const BoxBasket = styled.div`
   ${size.desktop} {
@@ -188,3 +153,40 @@ const FreeShipping = styled.p`
     justify-content: flex-start;
   }
 `;
+
+const Basket: FC = () => (
+  <Section
+    color='#031412'
+    padding={{
+      topMob: '40px',
+      bottomMob: '40px',
+      topDesk: '80px',
+      bottomDesk: '80px',
+    }}
+  >
+    <Container>
+      <Breadcrumb />
+      <TitleH3 textAalign='left'>Корзина</TitleH3>
+      <BoxBasket>
+        <BoxListBasket>
+          <ListBasket>
+            {ordersBasket.map((el) => (
+              <OrderCardBasket key={el.id} el={el} />
+            ))}
+          </ListBasket>
+        </BoxListBasket>
+        <BoxPlaceOrder>
+          <BoxTotal>
+            <TotalTitle>Итого</TotalTitle>
+            <TotalPrice>10930 грн</TotalPrice>
+          </BoxTotal>
+          {true && <FreeShipping>У вас бесплатная доставка!</FreeShipping>}
+          <ButtonText>Оформить заказ</ButtonText>
+        </BoxPlaceOrder>
+        <ButtonText>Назад к покупкам</ButtonText>
+      </BoxBasket>
+    </Container>
+  </Section>
+);
+
+export default Basket;

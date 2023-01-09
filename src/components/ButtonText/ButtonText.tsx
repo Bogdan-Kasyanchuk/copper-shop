@@ -1,17 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { size } from '../../styles/variables';
-import { TChildren } from '../../types';
 
-const ButtonText: FC<TChildren> = ({ children }) => {
-  return (
-    <Button className="btn-text" type="button">
-      {children}
-    </Button>
-  );
-};
+import { size } from 'styles/variables';
 
-export default ButtonText;
+import { TChildren } from 'types';
 
 const Button = styled.button`
   display: block;
@@ -30,3 +22,13 @@ const Button = styled.button`
     min-width: 330px;
   }
 `;
+
+const ButtonText: FC<TChildren> = ({ children }) => {
+  return (
+    <Button className='btn-text' type='button'>
+      {children}
+    </Button>
+  );
+};
+
+export default ButtonText;

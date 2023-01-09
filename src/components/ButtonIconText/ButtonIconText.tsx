@@ -1,23 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Icon from '../Icon';
-import { IButtonIconTextProps } from '../../interfaces';
 
-const ButtonIconText: FC<IButtonIconTextProps> = ({
-  children,
-  iconName,
-  widthIcon,
-  heightIcon,
-}) => {
-  return (
-    <Button type="button">
-      <Icon iconName={iconName} width={widthIcon} height={heightIcon} />
-      <Text> {children}</Text>
-    </Button>
-  );
-};
+import Icon from 'components/Icon';
 
-export default ButtonIconText;
+import { IButtonIconTextProps } from 'interfaces';
 
 const Button = styled.button`
   display: flex;
@@ -34,3 +20,19 @@ const Text = styled.span`
   font-weight: 700;
   font-size: 18px;
 `;
+
+const ButtonIconText: FC<IButtonIconTextProps> = ({
+  children,
+  iconName,
+  widthIcon,
+  heightIcon,
+}) => {
+  return (
+    <Button type='button'>
+      <Icon iconName={iconName} width={widthIcon} height={heightIcon} />
+      <Text> {children}</Text>
+    </Button>
+  );
+};
+
+export default ButtonIconText;

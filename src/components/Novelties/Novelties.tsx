@@ -1,17 +1,19 @@
 import { FC } from 'react';
 import { SwiperSlide } from 'swiper/react';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import Slider from '../Slider';
-import ButtonText from '../ButtonText';
-import ProductCard from '../ProductCard';
-import { products } from '../../data/products';
+
+import ButtonText from 'components/ButtonText';
+import Container from 'components/Container';
+import ProductCard from 'components/ProductCard';
+import Section from 'components/Section';
+import Slider from 'components/Slider';
+import TitleH3 from 'components/TitleH3';
+
+import { products } from 'data/products';
 
 const Novelties: FC = () => {
   return (
     <Section
-      color="#031412"
+      color='#031412'
       padding={{
         topMob: '40px',
         bottomMob: '20px',
@@ -20,9 +22,9 @@ const Novelties: FC = () => {
       }}
     >
       <Container>
-        <TitleH3 textAalign="center">Мы рекомендуем</TitleH3>
+        <TitleH3 textAalign='center'>Мы рекомендуем</TitleH3>
         <Slider>
-          {products.map(el => (
+          {products.map((el) => (
             <SwiperSlide key={el.id}>
               <ProductCard el={el} />
             </SwiperSlide>

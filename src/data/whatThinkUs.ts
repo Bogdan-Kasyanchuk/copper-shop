@@ -1,4 +1,4 @@
-import reviewCard from '../assets/review-card.jpg';
+import reviewCard from 'assets/review-card.jpg';
 
 type TWhatThinkUs = {
   id: string;

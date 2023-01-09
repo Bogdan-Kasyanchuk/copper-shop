@@ -1,44 +1,13 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import { size } from '../../styles/variables';
-import ourClientsBackgroundCounter from '../../assets/our-clients-background-counter.png';
 
-const OurClients: FC = () => {
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topTab: '80px',
-        bottomTab: '80px',
-        bottomDesk: '135px',
-        topDesk: '135px',
-      }}
-    >
-      <Container>
-        <BoxOurClients>
-          <BoxContent>
-            <TitleH3>Наши клиенты</TitleH3>
-            <Text>
-              Мы требовательны к себе, чтобы каждый день становится лучше для
-              наших клиентов и находить лучшие решения для каждого из них
-            </Text>
-          </BoxContent>
-          <BoxCounter>
-            <TitleCounter>Счетчик клиентов</TitleCounter>
-            <Counter>12346</Counter>
-          </BoxCounter>
-        </BoxOurClients>
-      </Container>
-    </Section>
-  );
-};
+import Container from 'components/Container';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-export default OurClients;
+import { size } from 'styles/variables';
+
+import ourClientsBackgroundCounter from 'assets/our-clients-background-counter.png';
 
 const BoxOurClients = styled.div`
   text-align: center;
@@ -127,3 +96,37 @@ const Counter = styled.span`
     font-size: 250px;
   }
 `;
+
+const OurClients: FC = () => {
+  return (
+    <Section
+      color='#031412'
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topTab: '80px',
+        bottomTab: '80px',
+        bottomDesk: '135px',
+        topDesk: '135px',
+      }}
+    >
+      <Container>
+        <BoxOurClients>
+          <BoxContent>
+            <TitleH3>Наши клиенты</TitleH3>
+            <Text>
+              Мы требовательны к себе, чтобы каждый день становится лучше для наших клиентов и
+              находить лучшие решения для каждого из них
+            </Text>
+          </BoxContent>
+          <BoxCounter>
+            <TitleCounter>Счетчик клиентов</TitleCounter>
+            <Counter>12346</Counter>
+          </BoxCounter>
+        </BoxOurClients>
+      </Container>
+    </Section>
+  );
+};
+
+export default OurClients;

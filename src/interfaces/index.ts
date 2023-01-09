@@ -1,19 +1,19 @@
-import { ISectionProps } from './ISectionProps';
-import { ILogoProps } from './ILogoProps';
+import { IButtonIconProps } from './IButtonIconProps';
+import { IButtonIconTextProps } from './IButtonIconTextProps';
+import { ICatalogCardProps } from './ICatalogCardProps';
 import { IIconProps } from './IIconProps';
+import { ILogoProps } from './ILogoProps';
+import { INewsCardProps } from './INewsCardProps';
+import { IOrderCardBasketProps } from './IOrderCardBasketProps';
+import { IOrderCardProps } from './IOrderCardProps';
+import { IProductCardProps } from './IProductCardProps';
+import { IReadMoreProps } from './IReadMoreProps';
+import { IReviewCardProps } from './IReviewCardProps';
+import { ISectionProps } from './ISectionProps';
+import { ISliderProps } from './ISliderProps';
+import { ISliderVerticalProps } from './ISliderVerticalProps';
 import { ISocialLinkItemProps } from './ISocialLinkItemProps';
 import { ITitleProps } from './ITitleProps';
-import { INewsCardProps } from './INewsCardProps';
-import { ICatalogCardProps } from './ICatalogCardProps';
-import { IProductCardProps } from './IProductCardProps';
-import { ISliderProps } from './ISliderProps';
-import { IReviewCardProps } from './IReviewCardProps';
-import { IReadMoreProps } from './IReadMoreProps';
-import { IButtonIconTextProps } from './IButtonIconTextProps';
-import { IOrderCardProps } from './IOrderCardProps';
-import { IButtonIconProps } from './IButtonIconProps';
-import { ISliderVerticalProps } from './ISliderVerticalProps';
-import { IOrderCardBasketProps } from './IOrderCardBasketProps';
 
 export type {
   ISectionProps,

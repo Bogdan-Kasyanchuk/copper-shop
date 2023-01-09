@@ -1,42 +1,13 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import { size } from '../../styles/variables';
-import ourGeography from '../../assets/our-geography.png';
 
-const OurGeography: FC = () => {
-  return (
-    <Section
-      color="#031412"
-      background="#f7f7f7"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topTab: '80px',
-        bottomTab: '80px',
-      }}
-    >
-      <Container>
-        <BoxOurGeography>
-          <BoxContent>
-            <TitleH3>Наша география</TitleH3>
-            <Text>
-              Наше производство находится в Украине, но клиенты из более чем 50
-              стран радуются товарам, приобретенным в нашем магазине.
-            </Text>
-          </BoxContent>
-          <div>
-            <img src={ourGeography} alt="Our geography" />
-          </div>
-        </BoxOurGeography>
-      </Container>
-    </Section>
-  );
-};
+import Container from 'components/Container';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-export default OurGeography;
+import { size } from 'styles/variables';
+
+import ourGeography from 'assets/our-geography.png';
 
 const BoxOurGeography = styled.div`
   ${size.min1024} {
@@ -71,3 +42,35 @@ const Text = styled.p`
     font-size: 20px;
   }
 `;
+
+const OurGeography: FC = () => {
+  return (
+    <Section
+      color='#031412'
+      background='#f7f7f7'
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topTab: '80px',
+        bottomTab: '80px',
+      }}
+    >
+      <Container>
+        <BoxOurGeography>
+          <BoxContent>
+            <TitleH3>Наша география</TitleH3>
+            <Text>
+              Наше производство находится в Украине, но клиенты из более чем 50 стран радуются
+              товарам, приобретенным в нашем магазине.
+            </Text>
+          </BoxContent>
+          <div>
+            <img src={ourGeography} alt='Our geography' />
+          </div>
+        </BoxOurGeography>
+      </Container>
+    </Section>
+  );
+};
+
+export default OurGeography;

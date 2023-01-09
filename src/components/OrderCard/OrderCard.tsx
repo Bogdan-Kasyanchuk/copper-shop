@@ -1,37 +1,11 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import ButtonIcon from '../ButtonIcon';
-import { IOrderCardProps } from '../../interfaces';
-import { size } from '../../styles/variables';
 
-const OrderCard: FC<IOrderCardProps> = ({ el }) => {
-  return (
-    <Item key={el.id}>
-      <BoxImage>
-        <img src={el.imgUrl} alt="News" />
-      </BoxImage>
-      <Title>{el.title}</Title>
-      <BoxDateCount>
-        <Date>{el.date}</Date>
-        <Count>{el.count}</Count>
-      </BoxDateCount>
-      <BoxPriceStatus>
-        <BoxPrice>
-          {el.oldPrice && <OldPrice>{el.oldPrice}</OldPrice>}
-          <Price oldPrice={el.oldPrice}>{el.price}</Price>
-        </BoxPrice>
-        <Status>{el.status}</Status>
-      </BoxPriceStatus>
-      <ButtonIcon
-        iconName="basket"
-        widthIcon="16px"
-        heightIcon="17px"
-      ></ButtonIcon>
-    </Item>
-  );
-};
+import ButtonIcon from 'components/ButtonIcon';
 
-export default OrderCard;
+import { size } from 'styles/variables';
+
+import { IOrderCardProps } from 'interfaces';
 
 const Item = styled.li`
   position: relative;
@@ -200,3 +174,28 @@ const Status = styled.span`
   line-height: 1.3;
   color: #029281;
 `;
+
+const OrderCard: FC<IOrderCardProps> = ({ el }) => {
+  return (
+    <Item key={el.id}>
+      <BoxImage>
+        <img src={el.imgUrl} alt='News' />
+      </BoxImage>
+      <Title>{el.title}</Title>
+      <BoxDateCount>
+        <Date>{el.date}</Date>
+        <Count>{el.count}</Count>
+      </BoxDateCount>
+      <BoxPriceStatus>
+        <BoxPrice>
+          {el.oldPrice && <OldPrice>{el.oldPrice}</OldPrice>}
+          <Price oldPrice={el.oldPrice}>{el.price}</Price>
+        </BoxPrice>
+        <Status>{el.status}</Status>
+      </BoxPriceStatus>
+      <ButtonIcon iconName='basket' widthIcon='16px' heightIcon='17px' />
+    </Item>
+  );
+};
+
+export default OrderCard;

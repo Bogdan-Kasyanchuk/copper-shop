@@ -1,17 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { size } from '../../styles/variables';
-import { scrollTop } from '../../helpers/scrollTop';
 
-const ButtonUp: FC = () => {
-  return (
-    <Button type="button" onClick={scrollTop}>
-      <Text> Вверх</Text>
-    </Button>
-  );
-};
+import { size } from 'styles/variables';
 
-export default ButtonUp;
+import scrollTop from 'helpers/scrollTop';
 
 const Button = styled.button`
   position: absolute;
@@ -37,3 +29,13 @@ const Text = styled.span`
   text-transform: uppercase;
   writing-mode: vertical-rl;
 `;
+
+const ButtonUp: FC = () => {
+  return (
+    <Button type='button' onClick={scrollTop}>
+      <Text> Вверх</Text>
+    </Button>
+  );
+};
+
+export default ButtonUp;

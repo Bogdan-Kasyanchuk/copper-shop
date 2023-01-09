@@ -1,6 +1,8 @@
 import { FC } from 'react';
-import sprite from '../../assets/sprite.svg';
-import { IIconProps } from '../../interfaces';
+
+import sprite from 'assets/sprite.svg';
+
+import { IIconProps } from 'interfaces';
 
 const Icon: FC<IIconProps> = ({
   iconName = '',
@@ -19,7 +21,7 @@ const Icon: FC<IIconProps> = ({
       stroke={stroke}
       onClick={handlerClick}
     >
-      <use xlinkHref={`${sprite}#${iconName}`}></use>
+      <use xlinkHref={`${sprite}#${iconName}`} />
     </svg>
   );
 };

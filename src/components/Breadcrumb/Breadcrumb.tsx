@@ -1,16 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { size } from '../../styles/variables';
 
-const Breadcrumb: FC = () => {
-  return (
-    <BreadcrumbTag>
-      Главная / <span>О нас</span>
-    </BreadcrumbTag>
-  );
-};
-
-export default Breadcrumb;
+import { size } from 'styles/variables';
 
 const BreadcrumbTag = styled.div`
   margin-bottom: 25px;
@@ -27,3 +18,11 @@ const BreadcrumbTag = styled.div`
     font-size: 18px;
   }
 `;
+
+const Breadcrumb: FC = () => (
+  <BreadcrumbTag>
+    Главная / <span>О нас</span>
+  </BreadcrumbTag>
+);
+
+export default Breadcrumb;

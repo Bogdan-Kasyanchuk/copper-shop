@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
+
 // import { firstColor, secondColor, accentColor, bgColor } from './variables';
 
 const GlobalStyles = createGlobalStyle`
@@ -88,8 +89,6 @@ a {
 svg {
   display: block;
 }
-
-
 `;
 
 export default GlobalStyles;

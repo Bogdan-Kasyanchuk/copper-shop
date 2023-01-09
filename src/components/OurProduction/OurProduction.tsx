@@ -1,36 +1,14 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import CatalogCard from '../CatalogCard';
-import { size } from '../../styles/variables';
-import { catalogOurProduction } from '../../data/catalogOurProduction';
 
-const OurProduction: FC = () => {
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '20px',
-        bottomMob: '80px',
-        topTab: '40px',
-        bottomTab: '160px',
-      }}
-    >
-      <Container>
-        <TitleH3 textAalign="center">Наша продукция</TitleH3>
-        <ListCatalog>
-          {catalogOurProduction.map(el => (
-            <CatalogCard key={el.id} el={el} />
-          ))}
-        </ListCatalog>
-      </Container>
-    </Section>
-  );
-};
+import CatalogCard from 'components/CatalogCard';
+import Container from 'components/Container';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-export default OurProduction;
+import { size } from 'styles/variables';
+
+import { catalogOurProduction } from 'data/catalogOurProduction';
 
 const ListCatalog = styled.ul`
   display: flex;
@@ -78,3 +56,28 @@ const ListCatalog = styled.ul`
     margin-left: -30px;
   }
 `;
+
+const OurProduction: FC = () => {
+  return (
+    <Section
+      color='#031412'
+      padding={{
+        topMob: '20px',
+        bottomMob: '80px',
+        topTab: '40px',
+        bottomTab: '160px',
+      }}
+    >
+      <Container>
+        <TitleH3 textAalign='center'>Наша продукция</TitleH3>
+        <ListCatalog>
+          {catalogOurProduction.map((el) => (
+            <CatalogCard key={el.id} el={el} />
+          ))}
+        </ListCatalog>
+      </Container>
+    </Section>
+  );
+};
+
+export default OurProduction;

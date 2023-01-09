@@ -1,64 +1,15 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import ButtonIconText from '../ButtonIconText';
-import OrderCard from '../OrderCard';
-import { size } from '../../styles/variables';
-import { orders } from '../../data/orders';
 
-const Orders: FC = () => {
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topDesk: '80px',
-        bottomDesk: '80px',
-      }}
-    >
-      <Container>
-        <TitleH3 textAalign="left">Личный кабинет</TitleH3>
-        <BoxOrders>
-          <BoxButton>
-            <ButtonIconText iconName="user" widthIcon="26px" heightIcon="26px">
-              Детали профиля
-            </ButtonIconText>
-            <ButtonIconText
-              iconName="basket-order"
-              widthIcon="26px"
-              heightIcon="26px"
-            >
-              Заказы
-            </ButtonIconText>
-            <ButtonIconText iconName="heart" widthIcon="26px" heightIcon="26px">
-              Список желаемого
-            </ButtonIconText>
-            <ButtonIconText
-              iconName="logout"
-              widthIcon="26px"
-              heightIcon="26px"
-            >
-              Выйти
-            </ButtonIconText>
-          </BoxButton>
-          <BoxListOrders>
-            <ListOrders>
-              {orders.map(el => (
-                <OrderCard key={el.id} el={el} />
-              ))}
-            </ListOrders>
-            <Pagination>Пагинация</Pagination>
-          </BoxListOrders>
-        </BoxOrders>
-      </Container>
-    </Section>
-  );
-};
+import ButtonIconText from 'components/ButtonIconText';
+import Container from 'components/Container';
+import OrderCard from 'components/OrderCard';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-export default Orders;
+import { size } from 'styles/variables';
+
+import { orders } from 'data/orders';
 
 const BoxOrders = styled.div`
   ${size.desktop} {
@@ -145,3 +96,47 @@ const Pagination = styled.div`
   height: 50px;
   background-color: #f3d0d0;
 `;
+
+const Orders: FC = () => {
+  return (
+    <Section
+      color='#031412'
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topDesk: '80px',
+        bottomDesk: '80px',
+      }}
+    >
+      <Container>
+        <TitleH3 textAalign='left'>Личный кабинет</TitleH3>
+        <BoxOrders>
+          <BoxButton>
+            <ButtonIconText iconName='user' widthIcon='26px' heightIcon='26px'>
+              Детали профиля
+            </ButtonIconText>
+            <ButtonIconText iconName='basket-order' widthIcon='26px' heightIcon='26px'>
+              Заказы
+            </ButtonIconText>
+            <ButtonIconText iconName='heart' widthIcon='26px' heightIcon='26px'>
+              Список желаемого
+            </ButtonIconText>
+            <ButtonIconText iconName='logout' widthIcon='26px' heightIcon='26px'>
+              Выйти
+            </ButtonIconText>
+          </BoxButton>
+          <BoxListOrders>
+            <ListOrders>
+              {orders.map((el) => (
+                <OrderCard key={el.id} el={el} />
+              ))}
+            </ListOrders>
+            <Pagination>Пагинация</Pagination>
+          </BoxListOrders>
+        </BoxOrders>
+      </Container>
+    </Section>
+  );
+};
+
+export default Orders;

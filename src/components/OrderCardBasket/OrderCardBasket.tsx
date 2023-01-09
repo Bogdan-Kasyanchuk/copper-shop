@@ -1,31 +1,11 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import ButtonIcon from '../ButtonIcon';
-import { IOrderCardBasketProps } from '../../interfaces';
-import { size } from '../../styles/variables';
 
-const OrderCardBasket: FC<IOrderCardBasketProps> = ({ el }) => {
-  return (
-    <Item key={el.id}>
-      <BoxImage>
-        <img src={el.imgUrl} alt="News" />
-      </BoxImage>
-      <Title>{el.title}</Title>
-      <Count>{el.count}</Count>
-      <BoxPrice>
-        {el.oldPrice && <OldPrice>{el.oldPrice}</OldPrice>}
-        <Price oldPrice={el.oldPrice}>{el.price}</Price>
-      </BoxPrice>
-      <ButtonIcon
-        iconName="basket"
-        widthIcon="16px"
-        heightIcon="17px"
-      ></ButtonIcon>
-    </Item>
-  );
-};
+import ButtonIcon from 'components/ButtonIcon';
 
-export default OrderCardBasket;
+import { size } from 'styles/variables';
+
+import { IOrderCardBasketProps } from 'interfaces';
 
 const Item = styled.li`
   position: relative;
@@ -114,3 +94,22 @@ const OldPrice = styled.span`
   text-decoration: line-through;
   opacity: 0.3;
 `;
+
+const OrderCardBasket: FC<IOrderCardBasketProps> = ({ el }) => {
+  return (
+    <Item key={el.id}>
+      <BoxImage>
+        <img src={el.imgUrl} alt='News' />
+      </BoxImage>
+      <Title>{el.title}</Title>
+      <Count>{el.count}</Count>
+      <BoxPrice>
+        {el.oldPrice && <OldPrice>{el.oldPrice}</OldPrice>}
+        <Price oldPrice={el.oldPrice}>{el.price}</Price>
+      </BoxPrice>
+      <ButtonIcon iconName='basket' widthIcon='16px' heightIcon='17px' />
+    </Item>
+  );
+};
+
+export default OrderCardBasket;

@@ -1,64 +1,15 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import ButtonIconText from '../ButtonIconText';
-import ProductCard from '../ProductCard';
-import { size } from '../../styles/variables';
-import { products } from '../../data/products';
 
-const WishList: FC = () => {
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topDesk: '80px',
-        bottomDesk: '80px',
-      }}
-    >
-      <Container>
-        <TitleH3 textAalign="left">Личный кабинет</TitleH3>
-        <BoxWishList>
-          <BoxButton>
-            <ButtonIconText iconName="user" widthIcon="26px" heightIcon="26px">
-              Детали профиля
-            </ButtonIconText>
-            <ButtonIconText
-              iconName="basket-order"
-              widthIcon="26px"
-              heightIcon="26px"
-            >
-              Заказы
-            </ButtonIconText>
-            <ButtonIconText iconName="heart" widthIcon="26px" heightIcon="26px">
-              Список желаемого
-            </ButtonIconText>
-            <ButtonIconText
-              iconName="logout"
-              widthIcon="26px"
-              heightIcon="26px"
-            >
-              Выйти
-            </ButtonIconText>
-          </BoxButton>
-          <BoxListProducts>
-            <ListProducts>
-              {products.map(el => (
-                <ProductCard key={el.id} el={el} />
-              ))}
-            </ListProducts>
-            <Pagination>Пагинация</Pagination>
-          </BoxListProducts>
-        </BoxWishList>
-      </Container>
-    </Section>
-  );
-};
+import ButtonIconText from 'components/ButtonIconText';
+import Container from 'components/Container';
+import ProductCard from 'components/ProductCard';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-export default WishList;
+import { size } from 'styles/variables';
+
+import { products } from 'data/products';
 
 const BoxWishList = styled.div`
   ${size.desktop} {
@@ -160,3 +111,47 @@ const Pagination = styled.div`
   height: 50px;
   background-color: #f3d0d0;
 `;
+
+const WishList: FC = () => {
+  return (
+    <Section
+      color='#031412'
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topDesk: '80px',
+        bottomDesk: '80px',
+      }}
+    >
+      <Container>
+        <TitleH3 textAalign='left'>Личный кабинет</TitleH3>
+        <BoxWishList>
+          <BoxButton>
+            <ButtonIconText iconName='user' widthIcon='26px' heightIcon='26px'>
+              Детали профиля
+            </ButtonIconText>
+            <ButtonIconText iconName='basket-order' widthIcon='26px' heightIcon='26px'>
+              Заказы
+            </ButtonIconText>
+            <ButtonIconText iconName='heart' widthIcon='26px' heightIcon='26px'>
+              Список желаемого
+            </ButtonIconText>
+            <ButtonIconText iconName='logout' widthIcon='26px' heightIcon='26px'>
+              Выйти
+            </ButtonIconText>
+          </BoxButton>
+          <BoxListProducts>
+            <ListProducts>
+              {products.map((el) => (
+                <ProductCard key={el.id} el={el} />
+              ))}
+            </ListProducts>
+            <Pagination>Пагинация</Pagination>
+          </BoxListProducts>
+        </BoxWishList>
+      </Container>
+    </Section>
+  );
+};
+
+export default WishList;

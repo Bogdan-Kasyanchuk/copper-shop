@@ -1,54 +1,14 @@
 import { FC, useRef } from 'react';
 import styled from 'styled-components';
-import { Swiper } from 'swiper/react';
 import SwiperCore, { Keyboard } from 'swiper';
-import Icon from '../Icon';
 import 'swiper/css';
-import { size } from '../../styles/variables';
-import { ISliderVerticalProps } from '../../interfaces';
+import { Swiper } from 'swiper/react';
 
-const SliderVertical: FC<ISliderVerticalProps> = ({
-  onSlideChange,
-  children,
-}) => {
-  const swiperRef = useRef<SwiperCore>();
+import Icon from 'components/Icon';
 
-  return (
-    <BoxSlider className="slider-vertical">
-      <Swiper
-        direction={'vertical'}
-        slidesPerView={4}
-        spaceBetween={10}
-        loop={true}
-        keyboard={true}
-        breakpoints={{
-          768: {
-            spaceBetween: 20,
-          },
-        }}
-        modules={[Keyboard]}
-        onBeforeInit={swiper => {
-          swiperRef.current = swiper;
-        }}
-        onSlideChange={onSlideChange}
-        className="mySwiper"
-      >
-        {children}
-      </Swiper>
-      <Button
-        aria-label="Previous"
-        onClick={() => swiperRef.current?.slidePrev()}
-      >
-        <Icon iconName="arrow" width="18px" height="28px" />
-      </Button>
-      <Button aria-label="Next" onClick={() => swiperRef.current?.slideNext()}>
-        <Icon iconName="arrow" width="18px" height="28px" />
-      </Button>
-    </BoxSlider>
-  );
-};
+import { size } from 'styles/variables';
 
-export default SliderVertical;
+import { ISliderVerticalProps } from 'interfaces';
 
 const BoxSlider = styled.div`
   position: relative;
@@ -107,3 +67,40 @@ const Button = styled.button`
     }
   }
 `;
+
+const SliderVertical: FC<ISliderVerticalProps> = ({ onSlideChange, children }) => {
+  const swiperRef = useRef<SwiperCore>();
+
+  return (
+    <BoxSlider className='slider-vertical'>
+      <Swiper
+        direction='vertical'
+        slidesPerView={4}
+        spaceBetween={10}
+        loop
+        keyboard
+        breakpoints={{
+          768: {
+            spaceBetween: 20,
+          },
+        }}
+        modules={[Keyboard]}
+        onBeforeInit={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        onSlideChange={onSlideChange}
+        className='mySwiper'
+      >
+        {children}
+      </Swiper>
+      <Button aria-label='Previous' onClick={() => swiperRef.current?.slidePrev()}>
+        <Icon iconName='arrow' width='18px' height='28px' />
+      </Button>
+      <Button aria-label='Next' onClick={() => swiperRef.current?.slideNext()}>
+        <Icon iconName='arrow' width='18px' height='28px' />
+      </Button>
+    </BoxSlider>
+  );
+};
+
+export default SliderVertical;

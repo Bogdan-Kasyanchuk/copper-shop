@@ -1,54 +1,15 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import Section from '../Section';
-import Container from '../Container';
-import TitleH3 from '../TitleH3';
-import { size } from '../../styles/variables';
-import { ourHistoryLeft, ourHistoryRight } from '../../data/ourHistory';
-import ourHistoryBackground from '../../assets/our-history-background.png';
 
-const OurHistory: FC = () => {
-  return (
-    <Section
-      color="#fff"
-      background="#000"
-      backgroundImage={{
-        mob: `url(${ourHistoryBackground})`,
-        tab: `url(${ourHistoryBackground})`,
-        desk: `url(${ourHistoryBackground})`,
-      }}
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topTab: '80px',
-        bottomTab: '80px',
-      }}
-    >
-      <TitleImage>Copper Pro</TitleImage>
-      <Container>
-        <TitleH3 textAalign="center">Наша история</TitleH3>
-        <BoxList>
-          <List>
-            {ourHistoryLeft.map(el => (
-              <Item key={el.id}>
-                <Text>{el.text}</Text>
-              </Item>
-            ))}
-          </List>
-          <List>
-            {ourHistoryRight.map(el => (
-              <Item key={el.id}>
-                <Text>{el.text}</Text>
-              </Item>
-            ))}
-          </List>
-        </BoxList>
-      </Container>
-    </Section>
-  );
-};
+import Container from 'components/Container';
+import Section from 'components/Section';
+import TitleH3 from 'components/TitleH3';
 
-export default OurHistory;
+import { size } from 'styles/variables';
+
+import ourHistoryBackground from 'assets/our-history-background.png';
+
+import { ourHistoryLeft, ourHistoryRight } from 'data/ourHistory';
 
 const TitleImage = styled.p`
   display: none;
@@ -102,3 +63,46 @@ const Text = styled.p`
   font-size: 16px;
   line-height: 1.3;
 `;
+
+const OurHistory: FC = () => {
+  return (
+    <Section
+      color='#fff'
+      background='#000'
+      backgroundImage={{
+        mob: `url(${ourHistoryBackground})`,
+        tab: `url(${ourHistoryBackground})`,
+        desk: `url(${ourHistoryBackground})`,
+      }}
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topTab: '80px',
+        bottomTab: '80px',
+      }}
+    >
+      <TitleImage>Copper Pro</TitleImage>
+      <Container>
+        <TitleH3 textAalign='center'>Наша история</TitleH3>
+        <BoxList>
+          <List>
+            {ourHistoryLeft.map((el) => (
+              <Item key={el.id}>
+                <Text>{el.text}</Text>
+              </Item>
+            ))}
+          </List>
+          <List>
+            {ourHistoryRight.map((el) => (
+              <Item key={el.id}>
+                <Text>{el.text}</Text>
+              </Item>
+            ))}
+          </List>
+        </BoxList>
+      </Container>
+    </Section>
+  );
+};
+
+export default OurHistory;

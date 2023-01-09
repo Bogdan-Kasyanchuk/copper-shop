@@ -1,13 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { size } from '../../styles/variables';
-import { TChildren } from '../../types';
 
-const Container: FC<TChildren> = ({ children }) => {
-  return <Box>{children}</Box>;
-};
+import { size } from 'styles/variables';
 
-export default Container;
+import { TChildren } from 'types';
 
 const Box = styled.div`
   margin-left: auto;
@@ -30,3 +26,9 @@ const Box = styled.div`
     width: 1500px;
   }
 `;
+
+const Container: FC<TChildren> = ({ children }) => {
+  return <Box>{children}</Box>;
+};
+
+export default Container;

@@ -1,50 +1,15 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import OrderCardBasketCopy from '../OrderCardBasketCopy';
-import ButtonText from '../ButtonText';
-import { size } from '../../styles/variables';
-import { ordersBasket } from '../../data/ordersBasket';
-import car from '../../assets/icon-png/car.png';
-import basket from '../../assets/icon-png/basket.png';
 
-const OrderBasket: FC = () => {
-  return (
-    <BoxBasket>
-      <BoxListBasket>
-        <ListBasket>
-          {ordersBasket.map(el => (
-            <OrderCardBasketCopy key={el.id} el={el} />
-          ))}
-        </ListBasket>
-      </BoxListBasket>
-      <BoxPlaceOrder>
-        <Form>
-          <Label htmlFor="inputPromo">Имя</Label>
-          <Input
-            type="text"
-            name="promo"
-            placeholder="Введите промокод"
-            id="inputPromo"
-          />
-          <ButtonText>Применить</ButtonText>
-        </Form>
-        <BoxTotal>
-          <div>
-            <TotalTitle>Итого</TotalTitle>
-            <TotalPrice>10930 грн</TotalPrice>
-          </div>
-          <TotalDiscount>
-            <span>-30%</span> с учетом промокода
-          </TotalDiscount>
-        </BoxTotal>
-        {true && <FreeShipping>У вас бесплатная доставка!</FreeShipping>}
-        <ButtonText>Оформить заказ</ButtonText>
-      </BoxPlaceOrder>
-    </BoxBasket>
-  );
-};
+import ButtonText from 'components/ButtonText';
+import OrderCardBasketCopy from 'components/OrderCardBasketCopy';
 
-export default OrderBasket;
+import { size } from 'styles/variables';
+
+import basket from 'assets/icon-png/basket.png';
+import car from 'assets/icon-png/car.png';
+
+import { ordersBasket } from 'data/ordersBasket';
 
 const BoxBasket = styled.div``;
 
@@ -242,3 +207,37 @@ const FreeShipping = styled.p`
     margin-top: 30px;
   }
 `;
+
+const OrderBasket: FC = () => {
+  return (
+    <BoxBasket>
+      <BoxListBasket>
+        <ListBasket>
+          {ordersBasket.map((el) => (
+            <OrderCardBasketCopy key={el.id} el={el} />
+          ))}
+        </ListBasket>
+      </BoxListBasket>
+      <BoxPlaceOrder>
+        <Form>
+          <Label htmlFor='inputPromo'>Имя</Label>
+          <Input type='text' name='promo' placeholder='Введите промокод' id='inputPromo' />
+          <ButtonText>Применить</ButtonText>
+        </Form>
+        <BoxTotal>
+          <div>
+            <TotalTitle>Итого</TotalTitle>
+            <TotalPrice>10930 грн</TotalPrice>
+          </div>
+          <TotalDiscount>
+            <span>-30%</span> с учетом промокода
+          </TotalDiscount>
+        </BoxTotal>
+        {true && <FreeShipping>У вас бесплатная доставка!</FreeShipping>}
+        <ButtonText>Оформить заказ</ButtonText>
+      </BoxPlaceOrder>
+    </BoxBasket>
+  );
+};
+
+export default OrderBasket;

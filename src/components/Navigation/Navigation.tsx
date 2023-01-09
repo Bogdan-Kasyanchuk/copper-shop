@@ -1,32 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-const Navigation: FC = () => {
-  return (
-    <nav>
-      <NavList>
-        <NavListItem>
-          <NavListItemLink href="#Каталог">Каталог</NavListItemLink>
-        </NavListItem>
-        <NavListItem>
-          <NavListItemLink href="#Новости">Новости</NavListItemLink>
-        </NavListItem>
-        <NavListItem>
-          <NavListItemLink href="#Доставка">Доставка</NavListItemLink>
-        </NavListItem>
-        <NavListItem>
-          <NavListItemLink href="#Онас">О нас</NavListItemLink>
-        </NavListItem>
-        <NavListItem>
-          <NavListItemLink href="#Контакты">Контакты</NavListItemLink>
-        </NavListItem>
-      </NavList>
-    </nav>
-  );
-};
-
-export default Navigation;
-
 const NavList = styled.ul`
   display: flex;
   justify-content: space-evenly;
@@ -51,3 +25,29 @@ const NavListItemLink = styled.a`
   color: #ffffff;
   border-bottom: 1px solid transparent;
 `;
+
+const Navigation: FC = () => {
+  return (
+    <nav>
+      <NavList>
+        <NavListItem>
+          <NavListItemLink href='#Каталог'>Каталог</NavListItemLink>
+        </NavListItem>
+        <NavListItem>
+          <NavListItemLink href='#Новости'>Новости</NavListItemLink>
+        </NavListItem>
+        <NavListItem>
+          <NavListItemLink href='#Доставка'>Доставка</NavListItemLink>
+        </NavListItem>
+        <NavListItem>
+          <NavListItemLink href='#Онас'>О нас</NavListItemLink>
+        </NavListItem>
+        <NavListItem>
+          <NavListItemLink href='#Контакты'>Контакты</NavListItemLink>
+        </NavListItem>
+      </NavList>
+    </nav>
+  );
+};
+
+export default Navigation;

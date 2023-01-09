@@ -1,138 +1,19 @@
 import { FC, useState } from 'react';
-import { SwiperSlide } from 'swiper/react';
 import styled from 'styled-components';
-import SliderVertical from '../SliderVertical';
-import { size } from '../../styles/variables';
-import Container from '../Container';
-import Section from '../Section';
-import Breadcrumb from '../Breadcrumb';
-import TitleH3 from '../TitleH3';
-import SocialLinkList from '../SocialLinkList';
-import ButtonText from '../ButtonText';
-import Icon from '../Icon';
-import { productDetails } from '../../data/productDetails';
+import { SwiperSlide } from 'swiper/react';
 
-const ProductDetails: FC = () => {
-  const [fullImg, setFullImg] = useState<{
-    src: string;
-    alt: string;
-  }>({ src: '', alt: '' });
-  const [count, setCount] = useState<number>(1);
+import Breadcrumb from 'components/Breadcrumb';
+import ButtonText from 'components/ButtonText';
+import Container from 'components/Container';
+import Icon from 'components/Icon';
+import Section from 'components/Section';
+import SliderVertical from 'components/SliderVertical';
+import SocialLinkList from 'components/SocialLinkList';
+import TitleH3 from 'components/TitleH3';
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSlideChange = (e: any) => {
-    const { src, alt } = e.imagesToLoad[e.snapIndex];
-    setFullImg({ src, alt });
-  };
+import { size } from 'styles/variables';
 
-  return (
-    <Section
-      color="#031412"
-      padding={{
-        topMob: '40px',
-        bottomMob: '40px',
-        topTab: '80px',
-        bottomTab: '80px',
-      }}
-    >
-      <Container>
-        <Breadcrumb />
-        <BoxProductDetails>
-          <BoxSlider>
-            <SliderVertical onSlideChange={onSlideChange}>
-              {productDetails.img.map(el => (
-                <SwiperSlide key={el.id}>
-                  <PrevImage src={el.imgUrl} alt={el.title} />
-                </SwiperSlide>
-              ))}
-            </SliderVertical>
-            <BoxImage>
-              <Image src={fullImg.src} alt={fullImg.alt} />
-              {productDetails.sale && <Sale>Sale</Sale>}
-              <Favorite favorite={productDetails.favorite}>
-                <Icon
-                  iconName={
-                    productDetails.favorite ? 'heart-favorite' : 'heart'
-                  }
-                  width="22px"
-                  height="19px"
-                />
-              </Favorite>
-            </BoxImage>
-          </BoxSlider>
-          <BoxContent>
-            <BoxTitle>
-              <TitleH3 textAalign="left">{productDetails.title}</TitleH3>
-              <BoxStatusArticle>
-                <BoxStatus>
-                  <Icon iconName="check" width="15px" height="11px" />
-                  <Status> {productDetails.status}</Status>
-                </BoxStatus>
-                <Article>
-                  Артикул: <b>{productDetails.article}</b>
-                </Article>
-              </BoxStatusArticle>
-            </BoxTitle>
-            <BoxDescription>
-              <DescriptionTitle>Описание</DescriptionTitle>
-              <Description>{productDetails.description}</Description>
-            </BoxDescription>
-            <BoxPurchase>
-              <BoxPriceTitle>
-                <PriceTitle>Цена</PriceTitle>
-                <BoxPrice>
-                  <Price oldPrice={productDetails.oldPrice}>
-                    {productDetails.price}
-                  </Price>
-                  {productDetails.oldPrice && (
-                    <OldPrice>{productDetails.oldPrice}</OldPrice>
-                  )}
-                </BoxPrice>
-              </BoxPriceTitle>
-              <BoxCountButton>
-                <BoxCount>
-                  <ButtonCount
-                    type="button"
-                    disabled={count < 2}
-                    onClick={() => {
-                      setCount(count - 1);
-                    }}
-                  >
-                    -
-                  </ButtonCount>
-                  <Count>{count}</Count>
-                  <ButtonCount
-                    type="button"
-                    onClick={() => {
-                      setCount(count + 1);
-                    }}
-                  >
-                    +
-                  </ButtonCount>
-                </BoxCount>
-                <ButtonText>Купить</ButtonText>
-              </BoxCountButton>
-            </BoxPurchase>
-            <BoxLink>
-              <Sharing>Поделиться</Sharing>
-              <SocialLinkList />
-            </BoxLink>
-          </BoxContent>
-        </BoxProductDetails>
-        <BoxDesc>
-          <DescrTitle>Описание</DescrTitle>
-          <DescText>
-            {productDetails.descriptionFull.map((el, idx) => (
-              <p key={idx}>{el}</p>
-            ))}
-          </DescText>
-        </BoxDesc>
-      </Container>
-    </Section>
-  );
-};
-
-export default ProductDetails;
+import { productDetails } from 'data/productDetails';
 
 const BoxProductDetails = styled.div`
   margin-bottom: 40px;
@@ -456,3 +337,119 @@ const DescText = styled.div`
     }
   }
 `;
+
+const ProductDetails: FC = () => {
+  const [fullImg, setFullImg] = useState<{
+    src: string;
+    alt: string;
+  }>({ src: '', alt: '' });
+  const [count, setCount] = useState<number>(1);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onSlideChange = (e: any) => {
+    const { src, alt } = e.imagesToLoad[e.snapIndex];
+    setFullImg({ src, alt });
+  };
+
+  return (
+    <Section
+      color='#031412'
+      padding={{
+        topMob: '40px',
+        bottomMob: '40px',
+        topTab: '80px',
+        bottomTab: '80px',
+      }}
+    >
+      <Container>
+        <Breadcrumb />
+        <BoxProductDetails>
+          <BoxSlider>
+            <SliderVertical onSlideChange={onSlideChange}>
+              {productDetails.img.map((el) => (
+                <SwiperSlide key={el.id}>
+                  <PrevImage src={el.imgUrl} alt={el.title} />
+                </SwiperSlide>
+              ))}
+            </SliderVertical>
+            <BoxImage>
+              <Image src={fullImg.src} alt={fullImg.alt} />
+              {productDetails.sale && <Sale>Sale</Sale>}
+              <Favorite favorite={productDetails.favorite}>
+                <Icon
+                  iconName={productDetails.favorite ? 'heart-favorite' : 'heart'}
+                  width='22px'
+                  height='19px'
+                />
+              </Favorite>
+            </BoxImage>
+          </BoxSlider>
+          <BoxContent>
+            <BoxTitle>
+              <TitleH3 textAalign='left'>{productDetails.title}</TitleH3>
+              <BoxStatusArticle>
+                <BoxStatus>
+                  <Icon iconName='check' width='15px' height='11px' />
+                  <Status> {productDetails.status}</Status>
+                </BoxStatus>
+                <Article>
+                  Артикул: <b>{productDetails.article}</b>
+                </Article>
+              </BoxStatusArticle>
+            </BoxTitle>
+            <BoxDescription>
+              <DescriptionTitle>Описание</DescriptionTitle>
+              <Description>{productDetails.description}</Description>
+            </BoxDescription>
+            <BoxPurchase>
+              <BoxPriceTitle>
+                <PriceTitle>Цена</PriceTitle>
+                <BoxPrice>
+                  <Price oldPrice={productDetails.oldPrice}>{productDetails.price}</Price>
+                  {productDetails.oldPrice && <OldPrice>{productDetails.oldPrice}</OldPrice>}
+                </BoxPrice>
+              </BoxPriceTitle>
+              <BoxCountButton>
+                <BoxCount>
+                  <ButtonCount
+                    type='button'
+                    disabled={count < 2}
+                    onClick={() => {
+                      setCount(count - 1);
+                    }}
+                  >
+                    -
+                  </ButtonCount>
+                  <Count>{count}</Count>
+                  <ButtonCount
+                    type='button'
+                    onClick={() => {
+                      setCount(count + 1);
+                    }}
+                  >
+                    +
+                  </ButtonCount>
+                </BoxCount>
+                <ButtonText>Купить</ButtonText>
+              </BoxCountButton>
+            </BoxPurchase>
+            <BoxLink>
+              <Sharing>Поделиться</Sharing>
+              <SocialLinkList />
+            </BoxLink>
+          </BoxContent>
+        </BoxProductDetails>
+        <BoxDesc>
+          <DescrTitle>Описание</DescrTitle>
+          <DescText>
+            {productDetails.descriptionFull.map((el, idx) => (
+              <p key={idx}>{el}</p>
+            ))}
+          </DescText>
+        </BoxDesc>
+      </Container>
+    </Section>
+  );
+};
+
+export default ProductDetails;
