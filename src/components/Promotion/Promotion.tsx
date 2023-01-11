@@ -42,7 +42,7 @@ const RightSide = styled.div`
 
 const TitleH2Prom = styled.h2`
   margin-bottom: 20px;
-  width: 210px;
+  width: 220px;
   height: auto;
   font-family: 'Playfair Display', serif;
   font-style: normal;
@@ -109,7 +109,7 @@ const ImagePromo = styled.img`
   }
 `;
 
-const TitleH3Prom = styled.h2`
+const TitleH3Prom = styled.h3`
   position: absolute;
   bottom: 2px;
   right: 0;
