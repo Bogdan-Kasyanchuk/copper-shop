@@ -49,10 +49,6 @@ const SectionTag = styled.section<{
   background-size: ${({ backgroundSizeMob }) => backgroundSizeMob ?? null};
   background-attachment: ${({ backgroundAttachmentMob }) => backgroundAttachmentMob ?? null};
 
-  ${size.mobileMax} {
-    overflow: hidden;
-  }
-
   ${size.tabletMin} {
     padding-top: ${({ paddingTopTab }) => paddingTopTab ?? null};
     padding-bottom: ${({ paddingBottomTab }) => paddingBottomTab ?? null};

@@ -171,11 +171,11 @@ const Hero: FC = () => {
       color='#ffffff'
       background='#000000'
       padding={{
-        topMob: '20px',
+        topMob: '123px',
         bottomMob: '20px',
-        topTab: '140px',
+        topTab: '300px',
         bottomTab: '30px',
-        topDesk: '100px',
+        topDesk: '230px',
         bottomDesk: '40px',
       }}
       backgroundImage={{

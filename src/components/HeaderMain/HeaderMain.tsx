@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Container from 'components/Container';
 import Icon from 'components/Icon';
 import Logo from 'components/Logo';
-import Section from 'components/Section';
+import SectionHeader from 'components/SectionHeader';
 
 import { size } from 'styles/variables';
 
@@ -267,12 +267,13 @@ const Header: FC = () => {
 
   return (
     <>
-      <Section
-        color='#fff'
-        background='linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)'
+      <SectionHeader
+        color='#ffffff'
+        // background='transparent'
+        background='linear-gradient(285.45deg, rgba(11,63,55,0.5) 38.27%, rgba(203,141,98,0.5) 141.81%)'
         padding={{
-          bottomMob: '30px',
-          bottomDesk: '45px',
+          bottomTab: '30px',
+          bottomDesk: '40px',
         }}
       >
         <Container>
@@ -315,7 +316,7 @@ const Header: FC = () => {
             </Button>
           </BoxHeader>
         </Container>
-      </Section>
+      </SectionHeader>
       {isBurgerMenuShow && (
         <Backdrop>
           <BurgerMenu>
