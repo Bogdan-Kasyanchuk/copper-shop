@@ -8,50 +8,15 @@ import Section from 'components/Section';
 
 import { size } from 'styles/variables';
 
-import heroBgDesk from 'assets/Hero-background-desktop.png';
-import heroBgTab from 'assets/Hero-background-mobile.png';
-import heroBgMob from 'assets/Hero-background-tablet.png';
-// import heroImg from 'assets/Hero-image-tablet.png';
-import heroImg from 'assets/Hero-image-desktop.png';
-
-const CopperProText = styled.h3`
-  position: absolute;
-  z-index: 1;
-  right: 0;
-  bottom: 0;
-  width: 206px;
-  font-family: 'Playfair Display', serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 90px;
-  line-height: 0.75;
-  text-align: right;
-  color: #ffffff;
-
-  ${size.mobileMax} {
-    display: none;
-  }
-
-  ${size.tabletMin} {
-    width: 421px;
-    font-size: 80px;
-  }
-
-  ${size.desktop} {
-    width: 686px;
-    font-size: 160px;
-  }
-`;
+import heroBgDesk from 'assets/hero_bg_desktop_1920-896.png';
+import heroBgMob from 'assets/hero_bg_mobile_1920-729.png';
+import heroBgTab from 'assets/hero_bg_tablet_1920-1024.png';
 
 const ConnectSliderHere = styled.div`
   position: relative;
 `;
 
-const LeftRightSidesWrapper = styled.div`
-  display: flex;
-`;
-
-const LeftSide = styled.div`
+const HeroContentWrapper = styled.div`
   margin-bottom: 200px;
 
   ${size.tabletMin} {
@@ -62,8 +27,6 @@ const LeftSide = styled.div`
     margin-bottom: 70px;
   }
 `;
-
-const RightSide = styled.div``;
 
 const Title = styled.h2`
   position: relative;
@@ -182,38 +145,10 @@ const ProductPrice = styled.b`
   }
 `;
 
-const BoxImage = styled.div`
-  position: absolute;
-  z-index: 2;
-  right: -65px;
-  bottom: -50px;
-  margin-bottom: 0;
-  overflow: hidden;
-  width: 250px;
-  height: 475px;
-  ${size.tabletMin} {
-    right: 80px;
-    bottom: -30px;
-    width: 320px;
-    height: 575px;
-  }
-  ${size.desktop} {
-    right: 40px;
-    bottom: -40px;
-    width: 472px;
-    height: 800px;
-  }
-`;
-
-const ImagePromo = styled.img`
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
-`;
-
 const DotsContainer = styled.div`
-  margin: 0 auto 50px;
+  margin-bottom: 50px;
   height: 12px;
+  width: 60px;
   background-color: blue;
 `;
 
@@ -237,9 +172,9 @@ const Hero: FC = () => {
       color='#ffffff'
       background='#000000'
       padding={{
-        topMob: '0',
+        topMob: '20px',
         bottomMob: '20px',
-        topTab: '0',
+        topTab: '140px',
         bottomTab: '30px',
         topDesk: '100px',
         bottomDesk: '40px',
@@ -260,36 +195,27 @@ const Hero: FC = () => {
         desk: 'right bottom, center',
       }}
       backgroundSize={{
-        mob: '200px, cover',
-        tab: '370px, cover',
-        desk: '885px, cover',
+        mob: 'cover, cover',
+        tab: 'cover, cover',
+        desk: 'cover, cover',
       }}
     >
-      <CopperProText>COPPER PRO</CopperProText>
       <Container>
         <Title>ХИТ ПРОДАЖ</Title>
 
         <ConnectSliderHere>
-          <LeftRightSidesWrapper>
-            <LeftSide>
-              <ProductTitle>
-                Дистиллятор для <br /> эфирных масел
-              </ProductTitle>
-              <ProductPriceContainer>
-                <ProductPriceTitle>Цена</ProductPriceTitle>
-                <ProductPrice>4 906 грн</ProductPrice>
-              </ProductPriceContainer>
-              <ButtonContainer>
-                <ButtonText>Купить</ButtonText>
-              </ButtonContainer>
-            </LeftSide>
-
-            <RightSide>
-              <BoxImage>
-                <ImagePromo src={heroImg} alt='Promotion image' />
-              </BoxImage>
-            </RightSide>
-          </LeftRightSidesWrapper>
+          <HeroContentWrapper>
+            <ProductTitle>
+              Дистиллятор для <br /> эфирных масел
+            </ProductTitle>
+            <ProductPriceContainer>
+              <ProductPriceTitle>Цена</ProductPriceTitle>
+              <ProductPrice>4 906 грн</ProductPrice>
+            </ProductPriceContainer>
+            <ButtonContainer>
+              <ButtonText>Купить</ButtonText>
+            </ButtonContainer>
+          </HeroContentWrapper>
 
           <DotsContainer>...dots...</DotsContainer>
           <SvgContainer>
