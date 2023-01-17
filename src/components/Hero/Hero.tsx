@@ -111,7 +111,6 @@ const ButtonContainer = styled.div`
   }
   ${size.desktop} {
     button {
-      margin: 0;
       width: 330px;
     }
   }

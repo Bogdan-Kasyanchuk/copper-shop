@@ -10,37 +10,8 @@ import { size } from 'styles/variables';
 import promotionBgDesk from 'assets/Promotion-background-desktop.png';
 import promotionBgMob from 'assets/Promotion-background-mobile.png';
 import promotionBgTab from 'assets/Promotion-background-tablet.png';
-// import promotionImg from 'assets/PromotionMob.png';
-import promotionImg from 'assets/PromotionTab.png';
 
-const BoxPromotion = styled.div`
-  ${size.tabletMin} {
-    /* background-color: black; */
-    display: flex;
-  }
-`;
-
-const LeftSide = styled.div`
-  margin-bottom: 34px;
-
-  ${size.tabletMin} {
-    margin-top: 120px;
-    margin-bottom: 0;
-  }
-
-  ${size.desktop} {
-    margin-top: 70px;
-    margin-bottom: 0;
-  }
-`;
-
-const RightSide = styled.div`
-  ${size.tabletMin} {
-    margin-top: 20px;
-  }
-`;
-
-const TitleH2Prom = styled.h2`
+const TitlePromotion = styled.h2`
   margin-bottom: 20px;
   width: 220px;
   height: auto;
@@ -54,14 +25,14 @@ const TitleH2Prom = styled.h2`
 
   ${size.tabletMin} {
     margin-bottom: 38px;
-    width: 355px;
-    font-size: 100px;
+    width: 330px;
+    font-size: 90px;
   }
 
   ${size.desktop} {
     margin-bottom: 50px;
     width: 492px;
-    font-size: 140px;
+    font-size: 130px;
   }
 `;
 
@@ -89,47 +60,16 @@ const Text = styled.p`
   }
 `;
 
-const BoxImage = styled.div`
-  position: relative;
-  margin-bottom: 0;
-`;
-
-const ImagePromo = styled.img`
-  margin: 0 auto;
-  width: 123px;
-  height: 223px;
-
+const ButtonContainer = styled.div`
+  button {
+    width: 290px;
+  }
   ${size.tabletMin} {
-    width: 245px;
-    height: 490px;
-  }
-
-  ${size.desktop} {
-    height: 492px;
-  }
-`;
-
-const TitleH3Prom = styled.h3`
-  position: absolute;
-  bottom: 2px;
-  right: 0;
-  width: 206px;
-  font-family: 'Playfair Display', serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 0.75;
-  text-align: right;
-  color: #ffffff;
-
-  ${size.tabletMin} {
-    width: 421px;
-    font-size: 80px;
-  }
-
-  ${size.desktop} {
-    width: 686px;
-    font-size: 160px;
+    button {
+      margin: 0;
+      width: 330px;
+      min-width: 330px;
+    }
   }
 `;
 
@@ -138,14 +78,13 @@ const Promotion: FC = () => {
     <Section
       padding={{
         topMob: '50px',
-        bottomMob: '0',
-        topTab: '0',
-        bottomTab: '0',
-        topDesk: '0',
-        bottomDesk: '0',
+        bottomMob: '256px',
+        topTab: '120px',
+        bottomTab: '120px',
+        topDesk: '80px',
+        bottomDesk: '80px',
       }}
       color='#031412'
-      /* backgroundImage={`url(${promotionBg}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`} */
       backgroundImage={{
         mob: `url(${promotionBgMob}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`,
         tab: `url(${promotionBgTab}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`,
@@ -162,27 +101,19 @@ const Promotion: FC = () => {
         desk: 'right bottom, center',
       }}
       backgroundSize={{
-        mob: '200px, cover',
-        tab: '370px, cover',
-        desk: '885px, cover',
+        mob: 'cover, cover',
+        tab: 'cover, cover',
+        desk: 'cover, cover',
       }}
-      // backgroundImage={`url(${promotionBgTab}), linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)`}
     >
       <Container>
-        <BoxPromotion>
-          <LeftSide>
-            <TitleH2Prom>1 + 1 = 3</TitleH2Prom>
-            <Text>Закажите два товара и получите третий бесплатно</Text>
-            <ButtonText>Перейти в каталог</ButtonText>
-          </LeftSide>
-
-          <RightSide>
-            <BoxImage>
-              <ImagePromo src={promotionImg} alt='Promotion image' />
-            </BoxImage>
-            <TitleH3Prom>COPPER PRO</TitleH3Prom>
-          </RightSide>
-        </BoxPromotion>
+        <TitlePromotion>1 + 1 = 3</TitlePromotion>
+        <Text>
+          Закажите два товара и <br /> получите третий бесплатно
+        </Text>
+        <ButtonContainer>
+          <ButtonText>Перейти в каталог</ButtonText>
+        </ButtonContainer>
       </Container>
     </Section>
   );
