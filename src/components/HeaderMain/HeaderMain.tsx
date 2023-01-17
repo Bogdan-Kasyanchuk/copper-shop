@@ -272,8 +272,8 @@ const Header: FC = () => {
         // background='transparent'
         background='linear-gradient(285.45deg, rgba(11,63,55,0.5) 38.27%, rgba(203,141,98,0.5) 141.81%)'
         padding={{
-          bottomTab: '30px',
-          bottomDesk: '40px',
+          bottomTab: '20px',
+          bottomDesk: '20px',
         }}
       >
         <Container>
