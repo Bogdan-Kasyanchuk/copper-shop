@@ -1,10 +1,10 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Container from 'components/Container';
 import Icon from 'components/Icon';
 import Logo from 'components/Logo';
-import Section from 'components/Section';
+import SectionHeader from 'components/SectionHeader';
 
 import { size } from 'styles/variables';
 
@@ -14,6 +14,10 @@ const BoxHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+
+  &.scrolled {
+    row-gap: 10px;
+  }
 
   ${size.tabletMin} {
     justify-content: center;
@@ -259,24 +263,36 @@ const ItemNavBurger = styled.li`
 
 const Header: FC = () => {
   const [isBurgerMenuShow, setIsBurgerMenuShow] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState('');
 
   const toggleBurgerMenu = (): void => {
     setIsBurgerMenuShow(!isBurgerMenuShow);
     setBodyOverflow(isBurgerMenuShow);
   };
 
+  const listenScrollEvent = () => {
+    if (window.scrollY > 10) {
+      return setIsScrolled('scrolled');
+    }
+    return setIsScrolled('');
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent);
+  });
+
   return (
     <>
-      <Section
-        color='#fff'
-        background='linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)'
+      <SectionHeader
+        className={isScrolled}
+        color='#ffffff'
         padding={{
-          bottomMob: '30px',
-          bottomDesk: '45px',
+          bottomTab: '20px',
+          bottomDesk: '20px',
         }}
       >
         <Container>
-          <BoxHeader>
+          <BoxHeader className={isScrolled}>
             <Logo width='115' height='31' />
             <Navigation>
               <NavList>
@@ -315,7 +331,7 @@ const Header: FC = () => {
             </Button>
           </BoxHeader>
         </Container>
-      </Section>
+      </SectionHeader>
       {isBurgerMenuShow && (
         <Backdrop>
           <BurgerMenu>

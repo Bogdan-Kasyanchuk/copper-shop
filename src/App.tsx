@@ -9,6 +9,7 @@ import Footer from 'components/Footer';
 import FooterMain from 'components/FooterMain';
 import Header from 'components/Header';
 import HeaderMain from 'components/HeaderMain';
+import Hero from 'components/Hero';
 import LogIn from 'components/LogIn';
 import News from 'components/News';
 import NewsDetail from 'components/NewsDetail';
@@ -36,6 +37,7 @@ const App: FC = () => {
   return (
     <>
       <HeaderMain />
+      <Hero />
       <WishList />
       <ProfileDetails />
       <Registration />

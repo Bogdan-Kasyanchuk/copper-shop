@@ -2,6 +2,7 @@ import { TChildren } from 'types';
 
 export interface ISectionProps {
   children: TChildren['children'];
+  className?: string;
   color?: string;
   backgroundColor?: string;
   background?: string;
