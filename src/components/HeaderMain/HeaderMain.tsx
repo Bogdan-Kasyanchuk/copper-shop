@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Container from 'components/Container';
@@ -259,18 +259,31 @@ const ItemNavBurger = styled.li`
 
 const Header: FC = () => {
   const [isBurgerMenuShow, setIsBurgerMenuShow] = useState<boolean>(false);
+  const [headerBgColor, setHeaderBgColor] = useState('transparent');
 
   const toggleBurgerMenu = (): void => {
     setIsBurgerMenuShow(!isBurgerMenuShow);
     setBodyOverflow(isBurgerMenuShow);
   };
 
+  const listenScrollEvent = () => {
+    if (window.scrollY > 10) {
+      return setHeaderBgColor(
+        'linear-gradient(285.45deg, rgba(11,63,55,1) 38.27%, rgba(203,141,98,1) 141.81%)',
+      );
+    }
+    return setHeaderBgColor('transparent');
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', listenScrollEvent);
+  });
+
   return (
     <>
       <SectionHeader
         color='#ffffff'
-        // background='transparent'
-        background='linear-gradient(285.45deg, rgba(11,63,55,0.5) 38.27%, rgba(203,141,98,0.5) 141.81%)'
+        background={headerBgColor}
         padding={{
           bottomTab: '20px',
           bottomDesk: '20px',
