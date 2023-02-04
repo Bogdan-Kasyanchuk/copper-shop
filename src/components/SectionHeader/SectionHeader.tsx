@@ -6,6 +6,7 @@ import { size } from 'styles/variables';
 import { ISectionProps } from 'interfaces';
 
 const SectionTag = styled.section<{
+  className: string;
   paddingTopMob: string;
   paddingBottomMob: string;
   paddingTopTab: string;
@@ -25,8 +26,15 @@ const SectionTag = styled.section<{
   padding-bottom: ${({ paddingBottomMob }) => paddingBottomMob ?? null};
   color: ${({ color }) => color ?? null};
   background-color: ${({ backgroundColor }) => backgroundColor ?? null};
-  background: ${({ background }) => background ?? null};
-  // background='linear-gradient(285.45deg, #0B3F37 38.27%, #CB8D62 141.81%)'
+  background: ${({ background }) => background ?? 'transparent'};
+  &.scrolled {
+    padding-bottom: 10px;
+    background: linear-gradient(
+      285.45deg,
+      rgba(11, 63, 55, 1) 38.27%,
+      rgba(203, 141, 98, 1) 141.81%
+    );
+  }
 
   ${size.tabletMin} {
     padding-top: ${({ paddingTopTab }) => paddingTopTab ?? null};
@@ -42,6 +50,7 @@ const SectionTag = styled.section<{
 `;
 
 const SectionHeader: FC<ISectionProps> = ({
+  className,
   children,
   color,
   backgroundColor,
@@ -50,6 +59,7 @@ const SectionHeader: FC<ISectionProps> = ({
 }) => {
   return (
     <SectionTag
+      className={className as string}
       paddingTopMob={padding?.topMob as string}
       paddingBottomMob={padding?.bottomMob as string}
       paddingTopTab={padding?.topTab as string}

@@ -15,6 +15,10 @@ const BoxHeader = styled.div`
   justify-content: space-between;
   align-items: flex-end;
 
+  &.scrolled {
+    row-gap: 10px;
+  }
+
   ${size.tabletMin} {
     justify-content: center;
     flex-wrap: wrap;
@@ -259,7 +263,7 @@ const ItemNavBurger = styled.li`
 
 const Header: FC = () => {
   const [isBurgerMenuShow, setIsBurgerMenuShow] = useState<boolean>(false);
-  const [headerBgColor, setHeaderBgColor] = useState('transparent');
+  const [isScrolled, setIsScrolled] = useState('');
 
   const toggleBurgerMenu = (): void => {
     setIsBurgerMenuShow(!isBurgerMenuShow);
@@ -268,11 +272,9 @@ const Header: FC = () => {
 
   const listenScrollEvent = () => {
     if (window.scrollY > 10) {
-      return setHeaderBgColor(
-        'linear-gradient(285.45deg, rgba(11,63,55,1) 38.27%, rgba(203,141,98,1) 141.81%)',
-      );
+      return setIsScrolled('scrolled');
     }
-    return setHeaderBgColor('transparent');
+    return setIsScrolled('');
   };
 
   useEffect(() => {
@@ -282,15 +284,15 @@ const Header: FC = () => {
   return (
     <>
       <SectionHeader
+        className={isScrolled}
         color='#ffffff'
-        background={headerBgColor}
         padding={{
           bottomTab: '20px',
           bottomDesk: '20px',
         }}
       >
         <Container>
-          <BoxHeader>
+          <BoxHeader className={isScrolled}>
             <Logo width='115' height='31' />
             <Navigation>
               <NavList>
