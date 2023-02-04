@@ -155,7 +155,10 @@ const HeroImg = styled.img`
   object-fit: cover;
   object-position: right bottom;
 
-  ${size.tabletMax} {
+  ${size.mobileMinMax} {
+    height: 720px;
+  }
+  ${size.tabletMinMax} {
     height: 1016px;
   }
   ${size.desktop} {
