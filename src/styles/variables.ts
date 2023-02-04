@@ -16,6 +16,7 @@ const size = {
   tabletMin: '@media screen and (min-width: 768px)',
   tabletMax: '@media screen and (max-width: 1023px)',
   min1024: '@media screen and (min-width: 1024px)',
+  min1440: '@media screen and (min-width: 1440px)',
   max1499: '@media screen and (max-width: 1499px)',
   desktop: '@media screen and (min-width: 1500px)',
 };

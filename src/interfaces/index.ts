@@ -1,6 +1,7 @@
 import { IButtonIconProps } from './IButtonIconProps';
 import { IButtonIconTextProps } from './IButtonIconTextProps';
 import { ICatalogCardProps } from './ICatalogCardProps';
+import { IHeroCardProps } from './IHeroCardProps';
 import { IIconProps } from './IIconProps';
 import { ILogoProps } from './ILogoProps';
 import { INewsCardProps } from './INewsCardProps';
@@ -32,4 +33,5 @@ export type {
   IButtonIconProps,
   ISliderVerticalProps,
   IOrderCardBasketProps,
+  IHeroCardProps,
 };
