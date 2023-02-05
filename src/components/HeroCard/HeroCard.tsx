@@ -136,16 +136,18 @@ const ContainerWrapper = styled.div`
   top: 123px;
   left: 0;
   z-index: 1;
+  padding-left: 15px;
+  padding-right: 15px;
   ${size.tabletMin} {
     top: 300px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
   ${size.min1024} {
     top: 100px;
-    left: 100px;
   }
   ${size.desktop} {
     top: 230px;
-    left: 261px;
   }
 `;
 
@@ -169,16 +171,8 @@ const HeroImg = styled.img`
 const HeroCard: FC<IHeroCardProps> = ({ el }) => {
   return (
     <>
-      <div>
-        <picture>
-          <source srcSet={el.imgUrlMob} media='(max-width: 767px)' sizes='' type='' />
-          <source srcSet={el.imgUrlTab} media='(max-width: 1023px)' sizes='' type='' />
-          <source srcSet={el.imgUrlDesk} media='(min-width: 1024px)' sizes='' type='' />
-          <HeroImg src={el.imgUrlDesk} alt='ХИТ ПРОДАЖ' />
-        </picture>
-      </div>
-      <ContainerWrapper>
-        <Container>
+      <Container>
+        <ContainerWrapper>
           <Title>ХИТ ПРОДАЖ</Title>
           <div key={el.id}>
             <ProductTitle>{el.title}</ProductTitle>
@@ -190,8 +184,16 @@ const HeroCard: FC<IHeroCardProps> = ({ el }) => {
               <ButtonText>Купить</ButtonText>
             </ButtonContainer>
           </div>
-        </Container>
-      </ContainerWrapper>
+        </ContainerWrapper>
+      </Container>
+      <div>
+        <picture>
+          <source srcSet={el.imgUrlMob} media='(max-width: 767px)' sizes='' type='' />
+          <source srcSet={el.imgUrlTab} media='(max-width: 1023px)' sizes='' type='' />
+          <source srcSet={el.imgUrlDesk} media='(min-width: 1024px)' sizes='' type='' />
+          <HeroImg src={el.imgUrlDesk} alt='ХИТ ПРОДАЖ' />
+        </picture>
+      </div>
     </>
   );
 };

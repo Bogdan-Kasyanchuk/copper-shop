@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Swiper } from 'swiper/react';
 
+import Container from 'components/Container';
 import Icon from 'components/Icon';
 
 import { size } from 'styles/variables';
@@ -21,22 +22,7 @@ const BoxSlider = styled.div`
   }
 
   .swiper {
-    width: 320px;
-    ${size.tabletMin} {
-      width: 768px;
-    }
-    ${size.min1024} {
-      width: 1024px;
-    }
-    ${size.min1440} {
-      width: 1440px;
-    }
-    ${size.desktop} {
-      width: 1500px;
-    }
-    ${size.min1920} {
-      width: 1920px;
-    }
+    position: relative;
   }
 
   .swiper-pagination {
@@ -46,14 +32,14 @@ const BoxSlider = styled.div`
     z-index: 1;
     width: auto;
     line-height: 0.75;
+    ${size.mobileMin} {
+      left: calc((100vw - 320px + 25px) / 2);
+    }
     ${size.tabletMin} {
-      left: 47px;
+      left: calc((100vw - 768px + 90px) / 2);
     }
     ${size.min1440} {
-      left: 147px;
-    }
-    ${size.desktop} {
-      left: 311px;
+      left: calc((100vw - 1440px + 25px) / 2);
     }
   }
 
@@ -78,12 +64,6 @@ const SvgContainer = styled.div`
   color: white;
   ${size.tabletMin} {
     left: 47px;
-  }
-  ${size.min1440} {
-    left: 147px;
-  }
-  ${size.desktop} {
-    left: 311px;
   }
   ::before {
     content: '';
@@ -136,10 +116,10 @@ const SliderHero: FC<ISliderProps> = ({ children }) => {
         slidesPerView={1}
         spaceBetween={0}
         loop
-        // autoplay={{
-        //   delay: 5000,
-        //   disableOnInteraction: true,
-        // }}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: true,
+        }}
         pagination={{
           clickable: true,
           renderBullet(_, className: string): string {
@@ -155,9 +135,11 @@ const SliderHero: FC<ISliderProps> = ({ children }) => {
       >
         {children}
       </Swiper>
-      <SvgContainer>
-        <Icon iconName='mouse' width='20px' height='20px' />
-      </SvgContainer>
+      <Container>
+        <SvgContainer>
+          <Icon iconName='mouse' width='20px' height='20px' />
+        </SvgContainer>
+      </Container>
       <Button aria-label='Previous' onClick={() => swiperRef.current?.slidePrev()}>
         <Icon iconName='arrow' width='18px' height='28px' />
       </Button>
