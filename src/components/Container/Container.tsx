@@ -6,6 +6,7 @@ import { size } from 'styles/variables';
 import { TChildren } from 'types';
 
 const Box = styled.div`
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
