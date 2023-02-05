@@ -21,7 +21,22 @@ const BoxSlider = styled.div`
   }
 
   .swiper {
-    /* padding-bottom: 35px; */
+    width: 320px;
+    ${size.tabletMin} {
+      width: 768px;
+    }
+    ${size.min1024} {
+      width: 1024px;
+    }
+    ${size.min1440} {
+      width: 1440px;
+    }
+    ${size.desktop} {
+      width: 1500px;
+    }
+    ${size.min1920} {
+      width: 1920px;
+    }
   }
 
   .swiper-pagination {
@@ -121,10 +136,10 @@ const SliderHero: FC<ISliderProps> = ({ children }) => {
         slidesPerView={1}
         spaceBetween={0}
         loop
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: true,
-        }}
+        // autoplay={{
+        //   delay: 5000,
+        //   disableOnInteraction: true,
+        // }}
         pagination={{
           clickable: true,
           renderBullet(_, className: string): string {

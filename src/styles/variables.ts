@@ -21,6 +21,7 @@ const size = {
   min1440: '@media screen and (min-width: 1440px)',
   max1499: '@media screen and (max-width: 1499px)',
   desktop: '@media screen and (min-width: 1500px)',
+  min1920: '@media screen and (min-width: 1920px)',
 };
 
 export {
