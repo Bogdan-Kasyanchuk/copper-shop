@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 const News: FC = () => {
-  return null;
+  return <div>News</div>;
 };
 
 export default News;

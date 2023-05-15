@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 const Basket: FC = () => {
-  return null;
+  return <div>Basket</div>;
 };
 
 export default Basket;

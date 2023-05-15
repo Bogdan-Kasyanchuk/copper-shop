@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 const LogIn: FC = () => {
-  return null;
+  return <div>LogIn</div>;
 };
 
 export default LogIn;

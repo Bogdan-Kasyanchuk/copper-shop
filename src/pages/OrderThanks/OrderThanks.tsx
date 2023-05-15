@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 const OrderThanks: FC = () => {
-  return null;
+  return <div>OrderThanks</div>;
 };
 
 export default OrderThanks;

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 const AboutUs: FC = () => {
-  return null;
+  return <div>AboutUs</div>;
 };
 
 export default AboutUs;

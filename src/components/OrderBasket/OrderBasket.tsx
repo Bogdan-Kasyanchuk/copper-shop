@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import ButtonText from 'components/ButtonText';
-import OrderCardBasketCopy from 'components/OrderCardBasketCopy';
+import OrderCardBasket from 'components/OrderCardBasket';
 
 import { size } from 'styles/variables';
 
@@ -214,7 +214,7 @@ const OrderBasket: FC = () => {
       <BoxListBasket>
         <ListBasket>
           {ordersBasket.map((el) => (
-            <OrderCardBasketCopy key={el.id} el={el} />
+            <OrderCardBasket key={el.id} el={el} />
           ))}
         </ListBasket>
       </BoxListBasket>

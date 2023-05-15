@@ -52,6 +52,9 @@
         ],
         "react/no-array-index-key": [
             "warn"
+        ],
+        "@typescript-eslint/no-unused-vars": [
+            "warn"
         ]
     }
 }

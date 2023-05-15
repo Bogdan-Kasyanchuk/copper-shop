@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 
-const Catalog: FC = () => {
+const Root: FC = () => {
   return (
     <div>
-      Catalog
+      Root
       <Outlet />
     </div>
   );
 };
 
-export default Catalog;
+export default Root;
